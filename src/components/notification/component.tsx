@@ -1,0 +1,19 @@
+import { IconInformationCircle } from "~/icons/information-circle";
+import { IconX } from "~/icons/x";
+import type { _Props } from "./types";
+
+export const Component: React.VFC<_Props> = (props) => (
+  <div className={props.className} role="alert">
+    <div className="ml-3 mr-1">
+      <IconInformationCircle className="h-4 w-4" />
+    </div>
+    <div className="py-3">{props.message}</div>
+    <button
+      onClick={props.clear}
+      className="p-4 absolute top-0 right-0 mt-0 text-gray-200 hover:text-gray-400 rounded shadow-none"
+      aria-label="Close"
+    >
+      <IconX />
+    </button>
+  </div>
+);

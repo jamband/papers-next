@@ -1,0 +1,40 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "tsc": "tsc",
+    "lint": "next lint",
+    "stylelint": "stylelint \"src/**/*.css\"",
+    "format": "prettier --check .",
+    "clear": "rm -rf .next",
+    "clean": "rm -rf .next node_modules tsconfig.tsbuildinfo"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^2.8.5",
+    "next": "^12.0.8",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-hook-form": "^7.24.0",
+    "swr": "^1.1.2",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.20",
+    "@types/react": "^17.0.38",
+    "@typescript-eslint/eslint-plugin": "^5.9.1",
+    "@typescript-eslint/parser": "^5.9.1",
+    "autoprefixer": "^10.4.2",
+    "eslint": "^8.7.0",
+    "eslint-config-next": "^12.0.8",
+    "eslint-config-prettier": "^8.3.0",
+    "postcss": "^8.4.5",
+    "postcss-import": "^14.0.2",
+    "prettier": "2.5.1",
+    "stylelint": "^14.2.0",
+    "stylelint-config-standard": "^24.0.0",
+    "tailwindcss": "^3.0.15",
+    "typescript": "^4.5.4"
+  }
+}

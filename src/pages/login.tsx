@@ -1,0 +1,116 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import type { SubmitHandler } from "react-hook-form";
+import { useSWRConfig } from "swr";
+import { Button } from "~/components/button";
+import { FormError } from "~/components/form-error";
+import { API_USER_KEY } from "~/constants/api";
+import { FAILED_TO_REQUEST } from "~/constants/notification";
+import { useForm } from "~/hooks/form";
+import { useNotificationAction } from "~/hooks/notification";
+import { useRequireGuest } from "~/hooks/require";
+import { IconLightBulb } from "~/icons/light-bulb";
+import { Page } from "~/layouts/page";
+import { http } from "~/utils/http";
+import type { Schema } from "~/validations/auth/login";
+import { label, schema } from "~/validations/auth/login";
+
+export default function View() {
+  useRequireGuest();
+
+  const { mutate } = useSWRConfig();
+  const { push } = useRouter();
+  const { notification } = useNotificationAction();
+
+  const {
+    register,
+    handleSubmit,
+    setError,
+    setFocus,
+    formState: { errors, isSubmitting },
+  } = useForm<Schema>(schema);
+
+  useEffect(() => {
+    setFocus("email");
+  }, [setFocus]);
+
+  const onSubmit: SubmitHandler<Schema> = async (body) => {
+    await http("/login", {
+      method: "POST",
+      body,
+    })
+      .then(async (res) => {
+        if (res.status === 422) {
+          const { errors }: Record<string, string> = await res.json();
+          for (const [name, message] of Object.entries(errors)) {
+            setError(name as keyof Schema, { type: "server", message });
+          }
+          return;
+        }
+
+        if (res.ok) {
+          mutate(API_USER_KEY, undefined).then(() => {
+            push("/").then(() => {
+              notification({ message: "Logged in successfully." });
+            });
+          });
+        }
+      })
+      .catch((error) => {
+        notification({ message: FAILED_TO_REQUEST, color: "yellow" });
+        console.error(error);
+      });
+  };
+
+  return (
+    <Page title="Login">
+      <h1 className="mb-5">Login</h1>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="mb-5">
+          <label htmlFor="email">{label.email}</label>
+          <input
+            {...register("email")}
+            type="text"
+            id="email"
+            autoComplete="email"
+          />
+          <FormError message={errors.email?.message} />
+        </div>
+        <div className="mb-5">
+          <label htmlFor="password">{label.password}</label>
+          <input
+            {...register("password")}
+            id="password"
+            type="password"
+            autoComplete="current-password"
+          />
+          <FormError message={errors.password?.message} />
+        </div>
+        <div className="mb-6">
+          <label htmlFor="remember_me">
+            <input id="remember_me" name="remember" type="checkbox" />
+            <span className="ml-2 text-sm">Remember me</span>
+          </label>
+        </div>
+        <Button type="submit" disabled={isSubmitting}>
+          Login
+        </Button>
+        <span className="mx-3">or</span>
+        <Link href="/forgot-password">
+          <a>Forgot password?</a>
+        </Link>
+      </form>
+      <hr className="my-10" />
+      <Link href="/admin/login">
+        <a>Login as administrator</a>
+      </Link>
+      <div className="mt-2 flex items-center text-sm text-amber-500">
+        <div className="mr-1">
+          <IconLightBulb />
+        </div>
+        This link usually does not exist. Displayed for development environment.
+      </div>
+    </Page>
+  );
+}
