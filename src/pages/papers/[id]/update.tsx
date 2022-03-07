@@ -97,7 +97,7 @@ export default function View() {
                 </Button>
               </form>
               <hr className="mt-4" />
-              <div className="mt-10 md:mt-20 text-center">
+              <div className="mt-10 text-center md:mt-20">
                 <Link href="/papers">
                   <a className="p-3">← Back to Papers</a>
                 </Link>

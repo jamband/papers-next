@@ -48,13 +48,13 @@ export default function View() {
       </ActionLink>
       <ActionButton
         onClick={() => deletePaper(paper.id)}
-        className="py-0.5 inline-flex items-center text-sm"
+        className="inline-flex items-center py-0.5 text-sm"
       >
         <span className="mr-1">Delete</span>
         <IconTrash className="h-4 w-4" />
       </ActionButton>
       <hr className="mt-4" />
-      <div className="mt-10 md:mt-20 text-center">
+      <div className="mt-10 text-center md:mt-20">
         <Link href="/papers">
           <a className="p-3">← Back to Papers</a>
         </Link>

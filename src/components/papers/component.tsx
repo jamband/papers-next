@@ -15,7 +15,7 @@ export const Component: React.VFC<_Props> = (props) => (
           </Link>
         </h2>
         <div className="mb-3">{paper.body}</div>
-        <div className="flex items-center mb-1 text-sm text-gray-400">
+        <div className="mb-1 flex items-center text-sm text-gray-400">
           <div className="mr-1">
             <IconClock className="h-4 w-4" />
           </div>
@@ -29,7 +29,7 @@ export const Component: React.VFC<_Props> = (props) => (
         </ActionLink>
         <ActionButton
           onClick={() => props.deletePaper(paper.id)}
-          className="py-0.5 inline-flex items-center text-sm"
+          className="inline-flex items-center py-0.5 text-sm"
         >
           <span className="mr-1">Delete</span>
           <IconTrash className="h-4 w-4" />

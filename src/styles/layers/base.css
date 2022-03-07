@@ -1,7 +1,7 @@
 @layer base {
   html,
   body {
-    @apply text-gray-100 text-base bg-gray-900;
+    @apply bg-gray-900 text-base text-gray-100;
   }
 
   h1 {
@@ -23,11 +23,11 @@
   input[type="email"],
   input[type="password"],
   input[type="text"] {
-    @apply px-3 py-1 w-full md:w-1/2 border border-gray-600 bg-gray-800 rounded shadow-sm;
+    @apply w-full rounded border border-gray-600 bg-gray-800 px-3 py-1 shadow-sm md:w-1/2;
   }
 
   textarea {
-    @apply px-3 py-1 w-full border border-gray-600 bg-gray-800 rounded shadow-sm;
+    @apply w-full rounded border border-gray-600 bg-gray-800 px-3 py-1 shadow-sm;
   }
 
   label {

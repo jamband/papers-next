@@ -4,7 +4,7 @@ import { APP_NAME } from "~/constants/app";
 export const Component: React.VFC = () => (
   <header>
     <nav
-      className="fixed w-full py-3 z-20 font-semibold text-center bg-gray-800"
+      className="fixed z-20 w-full bg-gray-800 py-3 text-center font-semibold"
       aria-label="Header navigation"
     >
       <Link href="/admin">

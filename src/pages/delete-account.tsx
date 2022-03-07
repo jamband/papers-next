@@ -41,7 +41,7 @@ export default function View() {
   return (
     <Page title={isDeleted ? "" : "Delete account"}>
       {isDeleted ? (
-        <p className="grid place-items-center h-70vh text-center text-5xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+        <p className="grid h-70vh place-items-center bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-center text-5xl text-transparent">
           Thank you for using it so far.
         </p>
       ) : (

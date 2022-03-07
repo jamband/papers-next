@@ -6,7 +6,6 @@
     "start": "next start",
     "tsc": "tsc",
     "lint": "next lint",
-    "stylelint": "stylelint \"src/**/*.css\"",
     "format": "prettier --check .",
     "clear": "rm -rf .next",
     "clean": "rm -rf .next node_modules tsconfig.tsbuildinfo"
@@ -32,8 +31,7 @@
     "postcss": "^8.4.8",
     "postcss-import": "^14.0.2",
     "prettier": "2.5.1",
-    "stylelint": "^14.5.3",
-    "stylelint-config-standard": "^25.0.0",
+    "prettier-plugin-tailwindcss": "^0.1.8",
     "tailwindcss": "^3.0.23",
     "typescript": "^4.6.2"
   }

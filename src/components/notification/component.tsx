@@ -10,7 +10,7 @@ export const Component: React.VFC<_Props> = (props) => (
     <div className="py-3">{props.message}</div>
     <button
       onClick={props.clear}
-      className="p-4 absolute top-0 right-0 mt-0 text-gray-200 hover:text-gray-400 rounded shadow-none"
+      className="absolute top-0 right-0 mt-0 rounded p-4 text-gray-200 shadow-none hover:text-gray-400"
       aria-label="Close"
     >
       <IconX />

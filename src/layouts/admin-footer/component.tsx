@@ -1,7 +1,7 @@
 import { IconLightBulb } from "~/icons/light-bulb";
 
 export const Component: React.VFC = () => (
-  <footer className="p-3 flex items-center justify-center font-bold text-amber-500 bg-gray-800">
+  <footer className="flex items-center justify-center bg-gray-800 p-3 font-bold text-amber-500">
     <div className="mr-1">
       <IconLightBulb />
     </div>

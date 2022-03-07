@@ -12,7 +12,7 @@ export default function View() {
       <h1 className="mb-5">Papers</h1>
       <ActionLink
         href="/papers/create"
-        className="py-0.5 inline-flex items-center text-sm"
+        className="inline-flex items-center py-0.5 text-sm"
       >
         <div className="mr-1">Create New Paper</div>
         <IconPencil className="h-4 w-4" />
