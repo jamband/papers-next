@@ -8,7 +8,7 @@ backend: [jamband/api.papers](https://github.com/jamband/api.papers) - Backend W
 
 ## Requirements for development environment
 
-- Node.js >= 14.x
+- Node.js >= 16.x
 - Yarn >= 1.x (option)
 
 ## Install on local
