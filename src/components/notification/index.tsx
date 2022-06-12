@@ -7,7 +7,7 @@ import {
 import { Component } from "./component";
 import type { Props } from "./types";
 
-export const Notification: React.VFC<Props> = (props) => {
+export const Notification: React.FC<Props> = (props) => {
   const { message, color } = useNotificationState();
   const { clear } = useNotificationAction();
   const { pathname } = useRouter();

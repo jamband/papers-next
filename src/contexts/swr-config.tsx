@@ -5,7 +5,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const SWRConfigProvider: React.VFC<Props> = (props: Props) => {
+export const SWRConfigProvider: React.FC<Props> = (props: Props) => {
   const fetcher = async (url: string) => {
     const res = await http(url);
     if (res.status === 200) return await res.json();

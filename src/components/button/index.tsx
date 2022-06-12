@@ -1,7 +1,7 @@
 import { Component } from "./component";
 import type { Props } from "./types";
 
-export const Button: React.VFC<Props> = (props) => {
+export const Button: React.FC<Props> = (props) => {
   const type = props.type ?? "button";
 
   let className =

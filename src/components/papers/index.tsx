@@ -3,7 +3,7 @@ import { FailedToFetch } from "../failed-to-fetch";
 import { Loading } from "../loading";
 import { Component } from "./component";
 
-export const Papers: React.VFC = () => {
+export const Papers: React.FC = () => {
   const { error, isLoading, data } = usePapers();
   const { deletePaper } = useDeletePaper();
 

@@ -5,7 +5,7 @@ import { ActionButton } from "../action-button";
 import { ActionLink } from "../action-link";
 import type { _Props } from "./types";
 
-export const Component: React.VFC<_Props> = (props) => (
+export const Component: React.FC<_Props> = (props) => (
   <>
     {props.papers.map((paper) => (
       <div key={paper.id}>

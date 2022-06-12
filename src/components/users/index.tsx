@@ -5,7 +5,7 @@ import { FailedToFetch } from "../failed-to-fetch";
 import { Loading } from "../loading";
 import { Component } from "./component";
 
-export const Users: React.VFC = () => {
+export const Users: React.FC = () => {
   const { error, data } = useSWR<User[]>("/admin/users");
   const { deleteUser } = useDeleteUser();
 

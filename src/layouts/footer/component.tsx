@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { LinkExternal } from "~/components/link-external";
 
-export const Component: React.VFC = () => (
+export const Component: React.FC = () => (
   <footer className="bg-gray-800 py-3 text-center">
     <nav aria-label="Footer navigation">
       <Link href="/about">

@@ -1,5 +1,5 @@
 import { Component } from "./component";
 
-export const AdminHeader: React.VFC = () => {
+export const AdminHeader: React.FC = () => {
   return <Component />;
 };

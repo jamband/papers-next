@@ -4,7 +4,7 @@ type Props = {
   className?: string;
 };
 
-export const IconTrash: React.VFC<Props> = (props) => (
+export const IconTrash: React.FC<Props> = (props) => (
   <IconBase className={props.className}>
     <path
       fillRule="evenodd"
