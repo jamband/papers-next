@@ -4,11 +4,14 @@ import { LinkExternal } from "../../components/link-external";
 export const Component: React.FC = () => (
   <footer className="bg-gray-800 py-3 text-center">
     <nav aria-label="Footer navigation">
-      <Link href="/about">
-        <a className="mx-1 p-3 no-underline hover:text-current">About</a>
+      <Link href="/about" className="mx-1 p-3 no-underline hover:text-current">
+        About
       </Link>
-      <Link href="/contact">
-        <a className="mx-1 p-3 no-underline hover:text-current">Contact</a>
+      <Link
+        href="/contact"
+        className="mx-1 p-3 no-underline hover:text-current"
+      >
+        Contact
       </Link>
       <LinkExternal
         href="https://github.com/jamband/papers-next"

@@ -11,8 +11,8 @@ export default function View() {
         <div className="ml-1">Page not found.</div>
       </p>
       <div className="mt-20 text-center">
-        <Link href="/">
-          <a className="px-5 py-3">Back to Home</a>
+        <Link href="/" className="px-5 py-3">
+          Back to Home
         </Link>
       </div>
     </Page>

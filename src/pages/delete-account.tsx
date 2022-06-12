@@ -67,9 +67,7 @@ export default function View() {
             Delete Account
           </Button>
           <span className="mx-2">or</span>
-          <Link href="/">
-            <a>Cancel</a>
-          </Link>
+          <Link href="/">cancel</Link>
         </>
       )}
     </Page>

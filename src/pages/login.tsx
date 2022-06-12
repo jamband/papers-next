@@ -97,14 +97,10 @@ export default function View() {
           Login
         </Button>
         <span className="mx-3">or</span>
-        <Link href="/forgot-password">
-          <a>Forgot password?</a>
-        </Link>
+        <Link href="/forgot-password">Forgot password?</Link>
       </form>
       <hr className="my-10" />
-      <Link href="/admin/login">
-        <a>Login as administrator</a>
-      </Link>
+      <Link href="/admin/login">Login as administrator</Link>
       <div className="mt-2 flex items-center text-sm text-amber-500">
         <div className="mr-1">
           <IconLightBulb />

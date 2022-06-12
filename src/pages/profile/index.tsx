@@ -25,9 +25,7 @@ export default function View() {
               <div>Name: {data?.name}</div>
               <div>Email: {data?.email}</div>
               <hr className="my-10" />
-              <Link href="/delete-account">
-                <a>Delete account</a>
-              </Link>
+              <Link href="/delete-account">Delete account</Link>
             </>
           )}
         </>

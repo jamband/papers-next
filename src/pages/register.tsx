@@ -96,10 +96,7 @@ export default function View() {
         </div>
         <div>
           If you have already registered as a user, please{" "}
-          <Link href="/login">
-            <a>Login from this link</a>
-          </Link>
-          .
+          <Link href="/login">Login from this link</Link>.
         </div>
       </div>
     </Page>
