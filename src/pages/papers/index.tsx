@@ -10,12 +10,9 @@ export default function View() {
   return (
     <Page title="Papers">
       <h1 className="mb-5">Papers</h1>
-      <ActionLink
-        href="/papers/create"
-        className="inline-flex items-center py-0.5 text-sm"
-      >
-        <div className="mr-1">Create New Paper</div>
-        <IconPencil className="h-4 w-4" />
+      <ActionLink href="/papers/create">
+        Create New Paper
+        <IconPencil className="ml-1 h-4 w-4 align-[-0.125em]" />
       </ActionLink>
       <hr className="my-10" />
       <Papers />

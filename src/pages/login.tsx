@@ -101,10 +101,8 @@ export default function View() {
       </form>
       <hr className="my-10" />
       <Link href="/admin/login">Login as administrator</Link>
-      <div className="mt-2 flex items-center text-sm text-amber-500">
-        <div className="mr-1">
-          <IconLightBulb />
-        </div>
+      <div className="mt-2 text-sm text-amber-500">
+        <IconLightBulb className="mr-0.5 h-4 w-4 align-[-0.125em]" />
         This link usually does not exist. Displayed for development environment.
       </div>
     </Page>

@@ -49,10 +49,10 @@ export default function View() {
       <ActionButton
         type="button"
         onClick={() => deletePaper(paper.id)}
-        className="inline-flex items-center py-0.5 text-sm"
+        className="py-0.5 text-sm"
       >
-        <span className="mr-1">Delete</span>
-        <IconTrash className="h-4 w-4" />
+        Delete
+        <IconTrash className="ml-0.5 h-4 w-4 align-[-0.2em]" />
       </ActionButton>
       <hr className="mt-4" />
       <div className="mt-10 text-center md:mt-20">

@@ -8,20 +8,14 @@ export default function View() {
       <h1 className="mb-5">Contact</h1>
       <p>
         Please to the message via{" "}
-        <ExternalLink
-          href="https://twitter.com/livejam_db"
-          className="inline-flex items-center"
-        >
+        <ExternalLink href="https://twitter.com/livejam_db">
           Twitter
-          <IconExternalLink className="ml-0.5 h-4 w-4" />
+          <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
         </ExternalLink>{" "}
         or{" "}
-        <ExternalLink
-          href="https://github.com/jamband/papers-next/issues"
-          className="inline-flex items-center"
-        >
+        <ExternalLink href="https://github.com/jamband/papers-next/issues">
           GitHub Issues
-          <IconExternalLink className="ml-0.5 h-4 w-4" />
+          <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
         </ExternalLink>
         .
       </p>

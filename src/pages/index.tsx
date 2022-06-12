@@ -50,11 +50,9 @@ export default function View() {
         </div>
       ) : (
         <div className="animate-fadeIn">
-          <div className="flex items-center justify-center">
-            <div className="mr-1">
-              <IconInformationCircle className="h-4 w-4" />
-            </div>
-            <div className="text-center">{APP_DESCRIPTION}</div>
+          <div className="text-center">
+            <IconInformationCircle className="mr-0.5 h-4 w-4 align-[-0.125em]" />
+            {APP_DESCRIPTION}
           </div>
           <hr className="my-12" />
           <div className="flex items-center justify-center">

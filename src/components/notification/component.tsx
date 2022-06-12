@@ -4,16 +4,16 @@ import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
   <div className={props.className} role="alert">
-    <div className="ml-3 mr-1">
-      <IconInformationCircle className="h-4 w-4" />
+    <div className="p-3">
+      <IconInformationCircle className="mr-0.5 h-4 w-4 align-[-0.125em]" />
+      {props.message}
     </div>
-    <div className="py-3">{props.message}</div>
     <button
       onClick={props.clear}
-      className="absolute top-0 right-0 mt-0 rounded p-4 text-gray-200 shadow-none hover:text-gray-400"
+      className="absolute top-0 right-0 mt-0 rounded p-3 text-gray-200 shadow-none hover:text-gray-400"
       aria-label="Close"
     >
-      <IconX />
+      <IconX className="h-5 w-5 align-[-0.2em]" />
     </button>
   </div>
 );

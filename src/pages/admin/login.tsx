@@ -98,9 +98,7 @@ export default function View() {
       <hr className="my-10" />
       <Link href="/login">Login as regular user</Link>
       <div className="mt-2 flex items-center text-sm text-amber-500">
-        <div className="mr-1">
-          <IconLightBulb />
-        </div>
+        <IconLightBulb className="mr-0.5 h-4 w-4 align-[-0.125em]" />
         This is a login link for regular users.
       </div>
     </Page>

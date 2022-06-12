@@ -90,15 +90,9 @@ export default function View() {
         </Button>
       </form>
       <hr className="my-10" />
-      <div className="flex items-center">
-        <div className="mr-1">
-          <IconLightBulb />
-        </div>
-        <div>
-          If you have already registered as a user, please{" "}
-          <Link href="/login">Login from this link</Link>.
-        </div>
-      </div>
+      <IconLightBulb className="mr-0.5 h-4 w-4 align-[-0.1em]" />
+      If you have already registered as a user, please{" "}
+      <Link href="/login">Login from this link</Link>.
     </Page>
   );
 }

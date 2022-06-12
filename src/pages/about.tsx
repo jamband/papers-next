@@ -10,12 +10,9 @@ export default function View() {
       <p className="mb-5">{APP_DESCRIPTION}</p>
       <p>
         This website is an open source project. See{" "}
-        <ExternalLink
-          href="https://github.com/jamband/papers-next"
-          className="inline-flex items-center"
-        >
+        <ExternalLink href="https://github.com/jamband/papers-next">
           GitHub jamband/papers-next
-          <IconExternalLink className="ml-0.5 h-4 w-4" />
+          <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
         </ExternalLink>{" "}
         for details.
       </p>

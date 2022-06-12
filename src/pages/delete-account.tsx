@@ -50,21 +50,12 @@ export default function View() {
       ) : (
         <>
           <h1 className="mb-5">Delete account</h1>
-          <p className="mb-5 flex items-center text-red-600">
-            <div className="mr-1">
-              <IconExclamation />
-            </div>
+          <p className="mb-5 text-red-600">
+            <IconExclamation className="mr-0.5 h-4 w-4 align-[-0.2em]" />
             When the account is deleted, the related data will also be deleted.
           </p>
-          <Button
-            type="button"
-            color="red"
-            onClick={deleteAccount}
-            className="inline-flex items-center"
-          >
-            <span className="mr-1">
-              <IconExclamation />
-            </span>
+          <Button type="button" color="red" onClick={deleteAccount}>
+            <IconExclamation className="mr-0.5 h-4 w-4 align-[-0.2em]" />
             Delete Account
           </Button>
           <span className="mx-2">or</span>

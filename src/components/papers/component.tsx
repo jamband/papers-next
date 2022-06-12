@@ -13,10 +13,8 @@ export const Component: React.FC<_Props> = (props) => (
           <Link href={`/papers/${paper.id}`}>{paper.title}</Link>
         </h2>
         <div className="mb-3">{paper.body}</div>
-        <div className="mb-1 flex items-center text-sm text-gray-400">
-          <div className="mr-1">
-            <IconClock className="h-4 w-4" />
-          </div>
+        <div className="mb-1 text-sm text-gray-400">
+          <IconClock className="mr-0.5 h-4 w-4 align-[-0.2em]" />
           {paper.created_at}
         </div>
         <ActionLink
@@ -28,10 +26,10 @@ export const Component: React.FC<_Props> = (props) => (
         <ActionButton
           type="button"
           onClick={() => props.deletePaper(paper.id)}
-          className="inline-flex items-center py-0.5 text-sm"
+          className="py-0.5 text-sm"
         >
-          <span className="mr-1">Delete</span>
-          <IconTrash className="h-4 w-4" />
+          Delete
+          <IconTrash className="ml-0.5 h-4 w-4 align-[-0.15em]" />
         </ActionButton>
         <hr className="mt-3 mb-10" />
       </div>

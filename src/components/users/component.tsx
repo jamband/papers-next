@@ -30,11 +30,8 @@ export const Component: React.FC<_Props> = (props) => (
           type="button"
           onClick={() => props.deleteUser(user.id)}
           color="red"
-          className="inline-flex items-center"
         >
-          <span className="mr-1">
-            <IconExclamation />
-          </span>
+          <IconExclamation className="mr-0.5 h-4 w-4 align-[-0.15em]" />
           Delete
         </Button>
         <hr className="mt-3 mb-10" />
