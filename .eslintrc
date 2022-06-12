@@ -5,10 +5,5 @@
     "plugin:jsx-a11y/recommended",
     "next/core-web-vitals",
     "prettier"
-  ],
-  "rules": {
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "jsx-a11y/anchor-is-valid": "off"
-  }
+  ]
 }

@@ -12,8 +12,9 @@ export const schema = object({
 export type Schema = InferType<typeof schema>;
 
 export const label: Required<Schema> = {
-  name: schema.fields.name.spec.label!,
-  email: schema.fields.email.spec.label!,
-  password: schema.fields.password.spec.label!,
-  password_confirmation: schema.fields.password_confirmation.spec.label!,
+  name: schema.fields.name.spec.label as string,
+  email: schema.fields.email.spec.label as string,
+  password: schema.fields.password.spec.label as string,
+  password_confirmation: schema.fields.password_confirmation.spec
+    .label as string,
 };

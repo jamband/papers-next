@@ -17,5 +17,5 @@ export const Users: React.FC = () => {
     return <Loading className="flex items-center justify-center" />;
   }
 
-  return <Component users={data!} deleteUser={deleteUser} />;
+  return <Component users={data} deleteUser={deleteUser} />;
 };

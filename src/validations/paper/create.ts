@@ -10,6 +10,6 @@ export const schema = object({
 export type Schema = InferType<typeof schema>;
 
 export const label: Required<Schema> = {
-  title: schema.fields.title.spec.label!,
-  body: schema.fields.body.spec.label!,
+  title: schema.fields.title.spec.label as string,
+  body: schema.fields.body.spec.label as string,
 };

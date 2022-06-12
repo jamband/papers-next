@@ -4,7 +4,7 @@ import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
   <>
-    {props.users.map((user) => (
+    {props.users?.map((user) => (
       <div key={user.id}>
         <div>
           <span className="text-gray-400">Name: </span>

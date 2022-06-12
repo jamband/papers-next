@@ -9,5 +9,5 @@ export const schema = object({
 export type Schema = InferType<typeof schema>;
 
 export const label: Required<Schema> = {
-  email: schema.fields.email.spec.label!,
+  email: schema.fields.email.spec.label as string,
 };
