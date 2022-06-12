@@ -1,6 +1,6 @@
-import { LinkExternal } from "~/components/link-external";
-import { IconExternalLink } from "~/icons/external-link";
-import { Page } from "~/layouts/page";
+import { LinkExternal } from "../components/link-external";
+import { IconExternalLink } from "../icons/external-link";
+import { Page } from "../layouts/page";
 
 export default function View() {
   return (

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { http } from "~/utils/http";
+import { http } from "../utils/http";
 import { useAuth } from "./auth";
 
 export const useRequireGuest = () => {

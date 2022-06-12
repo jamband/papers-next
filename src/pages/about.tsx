@@ -1,7 +1,7 @@
-import { LinkExternal } from "~/components/link-external";
-import { APP_DESCRIPTION } from "~/constants/app";
-import { IconExternalLink } from "~/icons/external-link";
-import { Page } from "~/layouts/page";
+import { LinkExternal } from "../components/link-external";
+import { APP_DESCRIPTION } from "../constants/app";
+import { IconExternalLink } from "../icons/external-link";
+import { Page } from "../layouts/page";
 
 export default function View() {
   return (

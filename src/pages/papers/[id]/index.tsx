@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { ActionButton } from "~/components/action-button";
-import { ActionLink } from "~/components/action-link";
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { Loading } from "~/components/loading";
-import { useDeletePaper, usePaper } from "~/hooks/paper";
-import { useRequireVerified } from "~/hooks/require";
-import { IconTrash } from "~/icons/trash";
-import { Page } from "~/layouts/page";
+import { ActionButton } from "../../../components/action-button";
+import { ActionLink } from "../../../components/action-link";
+import { FailedToFetch } from "../../../components/failed-to-fetch";
+import { Loading } from "../../../components/loading";
+import { useDeletePaper, usePaper } from "../../../hooks/paper";
+import { useRequireVerified } from "../../../hooks/require";
+import { IconTrash } from "../../../icons/trash";
+import { Page } from "../../../layouts/page";
 
 export default function View() {
   useRequireVerified();

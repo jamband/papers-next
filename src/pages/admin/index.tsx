@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { Button } from "~/components/button";
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { Loading } from "~/components/loading";
-import { useAuth } from "~/hooks/auth";
-import { useLogout } from "~/hooks/logout";
-import { useRequireAdmin } from "~/hooks/require";
-import { Page } from "~/layouts/page";
+import { Button } from "../../components/button";
+import { FailedToFetch } from "../../components/failed-to-fetch";
+import { Loading } from "../../components/loading";
+import { useAuth } from "../../hooks/auth";
+import { useLogout } from "../../hooks/logout";
+import { useRequireAdmin } from "../../hooks/require";
+import { Page } from "../../layouts/page";
 
 export default function View() {
   useRequireAdmin();

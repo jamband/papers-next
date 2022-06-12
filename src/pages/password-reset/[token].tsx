@@ -2,15 +2,15 @@ import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
-import { Button } from "~/components/button";
-import { FormError } from "~/components/form-error";
-import { useForm } from "~/hooks/form";
-import { useNotificationAction } from "~/hooks/notification";
-import { useRequireGuest } from "~/hooks/require";
-import { Page } from "~/layouts/page";
-import { http } from "~/utils/http";
-import type { Schema } from "~/validations/auth/reset-password";
-import { label, schema } from "~/validations/auth/reset-password";
+import { Button } from "../../components/button";
+import { FormError } from "../../components/form-error";
+import { useForm } from "../../hooks/form";
+import { useNotificationAction } from "../../hooks/notification";
+import { useRequireGuest } from "../../hooks/require";
+import { Page } from "../../layouts/page";
+import { http } from "../../utils/http";
+import type { Schema } from "../../validations/auth/reset-password";
+import { label, schema } from "../../validations/auth/reset-password";
 
 type Props = {
   token: string;

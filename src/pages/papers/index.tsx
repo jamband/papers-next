@@ -1,8 +1,8 @@
-import { ActionLink } from "~/components/action-link";
-import { Papers } from "~/components/papers";
-import { useRequireVerified } from "~/hooks/require";
-import { IconPencil } from "~/icons/pencil";
-import { Page } from "~/layouts/page";
+import { ActionLink } from "../../components/action-link";
+import { Papers } from "../../components/papers";
+import { useRequireVerified } from "../../hooks/require";
+import { IconPencil } from "../../icons/pencil";
+import { Page } from "../../layouts/page";
 
 export default function View() {
   useRequireVerified();

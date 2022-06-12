@@ -1,4 +1,4 @@
-import { API_CSRF_COOKIE, API_URL } from "~/constants/api";
+import { API_CSRF_COOKIE, API_URL } from "../constants/api";
 
 type Init = Pick<RequestInit, "headers"> & {
   method?: "GET" | "POST" | "PUT" | "DELETE" | "OPTIONS" | "PATCH";

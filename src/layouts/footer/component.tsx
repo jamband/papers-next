@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LinkExternal } from "~/components/link-external";
+import { LinkExternal } from "../../components/link-external";
 
 export const Component: React.FC = () => (
   <footer className="bg-gray-800 py-3 text-center">

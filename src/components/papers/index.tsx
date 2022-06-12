@@ -1,4 +1,4 @@
-import { useDeletePaper, usePapers } from "~/hooks/paper";
+import { useDeletePaper, usePapers } from "../../hooks/paper";
 import { FailedToFetch } from "../failed-to-fetch";
 import { Loading } from "../loading";
 import { Component } from "./component";

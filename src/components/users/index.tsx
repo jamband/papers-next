@@ -1,6 +1,6 @@
 import useSWR from "swr";
-import { useDeleteUser } from "~/hooks/user";
-import type { User } from "~/types/user";
+import { useDeleteUser } from "../../hooks/user";
+import type { User } from "../../types/user";
 import { FailedToFetch } from "../failed-to-fetch";
 import { Loading } from "../loading";
 import { Component } from "./component";

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { NOTIFICATION_VERIFICATION_VERIFIED } from "~/constants/notification";
+import { NOTIFICATION_VERIFICATION_VERIFIED } from "../constants/notification";
 import { useAuth } from "./auth";
 import { useNotificationAction } from "./notification";
 

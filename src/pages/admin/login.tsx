@@ -3,17 +3,17 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { useSWRConfig } from "swr";
-import { Button } from "~/components/button";
-import { FormError } from "~/components/form-error";
-import { API_USER_KEY } from "~/constants/api";
-import { useForm } from "~/hooks/form";
-import { useNotificationAction } from "~/hooks/notification";
-import { useRequireGuest } from "~/hooks/require";
-import { IconLightBulb } from "~/icons/light-bulb";
-import { Page } from "~/layouts/page";
-import { http } from "~/utils/http";
-import type { Schema } from "~/validations/admin/login";
-import { label, schema } from "~/validations/admin/login";
+import { Button } from "../../components/button";
+import { FormError } from "../../components/form-error";
+import { API_USER_KEY } from "../../constants/api";
+import { useForm } from "../../hooks/form";
+import { useNotificationAction } from "../../hooks/notification";
+import { useRequireGuest } from "../../hooks/require";
+import { IconLightBulb } from "../../icons/light-bulb";
+import { Page } from "../../layouts/page";
+import { http } from "../../utils/http";
+import type { Schema } from "../../validations/admin/login";
+import { label, schema } from "../../validations/admin/login";
 
 export default function View() {
   useRequireGuest();

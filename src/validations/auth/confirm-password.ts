@@ -1,6 +1,6 @@
 import type { InferType } from "yup";
 import { object, string } from "yup";
-import "~/validations/locale";
+import "../locale";
 
 export const schema = object({
   password: string().required().label("Password"),

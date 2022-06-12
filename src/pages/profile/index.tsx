@@ -1,10 +1,10 @@
 import Link from "next/link";
 import useSWR from "swr";
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { Loading } from "~/components/loading";
-import { useRequireVerified } from "~/hooks/require";
-import { Page } from "~/layouts/page";
-import { Profile } from "~/types/profile";
+import { FailedToFetch } from "../../components/failed-to-fetch";
+import { Loading } from "../../components/loading";
+import { useRequireVerified } from "../../hooks/require";
+import { Page } from "../../layouts/page";
+import { Profile } from "../../types/profile";
 
 export default function View() {
   useRequireVerified();

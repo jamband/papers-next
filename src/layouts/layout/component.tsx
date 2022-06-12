@@ -1,7 +1,7 @@
-import { AdminFooter } from "~/layouts/admin-footer";
-import { AdminHeader } from "~/layouts/admin-header";
-import { Footer } from "~/layouts/footer";
-import { Header } from "~/layouts/header";
+import { AdminFooter } from "../admin-footer";
+import { AdminHeader } from "../admin-header";
+import { Footer } from "../footer";
+import { Header } from "../header";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (

@@ -1,16 +1,16 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
-import { Button } from "~/components/button";
-import { FormError } from "~/components/form-error";
-import { NOTIFICATION_TOO_MANY_REQUEST } from "~/constants/notification";
-import { useForm } from "~/hooks/form";
-import { useNotificationAction } from "~/hooks/notification";
-import { useRequireVerified } from "~/hooks/require";
-import { Page } from "~/layouts/page";
-import { http } from "~/utils/http";
-import type { Schema } from "~/validations/auth/confirm-password";
-import { label, schema } from "~/validations/auth/confirm-password";
+import { Button } from "../components/button";
+import { FormError } from "../components/form-error";
+import { NOTIFICATION_TOO_MANY_REQUEST } from "../constants/notification";
+import { useForm } from "../hooks/form";
+import { useNotificationAction } from "../hooks/notification";
+import { useRequireVerified } from "../hooks/require";
+import { Page } from "../layouts/page";
+import { http } from "../utils/http";
+import type { Schema } from "../validations/auth/confirm-password";
+import { label, schema } from "../validations/auth/confirm-password";
 
 export default function View() {
   useRequireVerified();

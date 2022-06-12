@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import type { SubmitHandler } from "react-hook-form";
-import { Button } from "~/components/button";
-import { FormError } from "~/components/form-error";
+import { Button } from "../components/button";
+import { FormError } from "../components/form-error";
 import {
   FAILED_TO_REQUEST,
   NOTIFICATION_PASSWORD_RESET_LINK_SENT,
-} from "~/constants/notification";
-import { useForm } from "~/hooks/form";
-import { useNotificationAction } from "~/hooks/notification";
-import { useRequireGuest } from "~/hooks/require";
-import { Page } from "~/layouts/page";
-import { http } from "~/utils/http";
-import type { Schema } from "~/validations/auth/forgot-password";
-import { label, schema } from "~/validations/auth/forgot-password";
+} from "../constants/notification";
+import { useForm } from "../hooks/form";
+import { useNotificationAction } from "../hooks/notification";
+import { useRequireGuest } from "../hooks/require";
+import { Page } from "../layouts/page";
+import { http } from "../utils/http";
+import type { Schema } from "../validations/auth/forgot-password";
+import { label, schema } from "../validations/auth/forgot-password";
 
 export default function View() {
   useRequireGuest();
