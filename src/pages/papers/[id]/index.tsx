@@ -6,9 +6,9 @@ import { Loading } from "../../../components/loading";
 import { useDeletePaper, usePaper } from "../../../hooks/paper";
 import { useRequireVerified } from "../../../hooks/require";
 import { IconTrash } from "../../../icons/trash";
-import { Page } from "../../../layouts/page";
+import { Layout } from "../../../layouts/layout";
 
-export default function View() {
+export default function Page() {
   useRequireVerified();
 
   const {
@@ -21,13 +21,13 @@ export default function View() {
 
   if (paperError) {
     return (
-      <Page title="Failed to fetch">
+      <>
         <h1 className="mb-5">Faild to fetch</h1>
         <FailedToFetch className="mb-10" />
         <div className="text-center">
           <Link href="/papers">Back to Papers</Link>
         </div>
-      </Page>
+      </>
     );
   }
 
@@ -36,7 +36,7 @@ export default function View() {
   }
 
   return (
-    <Page title={paper.title}>
+    <>
       <h1 className="mb-5">{paper.title}</h1>
       <div className="mb-3">{paper.body}</div>
       <div className="mb-1 text-sm text-gray-400">
@@ -60,6 +60,10 @@ export default function View() {
           ← Back to Papers
         </Link>
       </div>
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => {
+  return <Layout title="View">{page}</Layout>;
+};

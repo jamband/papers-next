@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { IconInformationCircle } from "../icons/information-circle";
-import { Page } from "../layouts/page";
+import { Layout } from "../layouts/layout";
 
-export default function View() {
+export default function Page() {
   return (
-    <Page title="Not Found">
+    <>
       <h1 className="mb-5">Not Found</h1>
       <p className="flex items-center">
         <IconInformationCircle className="h-4 w-4" />
@@ -15,6 +15,10 @@ export default function View() {
           Back to Home
         </Link>
       </div>
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <Layout title="Not Found">{page}</Layout>
+);

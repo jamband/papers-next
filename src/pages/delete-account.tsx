@@ -9,10 +9,10 @@ import {
   useRequireVerified,
 } from "../hooks/require";
 import { IconExclamation } from "../icons/exclamation";
-import { Page } from "../layouts/page";
+import { Layout } from "../layouts/layout";
 import { http } from "../utils/http";
 
-export default function View() {
+export default function Page() {
   useRequireVerified();
   useRequirePasswordConfirm();
 
@@ -42,7 +42,7 @@ export default function View() {
   }, [isDeleted, mutate]);
 
   return (
-    <Page title={isDeleted ? "" : "Delete account"}>
+    <>
       {isDeleted ? (
         <p className="grid h-70vh place-items-center bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-center text-5xl text-transparent">
           Thank you for using it so far.
@@ -62,6 +62,10 @@ export default function View() {
           <Link href="/">cancel</Link>
         </>
       )}
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <Layout title="Delete account">{page}</Layout>
+);

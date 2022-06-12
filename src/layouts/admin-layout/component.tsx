@@ -2,8 +2,8 @@ import Head from "next/head";
 import { Notification } from "../../components/notification";
 import { NotificationProvider } from "../../contexts/notification";
 import { SWRConfigProvider } from "../../contexts/swr-config";
-import { Footer } from "../footer";
-import { Header } from "../header";
+import { AdminFooter } from "../admin-footer";
+import { AdminHeader } from "../admin-header";
 import { Loading } from "../loading";
 import { Title } from "../title";
 import type { _Props } from "./types";
@@ -18,12 +18,12 @@ export const Component: React.FC<_Props> = (props) => (
       <Loading />
       <NotificationProvider>
         <div className="flex min-h-screen flex-col">
-          <Header />
+          <AdminHeader />
           <main className="container mx-auto flex-grow pt-28 pb-10">
             <Notification className="mb-5" />
             {props.children}
           </main>
-          <Footer />
+          <AdminFooter />
         </div>
       </NotificationProvider>
     </SWRConfigProvider>

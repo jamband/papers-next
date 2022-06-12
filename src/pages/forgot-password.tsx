@@ -9,12 +9,12 @@ import {
 import { useForm } from "../hooks/form";
 import { useNotificationAction } from "../hooks/notification";
 import { useRequireGuest } from "../hooks/require";
-import { Page } from "../layouts/page";
+import { Layout } from "../layouts/layout";
 import { http } from "../utils/http";
 import type { Schema } from "../validations/auth/forgot-password";
 import { label, schema } from "../validations/auth/forgot-password";
 
-export default function View() {
+export default function Page() {
   useRequireGuest();
 
   const [isSend, setSend] = useState(false);
@@ -57,7 +57,7 @@ export default function View() {
   };
 
   return (
-    <Page title="Forgot password">
+    <>
       <h1 className="mb-5">Forgot password</h1>
       <p className="mb-5">
         Forgot your password? No problem. Just let us know your email address
@@ -74,6 +74,10 @@ export default function View() {
           Send Email
         </Button>
       </form>
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <Layout title="Forgot password">{page}</Layout>
+);

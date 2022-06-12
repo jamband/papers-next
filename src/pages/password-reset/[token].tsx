@@ -7,7 +7,7 @@ import { FormError } from "../../components/form-error";
 import { useForm } from "../../hooks/form";
 import { useNotificationAction } from "../../hooks/notification";
 import { useRequireGuest } from "../../hooks/require";
-import { Page } from "../../layouts/page";
+import { Layout } from "../../layouts/layout";
 import { http } from "../../utils/http";
 import type { Schema } from "../../validations/auth/reset-password";
 import { label, schema } from "../../validations/auth/reset-password";
@@ -29,7 +29,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   };
 };
 
-export default function View(props: Props) {
+export default function Page(props: Props) {
   useRequireGuest();
 
   const { push } = useRouter();
@@ -69,7 +69,7 @@ export default function View(props: Props) {
   };
 
   return (
-    <Page title="Reset password">
+    <>
       <h1 className="mb-5">Reset password</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
@@ -106,6 +106,10 @@ export default function View(props: Props) {
           Reset Password
         </Button>
       </form>
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <Layout title="Reset password">{page}</Layout>
+);

@@ -2,13 +2,13 @@ import { ActionLink } from "../../components/action-link";
 import { Papers } from "../../components/papers";
 import { useRequireVerified } from "../../hooks/require";
 import { IconPencil } from "../../icons/pencil";
-import { Page } from "../../layouts/page";
+import { Layout } from "../../layouts/layout";
 
-export default function View() {
+export default function Page() {
   useRequireVerified();
 
   return (
-    <Page title="Papers">
+    <>
       <h1 className="mb-5">Papers</h1>
       <ActionLink href="/papers/create">
         Create New Paper
@@ -16,6 +16,10 @@ export default function View() {
       </ActionLink>
       <hr className="my-10" />
       <Papers />
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <Layout title="Papers">{page}</Layout>
+);

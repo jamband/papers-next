@@ -7,9 +7,9 @@ import { useAuth } from "../hooks/auth";
 import { useLogout } from "../hooks/logout";
 import { useVerificationNotification } from "../hooks/verification-notification";
 import { IconInformationCircle } from "../icons/information-circle";
-import { Page } from "../layouts/page";
+import { Layout } from "../layouts/layout";
 
-export default function View() {
+export default function Page() {
   const { authError, authIsLoading, auth } = useAuth();
   const { logout } = useLogout({ asAdmin: false });
 
@@ -17,10 +17,10 @@ export default function View() {
 
   if (authError) {
     return (
-      <Page title="">
+      <>
         <h1 className="mb-10 md:mb-20">Home</h1>
         <FailedToFetch className="text-center" />
-      </Page>
+      </>
     );
   }
 
@@ -29,7 +29,7 @@ export default function View() {
   }
 
   return (
-    <Page title="">
+    <>
       <h1 className="mb-10 md:mb-20">Home</h1>
       {auth ? (
         <div className="animate-fadeIn">
@@ -65,6 +65,8 @@ export default function View() {
           </div>
         </div>
       )}
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => <Layout title="">{page}</Layout>;

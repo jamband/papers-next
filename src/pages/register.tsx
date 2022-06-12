@@ -9,12 +9,12 @@ import { useForm } from "../hooks/form";
 import { useNotificationAction } from "../hooks/notification";
 import { useRequireGuest } from "../hooks/require";
 import { IconLightBulb } from "../icons/light-bulb";
-import { Page } from "../layouts/page";
+import { Layout } from "../layouts/layout";
 import { http } from "../utils/http";
 import type { Schema } from "../validations/auth/register";
 import { schema } from "../validations/auth/register";
 
-export default function View() {
+export default function Page() {
   useRequireGuest();
 
   const { push } = useRouter();
@@ -54,7 +54,7 @@ export default function View() {
   };
 
   return (
-    <Page title="Register">
+    <>
       <h1 className="mb-5">Register</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-5">
@@ -93,6 +93,10 @@ export default function View() {
       <IconLightBulb className="mr-0.5 h-4 w-4 align-[-0.1em]" />
       If you have already registered as a user, please{" "}
       <Link href="/login">Login from this link</Link>.
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <Layout title="Register">{page}</Layout>
+);

@@ -6,10 +6,10 @@ import {
 import { useLogout } from "../hooks/logout";
 import { useNotificationAction } from "../hooks/notification";
 import { useRequireAuth } from "../hooks/require";
-import { Page } from "../layouts/page";
+import { Layout } from "../layouts/layout";
 import { http } from "../utils/http";
 
-export default function View() {
+export default function Page() {
   useRequireAuth();
 
   const { logout } = useLogout({ asAdmin: false });
@@ -34,7 +34,7 @@ export default function View() {
   };
 
   return (
-    <Page title="Verify Email">
+    <>
       <h1 className="mb-5">Email Verification</h1>
       <p className="mb-5">
         Thanks for registered! Before getting started, could you verify your
@@ -48,6 +48,10 @@ export default function View() {
       <div className="flex items-center justify-center">
         <Button onClick={logout}>Logout</Button>
       </div>
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <Layout title="Verify Email">{page}</Layout>
+);

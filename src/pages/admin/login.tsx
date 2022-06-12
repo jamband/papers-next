@@ -10,12 +10,12 @@ import { useForm } from "../../hooks/form";
 import { useNotificationAction } from "../../hooks/notification";
 import { useRequireGuest } from "../../hooks/require";
 import { IconLightBulb } from "../../icons/light-bulb";
-import { Page } from "../../layouts/page";
+import { Layout } from "../../layouts/layout";
 import { http } from "../../utils/http";
 import type { Schema } from "../../validations/admin/login";
 import { label, schema } from "../../validations/admin/login";
 
-export default function View() {
+export default function Page() {
   useRequireGuest();
 
   const { mutate } = useSWRConfig();
@@ -58,7 +58,7 @@ export default function View() {
   };
 
   return (
-    <Page title="Login">
+    <>
       <h1 className="mb-5">
         Login <span className="text-base text-gray-400">as administrator</span>
       </h1>
@@ -101,6 +101,10 @@ export default function View() {
         <IconLightBulb className="mr-0.5 h-4 w-4 align-[-0.125em]" />
         This is a login link for regular users.
       </div>
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <Layout title="Login as administrator">{page}</Layout>
+);

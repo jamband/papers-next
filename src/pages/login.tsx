@@ -11,12 +11,12 @@ import { useForm } from "../hooks/form";
 import { useNotificationAction } from "../hooks/notification";
 import { useRequireGuest } from "../hooks/require";
 import { IconLightBulb } from "../icons/light-bulb";
-import { Page } from "../layouts/page";
+import { Layout } from "../layouts/layout";
 import { http } from "../utils/http";
 import type { Schema } from "../validations/auth/login";
 import { label, schema } from "../validations/auth/login";
 
-export default function View() {
+export default function Page() {
   useRequireGuest();
 
   const { mutate } = useSWRConfig();
@@ -64,7 +64,7 @@ export default function View() {
   };
 
   return (
-    <Page title="Login">
+    <>
       <h1 className="mb-5">Login</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-5">
@@ -105,6 +105,10 @@ export default function View() {
         <IconLightBulb className="mr-0.5 h-4 w-4 align-[-0.125em]" />
         This link usually does not exist. Displayed for development environment.
       </div>
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <Layout title="Login">{page}</Layout>
+);

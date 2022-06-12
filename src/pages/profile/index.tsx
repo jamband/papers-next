@@ -3,16 +3,16 @@ import useSWR from "swr";
 import { FailedToFetch } from "../../components/failed-to-fetch";
 import { Loading } from "../../components/loading";
 import { useRequireVerified } from "../../hooks/require";
-import { Page } from "../../layouts/page";
+import { Layout } from "../../layouts/layout";
 import type { Profile } from "../../types/profile";
 
-export default function View() {
+export default function Page() {
   useRequireVerified();
 
   const { error, data } = useSWR<Profile>("/profile");
 
   return (
-    <Page title="Profile">
+    <>
       <h1 className="mb-5">Profile</h1>
       {error ? (
         <FailedToFetch />
@@ -30,6 +30,10 @@ export default function View() {
           )}
         </>
       )}
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <Layout title="Profile">{page}</Layout>
+);

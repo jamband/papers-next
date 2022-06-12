@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Users } from "../../../components/users";
-import { Page } from "../../../layouts/page";
+import { AdminLayout } from "../../../layouts/admin-layout";
 
-export default function View() {
+export default function Page() {
   return (
-    <Page title="Manage users">
+    <>
       <h1 className="mb-10">Manage users</h1>
       <Users />
       <div className="mt-10 text-center">
@@ -12,6 +12,10 @@ export default function View() {
           ← Back to Admin Home
         </Link>
       </div>
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <AdminLayout title="Manage users">{page}</AdminLayout>
+);

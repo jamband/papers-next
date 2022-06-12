@@ -7,12 +7,12 @@ import { NOTIFICATION_TOO_MANY_REQUEST } from "../constants/notification";
 import { useForm } from "../hooks/form";
 import { useNotificationAction } from "../hooks/notification";
 import { useRequireVerified } from "../hooks/require";
-import { Page } from "../layouts/page";
+import { Layout } from "../layouts/layout";
 import { http } from "../utils/http";
 import type { Schema } from "../validations/auth/confirm-password";
 import { label, schema } from "../validations/auth/confirm-password";
 
-export default function View() {
+export default function Page() {
   useRequireVerified();
 
   const { back } = useRouter();
@@ -53,7 +53,7 @@ export default function View() {
   };
 
   return (
-    <Page title="Confirm your password">
+    <>
       <h1 className="mb-5">Confirm your password</h1>
       <p className="mb-5">
         This is a secure area of the application. Please confirm your password
@@ -69,6 +69,10 @@ export default function View() {
           Confirm
         </Button>
       </form>
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <Layout title="Confirm your password">{page}</Layout>
+);

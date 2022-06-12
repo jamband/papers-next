@@ -1,10 +1,10 @@
 import { ExternalLink } from "../components/external-link";
 import { IconExternalLink } from "../icons/external-link";
-import { Page } from "../layouts/page";
+import { Layout } from "../layouts/layout";
 
-export default function View() {
+export default function Page() {
   return (
-    <Page title="Contact">
+    <>
       <h1 className="mb-5">Contact</h1>
       <p>
         Please to the message via{" "}
@@ -19,6 +19,10 @@ export default function View() {
         </ExternalLink>
         .
       </p>
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <Layout title="Contact">{page}</Layout>
+);

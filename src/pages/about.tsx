@@ -1,11 +1,11 @@
 import { ExternalLink } from "../components/external-link";
 import { APP_DESCRIPTION } from "../constants/app";
 import { IconExternalLink } from "../icons/external-link";
-import { Page } from "../layouts/page";
+import { Layout } from "../layouts/layout";
 
-export default function View() {
+export default function Page() {
   return (
-    <Page title="About">
+    <>
       <h1 className="mb-5">About</h1>
       <p className="mb-5">{APP_DESCRIPTION}</p>
       <p>
@@ -16,6 +16,10 @@ export default function View() {
         </ExternalLink>{" "}
         for details.
       </p>
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <Layout title="About">{page}</Layout>
+);

@@ -6,12 +6,12 @@ import { Button } from "../../components/button";
 import { FormError } from "../../components/form-error";
 import { useForm } from "../../hooks/form";
 import { useRequireVerified } from "../../hooks/require";
-import { Page } from "../../layouts/page";
+import { Layout } from "../../layouts/layout";
 import { http } from "../../utils/http";
 import type { Schema } from "../../validations/paper/create";
 import { schema } from "../../validations/paper/create";
 
-export default function View() {
+export default function Page() {
   useRequireVerified();
 
   const { mutate } = useSWRConfig();
@@ -51,7 +51,7 @@ export default function View() {
   };
 
   return (
-    <Page title="Create New Paper">
+    <>
       <h1 className="mb-5">Create New Paper</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-5">
@@ -68,6 +68,10 @@ export default function View() {
           Create
         </Button>
       </form>
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <Layout title="Create New Paper">{page}</Layout>
+);

@@ -5,9 +5,9 @@ import { Loading } from "../../components/loading";
 import { useAuth } from "../../hooks/auth";
 import { useLogout } from "../../hooks/logout";
 import { useRequireAdmin } from "../../hooks/require";
-import { Page } from "../../layouts/page";
+import { AdminLayout } from "../../layouts/admin-layout";
 
-export default function View() {
+export default function Page() {
   useRequireAdmin();
 
   const { authError, authIsLoading } = useAuth();
@@ -15,10 +15,10 @@ export default function View() {
 
   if (authError) {
     return (
-      <Page title="">
+      <>
         <h1 className="mb-10 md:mb-20">Admin Home</h1>
         <FailedToFetch className="text-center" />
-      </Page>
+      </>
     );
   }
 
@@ -27,7 +27,7 @@ export default function View() {
   }
 
   return (
-    <Page title="Admin">
+    <>
       <h1>Admin Home</h1>
       <div className="mt-16 flex items-center justify-center">
         <Link href="/admin/users" className="px-5 py-2">
@@ -42,6 +42,10 @@ export default function View() {
           </Button>
         </div>
       </div>
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <AdminLayout title="Admin">{page}</AdminLayout>
+);

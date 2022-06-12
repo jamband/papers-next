@@ -10,12 +10,12 @@ import { Loading } from "../../../components/loading";
 import { useForm } from "../../../hooks/form";
 import { usePaper } from "../../../hooks/paper";
 import { useRequireVerified } from "../../../hooks/require";
-import { Page } from "../../../layouts/page";
+import { Layout } from "../../../layouts/layout";
 import { http } from "../../../utils/http";
 import type { Schema } from "../../../validations/paper/update";
 import { schema } from "../../../validations/paper/update";
 
-export default function View() {
+export default function Page() {
   useRequireVerified();
 
   const {
@@ -62,7 +62,7 @@ export default function View() {
   };
 
   return (
-    <Page title="Update Paper">
+    <>
       <h1 className="mb-5">Update Paper</h1>
       {paperError ? (
         <FailedToFetch />
@@ -106,6 +106,10 @@ export default function View() {
           )}
         </>
       )}
-    </Page>
+    </>
   );
 }
+
+Page.getLayout = (page: React.ReactElement) => (
+  <Layout title="Update Paper">{page}</Layout>
+);
