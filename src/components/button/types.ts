@@ -1,7 +1,8 @@
-import type { ButtonHTMLAttributes } from "react";
+import { ComponentProps } from "../../types/component-props";
 
-export type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+export type Props = ComponentProps<"button"> & {
   color?: "green" | "red";
+  className?: string;
   children: React.ReactNode;
 };
 

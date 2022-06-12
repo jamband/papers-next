@@ -47,6 +47,7 @@ export default function View() {
         Update →
       </ActionLink>
       <ActionButton
+        type="button"
         onClick={() => deletePaper(paper.id)}
         className="inline-flex items-center py-0.5 text-sm"
       >

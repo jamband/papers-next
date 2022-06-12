@@ -2,8 +2,6 @@ import { Component } from "./component";
 import type { Props } from "./types";
 
 export const Button: React.FC<Props> = (props) => {
-  const type = props.type ?? "button";
-
   let className =
     "px-3 py-1 text-gray-300 rounded shadow-md disabled:text-gray-400 disabled:bg-gray-800";
 
@@ -19,5 +17,5 @@ export const Button: React.FC<Props> = (props) => {
     className += ` ${props.className}`;
   }
 
-  return <Component {...props} className={className} type={type} />;
+  return <Component {...props} className={className} />;
 };

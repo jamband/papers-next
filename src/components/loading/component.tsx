@@ -1,7 +1,7 @@
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
-  <div className={props.className} role="status">
+  <div className={`pointer-events-none ${props.className || ""}`} role="status">
     <svg
       className="h-5 w-5 animate-spin text-gray-400"
       xmlns="http://www.w3.org/2000/svg"

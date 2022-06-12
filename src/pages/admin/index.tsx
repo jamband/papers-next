@@ -37,7 +37,9 @@ export default function View() {
       <hr className="my-12" />
       <div className="flex items-center justify-center">
         <div className="animate-fadeIn">
-          <Button onClick={logout}>Logout</Button>
+          <Button type="button" onClick={logout}>
+            Logout
+          </Button>
         </div>
       </div>
     </Page>

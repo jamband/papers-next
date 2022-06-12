@@ -57,6 +57,7 @@ export default function View() {
             When the account is deleted, the related data will also be deleted.
           </p>
           <Button
+            type="button"
             color="red"
             onClick={deleteAccount}
             className="inline-flex items-center"

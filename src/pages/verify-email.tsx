@@ -41,7 +41,7 @@ export default function View() {
         email address by clicking on the link we just emailed to you? If you
         didn&apos;t receive the email, we will gladly send you another.
       </p>
-      <Button onClick={resendEmailVerification}>
+      <Button type="button" onClick={resendEmailVerification}>
         Resend Verification Email
       </Button>
       <hr className="my-10" />

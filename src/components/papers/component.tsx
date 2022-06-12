@@ -26,6 +26,7 @@ export const Component: React.FC<_Props> = (props) => (
           Update →
         </ActionLink>
         <ActionButton
+          type="button"
           onClick={() => props.deletePaper(paper.id)}
           className="inline-flex items-center py-0.5 text-sm"
         >

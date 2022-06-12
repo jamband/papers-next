@@ -27,6 +27,7 @@ export const Component: React.FC<_Props> = (props) => (
           <span className="font-bold">{user.updated_at}</span>
         </div>
         <Button
+          type="button"
           onClick={() => props.deleteUser(user.id)}
           color="red"
           className="inline-flex items-center"

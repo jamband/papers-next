@@ -43,7 +43,9 @@ export default function View() {
           </div>
           <hr className="my-12" />
           <div className="text-center">
-            <Button onClick={logout}>Logout</Button>
+            <Button type="button" onClick={logout}>
+              Logout
+            </Button>
           </div>
         </div>
       ) : (
