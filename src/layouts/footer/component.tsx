@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LinkExternal } from "../../components/link-external";
+import { ExternalLink } from "../../components/external-link";
 
 export const Component: React.FC = () => (
   <footer className="bg-gray-800 py-3 text-center">
@@ -13,12 +13,12 @@ export const Component: React.FC = () => (
       >
         Contact
       </Link>
-      <LinkExternal
+      <ExternalLink
         href="https://github.com/jamband/papers-next"
         className="mx-1 p-3 no-underline hover:text-current"
       >
         GitHub
-      </LinkExternal>
+      </ExternalLink>
     </nav>
   </footer>
 );

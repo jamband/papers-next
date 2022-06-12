@@ -1,4 +1,4 @@
-import { LinkExternal } from "../components/link-external";
+import { ExternalLink } from "../components/external-link";
 import { IconExternalLink } from "../icons/external-link";
 import { Page } from "../layouts/page";
 
@@ -8,21 +8,21 @@ export default function View() {
       <h1 className="mb-5">Contact</h1>
       <p>
         Please to the message via{" "}
-        <LinkExternal
+        <ExternalLink
           href="https://twitter.com/livejam_db"
           className="inline-flex items-center"
         >
           Twitter
           <IconExternalLink className="ml-0.5 h-4 w-4" />
-        </LinkExternal>{" "}
+        </ExternalLink>{" "}
         or{" "}
-        <LinkExternal
+        <ExternalLink
           href="https://github.com/jamband/papers-next/issues"
           className="inline-flex items-center"
         >
           GitHub Issues
           <IconExternalLink className="ml-0.5 h-4 w-4" />
-        </LinkExternal>
+        </ExternalLink>
         .
       </p>
     </Page>
