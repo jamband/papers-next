@@ -8,6 +8,7 @@ import { useForm } from "../../hooks/form";
 import { useNotificationAction } from "../../hooks/notification";
 import { useRequireGuest } from "../../hooks/require";
 import { Layout } from "../../layouts/layout";
+import { setErrors } from "../../utils/form";
 import { http } from "../../utils/http";
 import type { Schema } from "../../validations/auth/reset-password";
 import { label, schema } from "../../validations/auth/reset-password";
@@ -54,17 +55,15 @@ export default function Page(props: Props) {
     });
 
     if (res.status === 422) {
-      const { errors }: Record<string, string> = await res.json();
-      for (const [name, message] of Object.entries(errors)) {
-        setError(name as keyof Schema, { type: "server", message });
-      }
+      const { errors } = await res.json();
+      setErrors(errors, setError);
       return;
     }
 
     if (res.ok) {
-      push("/login").then(() => {
-        notification({ message: "Your password has been reset!" });
-      });
+      await push("/login");
+      notification({ message: "Your password has been reset!" });
+      return;
     }
   };
 

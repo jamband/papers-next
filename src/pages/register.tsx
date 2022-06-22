@@ -10,6 +10,7 @@ import { useNotificationAction } from "../hooks/notification";
 import { useRequireGuest } from "../hooks/require";
 import { IconLightBulb } from "../icons/light-bulb";
 import { Layout } from "../layouts/layout";
+import { setErrors } from "../utils/form";
 import { http } from "../utils/http";
 import type { Schema } from "../validations/auth/register";
 import { schema } from "../validations/auth/register";
@@ -39,17 +40,15 @@ export default function Page() {
     });
 
     if (res.status === 422) {
-      const { errors }: Record<string, string> = await res.json();
-      for (const [name, message] of Object.entries(errors)) {
-        setError(name as keyof Schema, { type: "server", message });
-      }
+      const { errors } = await res.json();
+      setErrors(errors, setError);
       return;
     }
 
     if (res.ok) {
-      push("/").then(() => {
-        notification({ message: NOTIFICATION_VERIFICATION_LINK_SENT });
-      });
+      await push("/");
+      notification({ message: NOTIFICATION_VERIFICATION_LINK_SENT });
+      return;
     }
   };
 

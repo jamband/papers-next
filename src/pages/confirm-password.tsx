@@ -8,6 +8,7 @@ import { useForm } from "../hooks/form";
 import { useNotificationAction } from "../hooks/notification";
 import { useRequireVerified } from "../hooks/require";
 import { Layout } from "../layouts/layout";
+import { setErrors } from "../utils/form";
 import { http } from "../utils/http";
 import type { Schema } from "../validations/auth/confirm-password";
 import { label, schema } from "../validations/auth/confirm-password";
@@ -37,10 +38,8 @@ export default function Page() {
     });
 
     if (res.status === 422) {
-      const { errors }: Record<string, string> = await res.json();
-      for (const [name, message] of Object.entries(errors)) {
-        setError(name as keyof Schema, { type: "server", message });
-      }
+      const { errors } = await res.json();
+      setErrors(errors, setError);
       return;
     }
 

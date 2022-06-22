@@ -30,6 +30,7 @@ export default function Page() {
 
     if (res.ok) {
       notification({ message: NOTIFICATION_NEW_VERIFICATION_LINK_SENT });
+      return;
     }
   };
 

@@ -11,6 +11,7 @@ import { useForm } from "../../../hooks/form";
 import { usePaper } from "../../../hooks/paper";
 import { useRequireVerified } from "../../../hooks/require";
 import { Layout } from "../../../layouts/layout";
+import { setErrors } from "../../../utils/form";
 import { http } from "../../../utils/http";
 import type { Schema } from "../../../validations/paper/update";
 import { schema } from "../../../validations/paper/update";
@@ -47,17 +48,15 @@ export default function Page() {
     });
 
     if (res.status === 422) {
-      const { errors }: Record<string, string> = await res.json();
-      for (const [name, message] of Object.entries(errors)) {
-        setError(name as keyof Schema, { type: "server", message });
-      }
+      const { errors } = await res.json();
+      setErrors(errors, setError);
       return;
     }
 
     if (res.ok) {
-      mutate(`/papers/${paper.id}`).then(() => {
-        push(`/papers/${paper.id}`);
-      });
+      await mutate(`/papers/${paper.id}`);
+      await push(`/papers/${paper.id}`);
+      return;
     }
   };
 

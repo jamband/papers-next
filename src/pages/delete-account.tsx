@@ -27,17 +27,23 @@ export default function Page() {
       });
 
       if (res.status === 423) {
-        push("/confirm-password");
+        await push("/confirm-password");
         return;
       }
 
-      if (res.ok) setIsDeleted(true);
+      if (res.ok) {
+        setIsDeleted(true);
+        return;
+      }
     }
   };
 
   useEffect(() => {
     return () => {
-      if (isDeleted) mutate(API_USER_KEY, undefined);
+      if (isDeleted) {
+        mutate(API_USER_KEY, undefined);
+        return;
+      }
     };
   }, [isDeleted, mutate]);
 
