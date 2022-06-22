@@ -1,10 +1,14 @@
 import type { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import type { ComponentProps } from "../../types/component-props";
 
-export type Props = ComponentProps<"input"> & {
+type SharedProps = {
   className?: string;
   register: UseFormRegisterReturn;
   errors: FieldError | undefined;
 };
 
-export type _Props = Props;
+export type Props = SharedProps & ComponentProps<"input">;
+
+export type _Props = SharedProps & {
+  rest: ComponentProps<"input">;
+};
