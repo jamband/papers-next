@@ -3,11 +3,11 @@ import { object, string } from "yup";
 import "../locale";
 
 export const schema = object({
-  password: string().required().label("Password"),
+  password: string().required(),
 });
 
 export type Schema = InferType<typeof schema>;
 
-export const label: Required<Schema> = {
-  password: schema.fields.password.spec.label as string,
+export const label: Record<keyof Schema, string> = {
+  password: "Password",
 };

@@ -101,6 +101,7 @@ export default function Page(props: Props) {
             type="password"
             id="password_confirmation"
           />
+          <FormError message={errors.password_confirmation?.message} />
         </div>
         <Button type="submit" disabled={isSubmitting}>
           Reset Password

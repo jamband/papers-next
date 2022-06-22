@@ -3,13 +3,13 @@ import { object, string } from "yup";
 import "../locale";
 
 export const schema = object({
-  email: string().required().email().label("Email"),
-  password: string().required().label("Password"),
+  email: string().required().email(),
+  password: string().required(),
 });
 
 export type Schema = InferType<typeof schema>;
 
-export const label: Required<Schema> = {
-  email: schema.fields.email.spec.label as string,
-  password: schema.fields.password.spec.label as string,
+export const label: Record<keyof Schema, string> = {
+  email: "Email",
+  password: "Password",
 };

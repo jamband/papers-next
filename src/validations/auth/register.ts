@@ -3,18 +3,17 @@ import { object, string } from "yup";
 import "../locale";
 
 export const schema = object({
-  name: string().required().label("Name"),
-  email: string().required().email().label("Email"),
-  password: string().required().min(8).label("Password"),
-  password_confirmation: string().required().label("Confirm Password"),
+  name: string().required(),
+  email: string().required().email(),
+  password: string().required().min(8),
+  password_confirmation: string().required().label("confirm password"),
 });
 
 export type Schema = InferType<typeof schema>;
 
-export const label: Required<Schema> = {
-  name: schema.fields.name.spec.label as string,
-  email: schema.fields.email.spec.label as string,
-  password: schema.fields.password.spec.label as string,
-  password_confirmation: schema.fields.password_confirmation.spec
-    .label as string,
+export const label: Record<keyof Schema, string> = {
+  name: "Name",
+  email: "Email",
+  password: "Password",
+  password_confirmation: "Confirm Password",
 };

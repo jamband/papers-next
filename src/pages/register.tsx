@@ -84,6 +84,7 @@ export default function Page() {
             type="password"
             id="password_confimation"
           />
+          <FormError message={errors.password_confirmation?.message} />
         </div>
         <Button type="submit" disabled={isSubmitting}>
           Reigster
