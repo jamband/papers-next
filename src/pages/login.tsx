@@ -74,7 +74,7 @@ export default function Page() {
             id="email"
             autoComplete="email"
           />
-          <FormError message={errors.email?.message} />
+          <FormError>{errors.email?.message}</FormError>
         </div>
         <div className="mb-5">
           <label htmlFor="password">{label.password}</label>
@@ -84,7 +84,7 @@ export default function Page() {
             type="password"
             autoComplete="current-password"
           />
-          <FormError message={errors.password?.message} />
+          <FormError>{errors.password?.message}</FormError>
         </div>
         <div className="mb-6">
           <label htmlFor="remember_me">

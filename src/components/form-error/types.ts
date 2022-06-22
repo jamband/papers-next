@@ -1,5 +1,5 @@
 export type Props = {
-  message: string | undefined;
+  children: React.ReactNode;
 };
 
 export type _Props = Props;

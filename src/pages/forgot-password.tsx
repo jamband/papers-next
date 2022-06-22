@@ -70,7 +70,7 @@ export default function Page() {
         <div className="mb-8">
           <label htmlFor="email">{label.email}</label>
           <input {...register("email")} type="text" id="email" />
-          <FormError message={errors.email?.message} />
+          <FormError>{errors.email?.message}</FormError>
         </div>
         <Button type="submit" disabled={isSend || isSubmitting}>
           Send Email

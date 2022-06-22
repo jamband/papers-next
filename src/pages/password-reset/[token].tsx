@@ -84,12 +84,14 @@ export default function Page(props: Props) {
             id="email"
             defaultValue={props.email}
           />
-          <FormError message={errors.email?.message || errors.token?.message} />
+          <FormError>
+            {errors.email?.message || errors.token?.message}
+          </FormError>
         </div>
         <div className="mb-6">
           <label htmlFor="password">{label.password}</label>
           <input {...register("password")} type="password" id="password" />
-          <FormError message={errors.password?.message} />
+          <FormError>{errors.password?.message}</FormError>
         </div>
         <div className="mb-10">
           <label htmlFor="password_confirmation">
@@ -100,7 +102,7 @@ export default function Page(props: Props) {
             type="password"
             id="password_confirmation"
           />
-          <FormError message={errors.password_confirmation?.message} />
+          <FormError>{errors.password_confirmation?.message}</FormError>
         </div>
         <Button type="submit" disabled={isSubmitting}>
           Reset Password

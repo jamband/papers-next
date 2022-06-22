@@ -59,12 +59,12 @@ export default function Page() {
         <div className="mb-5">
           <label htmlFor="name">Name</label>
           <input {...register("name")} type="text" id="name" />
-          <FormError message={errors.name?.message} />
+          <FormError>{errors.name?.message}</FormError>
         </div>
         <div className="mb-5">
           <label htmlFor="email">Email</label>
           <input {...register("email")} type="text" id="email" />
-          <FormError message={errors.email?.message} />
+          <FormError>{errors.email?.message}</FormError>
         </div>
         <div className="mb-5">
           <label htmlFor="password">Password</label>
@@ -74,7 +74,7 @@ export default function Page() {
             id="password"
             autoComplete="new-password"
           />
-          <FormError message={errors.password?.message} />
+          <FormError>{errors.password?.message}</FormError>
         </div>
         <div className="mb-6">
           <label htmlFor="password_confirmation">Confirm Password</label>
@@ -83,7 +83,7 @@ export default function Page() {
             type="password"
             id="password_confimation"
           />
-          <FormError message={errors.password_confirmation?.message} />
+          <FormError>{errors.password_confirmation?.message}</FormError>
         </div>
         <Button type="submit" disabled={isSubmitting}>
           Reigster

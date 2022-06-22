@@ -56,12 +56,12 @@ export default function Page() {
         <div className="mb-5">
           <label htmlFor="title">Title</label>
           <input {...register("title")} id="title" type="text" />
-          <FormError message={errors.title?.message} />
+          <FormError>{errors.title?.message}</FormError>
         </div>
         <div className="mb-6">
           <label htmlFor="body">Body</label>
           <textarea {...register("body")} id="body" />
-          <FormError message={errors.body?.message} />
+          <FormError>{errors.body?.message}</FormError>
         </div>
         <Button type="submit" disabled={isSubmitting}>
           Create

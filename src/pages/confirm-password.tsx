@@ -62,7 +62,7 @@ export default function Page() {
         <div className="mb-6">
           <label htmlFor="password">{label.password}</label>
           <input {...register("password")} type="password" id="password" />
-          <FormError message={errors.password?.message} />
+          <FormError>{errors.password?.message}</FormError>
         </div>
         <Button type="submit" disabled={isSubmitting}>
           Confirm

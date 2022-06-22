@@ -80,7 +80,7 @@ export default function Page() {
                     type="text"
                     defaultValue={paper.title}
                   />
-                  <FormError message={errors.title?.message} />
+                  <FormError>{errors.title?.message}</FormError>
                 </div>
                 <div className="mb-6">
                   <label htmlFor="body">Body</label>
@@ -89,7 +89,7 @@ export default function Page() {
                     id="body"
                     defaultValue={paper.body}
                   />
-                  <FormError message={errors.body?.message} />
+                  <FormError>{errors.body?.message}</FormError>
                 </div>
                 <Button type="submit" disabled={isSubmitting}>
                   Update
