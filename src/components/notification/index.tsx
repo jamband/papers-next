@@ -13,7 +13,7 @@ export const Notification: React.FC<Props> = (props) => {
   const { pathname } = useRouter();
 
   let className =
-    "pr-12 flex items-center relative border border-gray-700 bg-gray-800 rounded shadow-sm";
+    "pr-12 flex items-center relative bg-gray-700 rounded shadow-sm shadow-gray-900";
 
   className += color === "green" ? " text-green-600" : " text-amber-500";
 

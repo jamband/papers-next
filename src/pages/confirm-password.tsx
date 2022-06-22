@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { FormError } from "../components/form-error";
+import { FormInput } from "../components/form-input";
 import { FormSubmit } from "../components/form-submit";
 import { NOTIFICATION_TOO_MANY_REQUEST } from "../constants/notification";
 import { useForm } from "../hooks/form";
@@ -61,7 +62,13 @@ export default function Page() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-6">
           <label htmlFor="password">{label.password}</label>
-          <input {...register("password")} type="password" id="password" />
+          <FormInput
+            id="password"
+            className="w-full border-gray-700 bg-gray-900 md:w-1/2"
+            type="password"
+            register={register("password")}
+            errors={errors.password}
+          />
           <FormError>{errors.password?.message}</FormError>
         </div>
         <FormSubmit disabled={isSubmitting}>Confirm</FormSubmit>

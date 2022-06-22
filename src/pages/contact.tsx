@@ -8,12 +8,18 @@ export default function Page() {
       <h1 className="mb-5">Contact</h1>
       <p>
         Please to the message via{" "}
-        <ExternalLink href="https://twitter.com/livejam_db">
+        <ExternalLink
+          href="https://twitter.com/livejam_db"
+          className="text-green-600"
+        >
           Twitter
           <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
         </ExternalLink>{" "}
         or{" "}
-        <ExternalLink href="https://github.com/jamband/papers-next/issues">
+        <ExternalLink
+          href="https://github.com/jamband/papers-next/issues"
+          className="text-green-600"
+        >
           GitHub Issues
           <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
         </ExternalLink>

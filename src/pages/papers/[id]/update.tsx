@@ -5,7 +5,9 @@ import type { SubmitHandler } from "react-hook-form";
 import { useSWRConfig } from "swr";
 import { FailedToFetch } from "../../../components/failed-to-fetch";
 import { FormError } from "../../../components/form-error";
+import { FormInput } from "../../../components/form-input";
 import { FormSubmit } from "../../../components/form-submit";
+import { FormTextarea } from "../../../components/form-textarea";
 import { Loading } from "../../../components/loading";
 import { useForm } from "../../../hooks/form";
 import { usePaper } from "../../../hooks/paper";
@@ -74,20 +76,24 @@ export default function Page() {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mb-5">
                   <label htmlFor="title">Title</label>
-                  <input
-                    {...register("title")}
+                  <FormInput
                     id="title"
+                    className="w-full border-gray-700 bg-gray-900 md:w-1/2"
                     type="text"
                     defaultValue={paper.title}
+                    register={register("title")}
+                    errors={errors.title}
                   />
                   <FormError>{errors.title?.message}</FormError>
                 </div>
                 <div className="mb-6">
                   <label htmlFor="body">Body</label>
-                  <textarea
-                    {...register("body")}
+                  <FormTextarea
                     id="body"
+                    className="w-full border-gray-700 bg-gray-900 md:w-1/2"
                     defaultValue={paper.body}
+                    register={register("body")}
+                    errors={errors.body}
                   />
                   <FormError>{errors.body?.message}</FormError>
                 </div>

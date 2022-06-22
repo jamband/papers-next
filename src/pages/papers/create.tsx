@@ -3,7 +3,9 @@ import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { useSWRConfig } from "swr";
 import { FormError } from "../../components/form-error";
+import { FormInput } from "../../components/form-input";
 import { FormSubmit } from "../../components/form-submit";
+import { FormTextarea } from "../../components/form-textarea";
 import { useForm } from "../../hooks/form";
 import { useRequireVerified } from "../../hooks/require";
 import { Layout } from "../../layouts/layout";
@@ -55,12 +57,23 @@ export default function Page() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-5">
           <label htmlFor="title">Title</label>
-          <input {...register("title")} id="title" type="text" />
+          <FormInput
+            id="title"
+            className="w-full border-gray-700 bg-gray-900 md:w-1/2"
+            type="text"
+            register={register("title")}
+            errors={errors.title}
+          />
           <FormError>{errors.title?.message}</FormError>
         </div>
         <div className="mb-6">
           <label htmlFor="body">Body</label>
-          <textarea {...register("body")} id="body" />
+          <FormTextarea
+            id="body"
+            className="w-full border-gray-700 bg-gray-900 md:w-1/2"
+            register={register("body")}
+            errors={errors.body}
+          />
           <FormError>{errors.body?.message}</FormError>
         </div>
         <FormSubmit disabled={isSubmitting}>Create</FormSubmit>

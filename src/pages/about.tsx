@@ -10,7 +10,10 @@ export default function Page() {
       <p className="mb-5">{APP_DESCRIPTION}</p>
       <p>
         This website is an open source project. See{" "}
-        <ExternalLink href="https://github.com/jamband/papers-next">
+        <ExternalLink
+          href="https://github.com/jamband/papers-next"
+          className="text-green-600"
+        >
           GitHub jamband/papers-next
           <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
         </ExternalLink>{" "}

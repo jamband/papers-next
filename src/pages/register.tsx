@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { FormError } from "../components/form-error";
+import { FormInput } from "../components/form-input";
 import { FormSubmit } from "../components/form-submit";
 import { NOTIFICATION_VERIFICATION_LINK_SENT } from "../constants/notification";
 import { useForm } from "../hooks/form";
@@ -58,30 +59,46 @@ export default function Page() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-5">
           <label htmlFor="name">Name</label>
-          <input {...register("name")} type="text" id="name" />
+          <FormInput
+            id="name"
+            className="w-full border-gray-700 bg-gray-900 md:w-1/2"
+            type="text"
+            register={register("name")}
+            errors={errors.name}
+          />
           <FormError>{errors.name?.message}</FormError>
         </div>
         <div className="mb-5">
           <label htmlFor="email">Email</label>
-          <input {...register("email")} type="text" id="email" />
+          <FormInput
+            id="email"
+            className="w-full border-gray-700 bg-gray-900 md:w-1/2"
+            type="text"
+            register={register("email")}
+            errors={errors.email}
+          />
           <FormError>{errors.email?.message}</FormError>
         </div>
         <div className="mb-5">
           <label htmlFor="password">Password</label>
-          <input
-            {...register("password")}
-            type="password"
+          <FormInput
             id="password"
+            className="w-full border-gray-700 bg-gray-900 md:w-1/2"
+            type="password"
             autoComplete="new-password"
+            register={register("password")}
+            errors={errors.password}
           />
           <FormError>{errors.password?.message}</FormError>
         </div>
         <div className="mb-6">
           <label htmlFor="password_confirmation">Confirm Password</label>
-          <input
-            {...register("password_confirmation")}
-            type="password"
+          <FormInput
             id="password_confimation"
+            className="w-full border-gray-700 bg-gray-900 md:w-1/2"
+            type="password"
+            register={register("password_confirmation")}
+            errors={errors.password_confirmation}
           />
           <FormError>{errors.password_confirmation?.message}</FormError>
         </div>

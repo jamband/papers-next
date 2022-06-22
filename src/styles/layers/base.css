@@ -1,36 +1,33 @@
 @layer base {
   html,
   body {
-    @apply bg-gray-900 text-base text-gray-100;
+    @apply bg-gray-800 text-base text-gray-400;
   }
 
   h1 {
-    @apply text-4xl font-semibold;
+    @apply text-4xl font-semibold text-gray-100;
   }
 
   h2 {
-    @apply text-3xl font-semibold;
+    @apply text-3xl font-semibold text-gray-100;
   }
 
   a {
-    @apply underline decoration-[0.05em] underline-offset-[0.25em] hover:text-green-600;
+    @apply underline decoration-[0.05em] underline-offset-[0.25em] active:text-green-600;
   }
 
   hr {
-    @apply border-gray-600;
+    @apply border-gray-700;
   }
 
   input[type="email"],
   input[type="password"],
-  input[type="text"] {
-    @apply w-full rounded border border-gray-600 bg-gray-800 px-3 py-1 shadow-sm md:w-1/2;
-  }
-
+  input[type="text"],
   textarea {
-    @apply w-full rounded border border-gray-600 bg-gray-800 px-3 py-1 shadow-sm;
+    @apply border rounded px-3 py-1;
   }
 
   label {
-    @apply block;
+    @apply text-gray-200 block;
   }
 }

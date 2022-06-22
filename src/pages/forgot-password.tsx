@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { FormError } from "../components/form-error";
+import { FormInput } from "../components/form-input";
 import { FormSubmit } from "../components/form-submit";
 import {
   FAILED_TO_REQUEST,
@@ -69,7 +70,13 @@ export default function Page() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-8">
           <label htmlFor="email">{label.email}</label>
-          <input {...register("email")} type="text" id="email" />
+          <FormInput
+            id="email"
+            className="w-full border-gray-700 bg-gray-900 md:w-1/2"
+            type="text"
+            register={register("email")}
+            errors={errors.email}
+          />
           <FormError>{errors.email?.message}</FormError>
         </div>
         <FormSubmit disabled={isSend || isSubmitting}>Send Email</FormSubmit>

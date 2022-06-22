@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { useSWRConfig } from "swr";
 import { FormError } from "../../components/form-error";
+import { FormInput } from "../../components/form-input";
 import { FormSubmit } from "../../components/form-submit";
 import { API_USER_KEY } from "../../constants/api";
 import { useForm } from "../../hooks/form";
@@ -63,21 +64,25 @@ export default function Page() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-5">
           <label htmlFor="email">{label.email}</label>
-          <input
-            {...register("email")}
-            type="text"
+          <FormInput
             id="email"
+            className="w-full border-gray-700 bg-gray-900 md:w-1/2"
+            type="text"
             autoComplete="email"
+            register={register("email")}
+            errors={errors.email}
           />
           <FormError>{errors.email?.message}</FormError>
         </div>
         <div className="mb-5">
           <label htmlFor="password">{label.password}</label>
-          <input
-            {...register("password")}
+          <FormInput
             id="password"
+            className="w-full border-gray-700 bg-gray-900 md:w-1/2"
             type="password"
             autoComplete="current-password"
+            register={register("password")}
+            errors={errors.password}
           />
           <FormError>{errors.password?.message}</FormError>
         </div>
