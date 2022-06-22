@@ -2,8 +2,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
-import { Button } from "../components/button";
 import { FormError } from "../components/form-error";
+import { FormSubmit } from "../components/form-submit";
 import { NOTIFICATION_VERIFICATION_LINK_SENT } from "../constants/notification";
 import { useForm } from "../hooks/form";
 import { useNotificationAction } from "../hooks/notification";
@@ -85,9 +85,7 @@ export default function Page() {
           />
           <FormError>{errors.password_confirmation?.message}</FormError>
         </div>
-        <Button type="submit" disabled={isSubmitting}>
-          Reigster
-        </Button>
+        <FormSubmit disabled={isSubmitting}>Reigster</FormSubmit>
       </form>
       <hr className="my-10" />
       <IconLightBulb className="mr-0.5 h-4 w-4 align-[-0.1em]" />

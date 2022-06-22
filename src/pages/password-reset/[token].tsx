@@ -2,8 +2,8 @@ import type { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
-import { Button } from "../../components/button";
 import { FormError } from "../../components/form-error";
+import { FormSubmit } from "../../components/form-submit";
 import { useForm } from "../../hooks/form";
 import { useNotificationAction } from "../../hooks/notification";
 import { useRequireGuest } from "../../hooks/require";
@@ -104,9 +104,7 @@ export default function Page(props: Props) {
           />
           <FormError>{errors.password_confirmation?.message}</FormError>
         </div>
-        <Button type="submit" disabled={isSubmitting}>
-          Reset Password
-        </Button>
+        <FormSubmit disabled={isSubmitting}>Reset Password</FormSubmit>
       </form>
     </>
   );

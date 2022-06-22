@@ -47,7 +47,9 @@ export default function Page() {
       </Button>
       <hr className="my-10" />
       <div className="flex items-center justify-center">
-        <Button onClick={logout}>Logout</Button>
+        <Button type="button" onClick={logout}>
+          Logout
+        </Button>
       </div>
     </>
   );

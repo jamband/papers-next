@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { useSWRConfig } from "swr";
-import { Button } from "../../../components/button";
 import { FailedToFetch } from "../../../components/failed-to-fetch";
 import { FormError } from "../../../components/form-error";
+import { FormSubmit } from "../../../components/form-submit";
 import { Loading } from "../../../components/loading";
 import { useForm } from "../../../hooks/form";
 import { usePaper } from "../../../hooks/paper";
@@ -91,9 +91,7 @@ export default function Page() {
                   />
                   <FormError>{errors.body?.message}</FormError>
                 </div>
-                <Button type="submit" disabled={isSubmitting}>
-                  Update
-                </Button>
+                <FormSubmit disabled={isSubmitting}>Update</FormSubmit>
               </form>
               <hr className="mt-4" />
               <div className="mt-10 text-center md:mt-20">

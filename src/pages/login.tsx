@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { useSWRConfig } from "swr";
-import { Button } from "../components/button";
 import { FormError } from "../components/form-error";
+import { FormSubmit } from "../components/form-submit";
 import { API_USER_KEY } from "../constants/api";
 import { FAILED_TO_REQUEST } from "../constants/notification";
 import { useForm } from "../hooks/form";
@@ -92,9 +92,7 @@ export default function Page() {
             <span className="ml-2 text-sm">Remember me</span>
           </label>
         </div>
-        <Button type="submit" disabled={isSubmitting}>
-          Login
-        </Button>
+        <FormSubmit disabled={isSubmitting}>Login</FormSubmit>
         <span className="mx-3">or</span>
         <Link href="/forgot-password">Forgot password?</Link>
       </form>

@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
-import { Button } from "../components/button";
 import { FormError } from "../components/form-error";
+import { FormSubmit } from "../components/form-submit";
 import { NOTIFICATION_TOO_MANY_REQUEST } from "../constants/notification";
 import { useForm } from "../hooks/form";
 import { useNotificationAction } from "../hooks/notification";
@@ -64,9 +64,7 @@ export default function Page() {
           <input {...register("password")} type="password" id="password" />
           <FormError>{errors.password?.message}</FormError>
         </div>
-        <Button type="submit" disabled={isSubmitting}>
-          Confirm
-        </Button>
+        <FormSubmit disabled={isSubmitting}>Confirm</FormSubmit>
       </form>
     </>
   );

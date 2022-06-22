@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { SubmitHandler } from "react-hook-form";
-import { Button } from "../components/button";
 import { FormError } from "../components/form-error";
+import { FormSubmit } from "../components/form-submit";
 import {
   FAILED_TO_REQUEST,
   NOTIFICATION_PASSWORD_RESET_LINK_SENT,
@@ -72,9 +72,7 @@ export default function Page() {
           <input {...register("email")} type="text" id="email" />
           <FormError>{errors.email?.message}</FormError>
         </div>
-        <Button type="submit" disabled={isSend || isSubmitting}>
-          Send Email
-        </Button>
+        <FormSubmit disabled={isSend || isSubmitting}>Send Email</FormSubmit>
       </form>
     </>
   );

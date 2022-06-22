@@ -2,8 +2,8 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { useSWRConfig } from "swr";
-import { Button } from "../../components/button";
 import { FormError } from "../../components/form-error";
+import { FormSubmit } from "../../components/form-submit";
 import { useForm } from "../../hooks/form";
 import { useRequireVerified } from "../../hooks/require";
 import { Layout } from "../../layouts/layout";
@@ -63,9 +63,7 @@ export default function Page() {
           <textarea {...register("body")} id="body" />
           <FormError>{errors.body?.message}</FormError>
         </div>
-        <Button type="submit" disabled={isSubmitting}>
-          Create
-        </Button>
+        <FormSubmit disabled={isSubmitting}>Create</FormSubmit>
       </form>
     </>
   );
