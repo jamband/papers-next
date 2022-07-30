@@ -34,11 +34,11 @@ export default function Page() {
       {auth ? (
         <div className="animate-fadeIn">
           <div className="flex items-center justify-center">
-            <Link href="/papers" className="px-5 py-2">
-              Papers
+            <Link href="/papers">
+              <a className="px-5 py-2">Papers</a>
             </Link>
-            <Link href="/profile" className="px-5 py-2">
-              Profile
+            <Link href="/profile">
+              <a className="px-5 py-2">Profile</a>
             </Link>
           </div>
           <hr className="my-12" />
@@ -56,11 +56,11 @@ export default function Page() {
           </div>
           <hr className="my-12" />
           <div className="flex items-center justify-center">
-            <Link href="/login" className="px-5 py-2">
-              Login
+            <Link href="/login">
+              <a className="px-5 py-2">Login</a>
             </Link>
-            <Link href="/register" className="px-5 py-2">
-              Register
+            <Link href="/register">
+              <a className="px-5 py-2">Register</a>
             </Link>
           </div>
         </div>

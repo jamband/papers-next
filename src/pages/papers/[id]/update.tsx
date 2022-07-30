@@ -101,8 +101,8 @@ export default function Page() {
               </form>
               <hr className="mt-4" />
               <div className="mt-10 text-center md:mt-20">
-                <Link href="/papers" className="p-3">
-                  ← Back to Papers
+                <Link href="/papers">
+                  <a className="p-3">← Back to Papers</a>
                 </Link>
               </div>
             </>

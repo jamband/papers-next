@@ -25,7 +25,9 @@ export default function Page() {
         <h1 className="mb-5">Faild to fetch</h1>
         <FailedToFetch className="mb-10" />
         <div className="text-center">
-          <Link href="/papers">Back to Papers</Link>
+          <Link href="/papers">
+            <a>Back to Papers</a>
+          </Link>
         </div>
       </>
     );
@@ -56,8 +58,8 @@ export default function Page() {
       </ActionButton>
       <hr className="mt-4" />
       <div className="mt-10 text-center md:mt-20">
-        <Link href="/papers" className="p-3">
-          ← Back to Papers
+        <Link href="/papers">
+          <a className="p-3">← Back to Papers</a>
         </Link>
       </div>
     </>

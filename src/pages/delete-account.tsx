@@ -65,7 +65,9 @@ export default function Page() {
             Delete Account
           </Button>
           <span className="mx-2">or</span>
-          <Link href="/">cancel</Link>
+          <Link href="/">
+            <a>cancel</a>
+          </Link>
         </>
       )}
     </>

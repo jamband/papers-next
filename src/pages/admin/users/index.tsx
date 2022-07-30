@@ -8,8 +8,8 @@ export default function Page() {
       <h1 className="mb-10">Manage users</h1>
       <Users />
       <div className="mt-10 text-center">
-        <Link href="/admin" className="px-5 py-3">
-          ← Back to Admin Home
+        <Link href="/admin">
+          <a className="px-5 py-3">← Back to Admin Home</a>
         </Link>
       </div>
     </>

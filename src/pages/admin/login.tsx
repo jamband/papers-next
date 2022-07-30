@@ -97,7 +97,9 @@ export default function Page() {
         <span className="ml-1">administrator</span>
       </form>
       <hr className="my-10" />
-      <Link href="/login">Login as regular user</Link>
+      <Link href="/login">
+        <a>Login as regular user</a>
+      </Link>
       <div className="mt-2 flex items-center text-sm text-amber-500">
         <IconLightBulb className="mr-0.5 h-4 w-4 align-[-0.125em]" />
         This is a login link for regular users.
