@@ -107,7 +107,7 @@ export default function Page() {
       <Link href="/admin/login">
         <a>Login as administrator</a>
       </Link>
-      <div className="mt-2 text-sm text-amber-500">
+      <div className="mt-2 text-amber-500">
         <IconLightBulb className="mr-0.5 h-4 w-4 align-[-0.125em]" />
         This link usually does not exist. Displayed for development environment.
       </div>

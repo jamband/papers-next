@@ -51,7 +51,7 @@ export default function Page() {
       ) : (
         <div className="animate-fadeIn">
           <div className="text-center">
-            <IconInformationCircle className="mr-0.5 h-4 w-4 align-[-0.125em]" />
+            <IconInformationCircle className="mr-1 h-4 w-4 align-[-0.125em]" />
             {APP_DESCRIPTION}
           </div>
           <hr className="my-12" />
