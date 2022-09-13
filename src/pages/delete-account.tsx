@@ -8,8 +8,9 @@ import { useRequirePasswordConfirm, useRequireVerified } from "~/hooks/require";
 import { IconExclamation } from "~/icons/exclamation";
 import { Layout } from "~/layouts/layout";
 import { http } from "~/utils/http";
+import type { PageComponent } from "./_app";
 
-export default function Page() {
+const Page: PageComponent = () => {
   useRequireVerified();
   useRequirePasswordConfirm();
 
@@ -69,8 +70,8 @@ export default function Page() {
       )}
     </>
   );
-}
+};
 
-Page.getLayout = (page: React.ReactElement) => (
-  <Layout title="Delete account">{page}</Layout>
-);
+Page.getLayout = (page) => <Layout title="Delete account">{page}</Layout>;
+
+export default Page;

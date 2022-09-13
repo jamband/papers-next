@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Users } from "~/components/users";
 import { AdminLayout } from "~/layouts/admin-layout";
+import type { PageComponent } from "~/pages/_app";
 
-export default function Page() {
+const Page: PageComponent = () => {
   return (
     <>
       <h1 className="mb-10">Manage users</h1>
@@ -14,8 +15,10 @@ export default function Page() {
       </div>
     </>
   );
-}
+};
 
-Page.getLayout = (page: React.ReactElement) => (
+Page.getLayout = (page) => (
   <AdminLayout title="Manage users">{page}</AdminLayout>
 );
+
+export default Page;

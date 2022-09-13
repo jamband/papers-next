@@ -8,8 +8,9 @@ import { useLogout } from "~/hooks/logout";
 import { useVerificationNotification } from "~/hooks/verification-notification";
 import { IconInformationCircle } from "~/icons/information-circle";
 import { Layout } from "~/layouts/layout";
+import type { PageComponent } from "./_app";
 
-export default function Page() {
+const Page: PageComponent = () => {
   const { authError, authIsLoading, auth } = useAuth();
   const { logout } = useLogout({ asAdmin: false });
 
@@ -67,6 +68,8 @@ export default function Page() {
       )}
     </>
   );
-}
+};
 
-Page.getLayout = (page: React.ReactElement) => <Layout title="">{page}</Layout>;
+Page.getLayout = (page) => <Layout title="">{page}</Layout>;
+
+export default Page;

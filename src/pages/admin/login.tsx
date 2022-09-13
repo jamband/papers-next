@@ -16,8 +16,9 @@ import { setErrors } from "~/utils/form";
 import { http } from "~/utils/http";
 import type { Schema } from "~/validations/admin/login";
 import { label, schema } from "~/validations/admin/login";
+import type { PageComponent } from "../_app";
 
-export default function Page() {
+const Page: PageComponent = () => {
   useRequireGuest();
 
   const { mutate } = useSWRConfig();
@@ -106,8 +107,10 @@ export default function Page() {
       </div>
     </>
   );
-}
+};
 
-Page.getLayout = (page: React.ReactElement) => (
+Page.getLayout = (page) => (
   <Layout title="Login as administrator">{page}</Layout>
 );
+
+export default Page;

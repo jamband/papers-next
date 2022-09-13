@@ -13,8 +13,9 @@ import { setErrors } from "~/utils/form";
 import { http } from "~/utils/http";
 import type { Schema } from "~/validations/auth/confirm-password";
 import { label, schema } from "~/validations/auth/confirm-password";
+import type { PageComponent } from "./_app";
 
-export default function Page() {
+const Page: PageComponent = () => {
   useRequireVerified();
 
   const { back } = useRouter();
@@ -75,8 +76,10 @@ export default function Page() {
       </form>
     </>
   );
-}
+};
 
-Page.getLayout = (page: React.ReactElement) => (
+Page.getLayout = (page) => (
   <Layout title="Confirm your password">{page}</Layout>
 );
+
+export default Page;

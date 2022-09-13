@@ -8,8 +8,9 @@ import { useNotificationAction } from "~/hooks/notification";
 import { useRequireAuth } from "~/hooks/require";
 import { Layout } from "~/layouts/layout";
 import { http } from "~/utils/http";
+import type { PageComponent } from "./_app";
 
-export default function Page() {
+const Page: PageComponent = () => {
   useRequireAuth();
 
   const { logout } = useLogout({ asAdmin: false });
@@ -53,8 +54,8 @@ export default function Page() {
       </div>
     </>
   );
-}
+};
 
-Page.getLayout = (page: React.ReactElement) => (
-  <Layout title="Verify Email">{page}</Layout>
-);
+Page.getLayout = (page) => <Layout title="Verify Email">{page}</Layout>;
+
+export default Page;

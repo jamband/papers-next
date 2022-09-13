@@ -15,8 +15,9 @@ import { setErrors } from "~/utils/form";
 import { http } from "~/utils/http";
 import type { Schema } from "~/validations/auth/forgot-password";
 import { label, schema } from "~/validations/auth/forgot-password";
+import type { PageComponent } from "./_app";
 
-export default function Page() {
+const Page: PageComponent = () => {
   useRequireGuest();
 
   const [isSend, setSend] = useState(false);
@@ -83,8 +84,8 @@ export default function Page() {
       </form>
     </>
   );
-}
+};
 
-Page.getLayout = (page: React.ReactElement) => (
-  <Layout title="Forgot password">{page}</Layout>
-);
+Page.getLayout = (page) => <Layout title="Forgot password">{page}</Layout>;
+
+export default Page;

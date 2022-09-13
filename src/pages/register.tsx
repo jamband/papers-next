@@ -15,8 +15,9 @@ import { setErrors } from "~/utils/form";
 import { http } from "~/utils/http";
 import type { Schema } from "~/validations/auth/register";
 import { schema } from "~/validations/auth/register";
+import type { PageComponent } from "./_app";
 
-export default function Page() {
+const Page: PageComponent = () => {
   useRequireGuest();
 
   const { push } = useRouter();
@@ -113,8 +114,8 @@ export default function Page() {
       .
     </>
   );
-}
+};
 
-Page.getLayout = (page: React.ReactElement) => (
-  <Layout title="Register">{page}</Layout>
-);
+Page.getLayout = (page) => <Layout title="Register">{page}</Layout>;
+
+export default Page;

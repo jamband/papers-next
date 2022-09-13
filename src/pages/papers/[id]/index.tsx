@@ -7,8 +7,9 @@ import { useDeletePaper, usePaper } from "~/hooks/paper";
 import { useRequireVerified } from "~/hooks/require";
 import { IconTrash } from "~/icons/trash";
 import { Layout } from "~/layouts/layout";
+import type { PageComponent } from "~/pages/_app";
 
-export default function Page() {
+const Page: PageComponent = () => {
   useRequireVerified();
 
   const {
@@ -64,8 +65,10 @@ export default function Page() {
       </div>
     </>
   );
-}
+};
 
-Page.getLayout = (page: React.ReactElement) => {
+Page.getLayout = (page) => {
   return <Layout title="View">{page}</Layout>;
 };
+
+export default Page;

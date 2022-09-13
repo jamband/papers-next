@@ -6,10 +6,10 @@ import type { PageComponent } from "./_app";
 const Page: PageComponent = () => {
   return (
     <>
-      <h1 className="mb-5">Not Found</h1>
+      <h1 className="mb-5">An error occurred</h1>
       <p className="flex items-center">
         <IconInformationCircle className="h-4 w-4" />
-        <div className="ml-1">Page not found.</div>
+        <div className="ml-1">An error occurred.</div>
       </p>
       <div className="mt-20 text-center">
         <Link href="/">
@@ -20,6 +20,6 @@ const Page: PageComponent = () => {
   );
 };
 
-Page.getLayout = (page) => <Layout title="Not Found">{page}</Layout>;
+Page.getLayout = (page) => <Layout title="An error occurred">{page}</Layout>;
 
 export default Page;

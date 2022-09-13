@@ -13,6 +13,7 @@ import { setErrors } from "~/utils/form";
 import { http } from "~/utils/http";
 import type { Schema } from "~/validations/auth/reset-password";
 import { label, schema } from "~/validations/auth/reset-password";
+import type { PageComponent } from "../_app";
 
 type Props = {
   token: string;
@@ -31,7 +32,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   };
 };
 
-export default function Page(props: Props) {
+const Page: PageComponent<Props> = (props) => {
   useRequireGuest();
 
   const { push } = useRouter();
@@ -119,8 +120,8 @@ export default function Page(props: Props) {
       </form>
     </>
   );
-}
+};
 
-Page.getLayout = (page: React.ReactElement) => (
-  <Layout title="Reset password">{page}</Layout>
-);
+Page.getLayout = (page) => <Layout title="Reset password">{page}</Layout>;
+
+export default Page;

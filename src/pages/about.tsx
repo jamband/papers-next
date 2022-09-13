@@ -2,8 +2,9 @@ import { ExternalLink } from "~/components/external-link";
 import { APP_DESCRIPTION } from "~/constants/app";
 import { IconExternalLink } from "~/icons/external-link";
 import { Layout } from "~/layouts/layout";
+import type { PageComponent } from "./_app";
 
-export default function Page() {
+const Page: PageComponent = () => {
   return (
     <>
       <h1 className="mb-5">About</h1>
@@ -21,8 +22,8 @@ export default function Page() {
       </p>
     </>
   );
-}
+};
 
-Page.getLayout = (page: React.ReactElement) => (
-  <Layout title="About">{page}</Layout>
-);
+Page.getLayout = (page) => <Layout title="About">{page}</Layout>;
+
+export default Page;

@@ -13,12 +13,13 @@ import { useForm } from "~/hooks/form";
 import { usePaper } from "~/hooks/paper";
 import { useRequireVerified } from "~/hooks/require";
 import { Layout } from "~/layouts/layout";
+import type { PageComponent } from "~/pages/_app";
 import { setErrors } from "~/utils/form";
 import { http } from "~/utils/http";
 import type { Schema } from "~/validations/paper/update";
 import { schema } from "~/validations/paper/update";
 
-export default function Page() {
+const Page: PageComponent = () => {
   useRequireVerified();
 
   const {
@@ -111,8 +112,8 @@ export default function Page() {
       )}
     </>
   );
-}
+};
 
-Page.getLayout = (page: React.ReactElement) => (
-  <Layout title="Update Paper">{page}</Layout>
-);
+Page.getLayout = (page) => <Layout title="Update Paper">{page}</Layout>;
+
+export default Page;

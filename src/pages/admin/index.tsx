@@ -6,8 +6,9 @@ import { useAuth } from "~/hooks/auth";
 import { useLogout } from "~/hooks/logout";
 import { useRequireAdmin } from "~/hooks/require";
 import { AdminLayout } from "~/layouts/admin-layout";
+import type { PageComponent } from "../_app";
 
-export default function Page() {
+const Page: PageComponent = () => {
   useRequireAdmin();
 
   const { authError, authIsLoading } = useAuth();
@@ -44,8 +45,8 @@ export default function Page() {
       </div>
     </>
   );
-}
+};
 
-Page.getLayout = (page: React.ReactElement) => (
-  <AdminLayout title="Admin">{page}</AdminLayout>
-);
+Page.getLayout = (page) => <AdminLayout title="Admin">{page}</AdminLayout>;
+
+export default Page;

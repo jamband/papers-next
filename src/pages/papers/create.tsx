@@ -13,8 +13,9 @@ import { setErrors } from "~/utils/form";
 import { http } from "~/utils/http";
 import type { Schema } from "~/validations/paper/create";
 import { schema } from "~/validations/paper/create";
+import type { PageComponent } from "../_app";
 
-export default function Page() {
+const Page: PageComponent = () => {
   useRequireVerified();
 
   const { mutate } = useSWRConfig();
@@ -80,8 +81,8 @@ export default function Page() {
       </form>
     </>
   );
-}
+};
 
-Page.getLayout = (page: React.ReactElement) => (
-  <Layout title="Create New Paper">{page}</Layout>
-);
+Page.getLayout = (page) => <Layout title="Create New Paper">{page}</Layout>;
+
+export default Page;

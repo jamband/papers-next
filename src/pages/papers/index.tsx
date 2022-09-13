@@ -3,8 +3,9 @@ import { Papers } from "~/components/papers";
 import { useRequireVerified } from "~/hooks/require";
 import { IconPencil } from "~/icons/pencil";
 import { Layout } from "~/layouts/layout";
+import type { PageComponent } from "../_app";
 
-export default function Page() {
+const Page: PageComponent = () => {
   useRequireVerified();
 
   return (
@@ -18,8 +19,8 @@ export default function Page() {
       <Papers />
     </>
   );
-}
+};
 
-Page.getLayout = (page: React.ReactElement) => (
-  <Layout title="Papers">{page}</Layout>
-);
+Page.getLayout = (page) => <Layout title="Papers">{page}</Layout>;
+
+export default Page;

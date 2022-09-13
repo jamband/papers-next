@@ -5,8 +5,9 @@ import { Loading } from "~/components/loading";
 import { useRequireVerified } from "~/hooks/require";
 import { Layout } from "~/layouts/layout";
 import type { Profile } from "~/types/profile";
+import type { PageComponent } from "../_app";
 
-export default function Page() {
+const Page: PageComponent = () => {
   useRequireVerified();
 
   const { error, data } = useSWR<Profile>("/profile");
@@ -34,8 +35,8 @@ export default function Page() {
       )}
     </>
   );
-}
+};
 
-Page.getLayout = (page: React.ReactElement) => (
-  <Layout title="Profile">{page}</Layout>
-);
+Page.getLayout = (page) => <Layout title="Profile">{page}</Layout>;
+
+export default Page;
