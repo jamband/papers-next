@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ExternalLink } from "../../components/external-link";
+import { ExternalLink } from "~/components/external-link";
 
 export const Component: React.FC = () => (
   <footer className="bg-gray-700 py-3">

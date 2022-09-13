@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Users } from "../../../components/users";
-import { AdminLayout } from "../../../layouts/admin-layout";
+import { Users } from "~/components/users";
+import { AdminLayout } from "~/layouts/admin-layout";
 
 export default function Page() {
   return (

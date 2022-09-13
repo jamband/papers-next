@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { IconInformationCircle } from "../icons/information-circle";
-import { Layout } from "../layouts/layout";
+import { IconInformationCircle } from "~/icons/information-circle";
+import { Layout } from "~/layouts/layout";
 
 export default function Page() {
   return (

@@ -1,4 +1,4 @@
-import type { Paper } from "../../types/paper";
+import type { Paper } from "~/types/paper";
 
 export type _Props = {
   papers: Array<Paper>;

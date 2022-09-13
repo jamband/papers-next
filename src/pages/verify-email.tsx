@@ -1,13 +1,13 @@
-import { Button } from "../components/button";
+import { Button } from "~/components/button";
 import {
   NOTIFICATION_NEW_VERIFICATION_LINK_SENT,
   NOTIFICATION_TOO_MANY_REQUEST,
-} from "../constants/notification";
-import { useLogout } from "../hooks/logout";
-import { useNotificationAction } from "../hooks/notification";
-import { useRequireAuth } from "../hooks/require";
-import { Layout } from "../layouts/layout";
-import { http } from "../utils/http";
+} from "~/constants/notification";
+import { useLogout } from "~/hooks/logout";
+import { useNotificationAction } from "~/hooks/notification";
+import { useRequireAuth } from "~/hooks/require";
+import { Layout } from "~/layouts/layout";
+import { http } from "~/utils/http";
 
 export default function Page() {
   useRequireAuth();

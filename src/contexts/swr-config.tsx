@@ -1,5 +1,5 @@
 import { SWRConfig } from "swr";
-import { http } from "../utils/http";
+import { http } from "~/utils/http";
 
 type Props = {
   children: React.ReactNode;

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import useSWR, { useSWRConfig } from "swr";
-import { http } from "../utils/http";
+import { http } from "~/utils/http";
 import { useNotificationAction } from "./notification";
 
 export const useUsers = () => {

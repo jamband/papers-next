@@ -2,17 +2,17 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { useSWRConfig } from "swr";
-import { FormError } from "../../components/form-error";
-import { FormInput } from "../../components/form-input";
-import { FormSubmit } from "../../components/form-submit";
-import { FormTextarea } from "../../components/form-textarea";
-import { useForm } from "../../hooks/form";
-import { useRequireVerified } from "../../hooks/require";
-import { Layout } from "../../layouts/layout";
-import { setErrors } from "../../utils/form";
-import { http } from "../../utils/http";
-import type { Schema } from "../../validations/paper/create";
-import { schema } from "../../validations/paper/create";
+import { FormError } from "~/components/form-error";
+import { FormInput } from "~/components/form-input";
+import { FormSubmit } from "~/components/form-submit";
+import { FormTextarea } from "~/components/form-textarea";
+import { useForm } from "~/hooks/form";
+import { useRequireVerified } from "~/hooks/require";
+import { Layout } from "~/layouts/layout";
+import { setErrors } from "~/utils/form";
+import { http } from "~/utils/http";
+import type { Schema } from "~/validations/paper/create";
+import { schema } from "~/validations/paper/create";
 
 export default function Page() {
   useRequireVerified();

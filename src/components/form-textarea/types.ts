@@ -1,5 +1,5 @@
 import type { FieldError, UseFormRegisterReturn } from "react-hook-form";
-import type { ComponentProps } from "../../types/component-props";
+import type { ComponentProps } from "~/types/component-props";
 
 export type Props = ComponentProps<"textarea"> & {
   className?: string;

@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useSWRConfig } from "swr";
-import { API_USER_KEY } from "../constants/api";
-import { http } from "../utils/http";
+import { API_USER_KEY } from "~/constants/api";
+import { http } from "~/utils/http";
 import { useNotificationAction } from "./notification";
 
 type Logout = {

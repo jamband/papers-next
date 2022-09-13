@@ -2,15 +2,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useSWRConfig } from "swr";
-import { Button } from "../components/button";
-import { API_USER_KEY } from "../constants/api";
-import {
-  useRequirePasswordConfirm,
-  useRequireVerified,
-} from "../hooks/require";
-import { IconExclamation } from "../icons/exclamation";
-import { Layout } from "../layouts/layout";
-import { http } from "../utils/http";
+import { Button } from "~/components/button";
+import { API_USER_KEY } from "~/constants/api";
+import { useRequirePasswordConfirm, useRequireVerified } from "~/hooks/require";
+import { IconExclamation } from "~/icons/exclamation";
+import { Layout } from "~/layouts/layout";
+import { http } from "~/utils/http";
 
 export default function Page() {
   useRequireVerified();

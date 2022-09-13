@@ -1,4 +1,4 @@
-import { IconInformationCircle } from "../../icons/information-circle";
+import { IconInformationCircle } from "~/icons/information-circle";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
