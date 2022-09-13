@@ -1,6 +1,6 @@
-import type { Path, UseFormSetError } from "react-hook-form";
+import type { FieldValues, Path, UseFormSetError } from "react-hook-form";
 
-export const setErrors = <T>(
+export const setErrors = <T extends FieldValues>(
   errors: Record<string, string>,
   setError: UseFormSetError<T>
 ) => {
