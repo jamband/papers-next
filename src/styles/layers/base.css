@@ -24,10 +24,10 @@
   input[type="password"],
   input[type="text"],
   textarea {
-    @apply border rounded px-3 py-1;
+    @apply rounded border px-3 py-1;
   }
 
   label {
-    @apply text-gray-200 block;
+    @apply block text-gray-200;
   }
 }
