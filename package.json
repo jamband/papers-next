@@ -10,7 +10,7 @@
     "clean": "node scripts/clean.mjs"
   },
   "dependencies": {
-    "@hookform/resolvers": "^2.9.7",
+    "@hookform/resolvers": "^2.9.8",
     "next": "^12.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -21,10 +21,10 @@
   "devDependencies": {
     "@types/node": "^16.11.58",
     "@types/react": "^18.0.19",
-    "@typescript-eslint/eslint-plugin": "^5.36.2",
-    "@typescript-eslint/parser": "^5.36.2",
-    "autoprefixer": "^10.4.8",
-    "eslint": "^8.23.0",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.37.0",
+    "autoprefixer": "^10.4.9",
+    "eslint": "^8.23.1",
     "eslint-config-next": "^12.3.0",
     "eslint-config-prettier": "^8.5.0",
     "postcss": "^8.4.16",
