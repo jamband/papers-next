@@ -26,9 +26,7 @@ const Page: PageComponent = () => {
         <h1 className="mb-5">Faild to fetch</h1>
         <FailedToFetch className="mb-10" />
         <div className="text-center">
-          <Link href="/papers">
-            <a>Back to Papers</a>
-          </Link>
+          <Link href="/papers">Back to Papers</Link>
         </div>
       </>
     );
@@ -59,8 +57,8 @@ const Page: PageComponent = () => {
       </ActionButton>
       <hr className="mt-4" />
       <div className="mt-10 text-center md:mt-20">
-        <Link href="/papers">
-          <a className="p-3">← Back to Papers</a>
+        <Link href="/papers" className="p-3">
+          ← Back to Papers
         </Link>
       </div>
     </>

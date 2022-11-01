@@ -10,9 +10,7 @@ export const Component: React.FC<_Props> = (props) => (
     {props.papers.map((paper) => (
       <div key={paper.id}>
         <h2 className="mb-3">
-          <Link href={`/papers/${paper.id}`}>
-            <a>{paper.title}</a>
-          </Link>
+          <Link href={`/papers/${paper.id}`}>{paper.title}</Link>
         </h2>
         <div className="mb-3">{paper.body}</div>
         <div className="mb-1 text-sm text-gray-400">

@@ -35,11 +35,11 @@ const Page: PageComponent = () => {
       {auth ? (
         <div className="animate-fadeIn">
           <div className="flex items-center justify-center">
-            <Link href="/papers">
-              <a className="px-5 py-2">Papers</a>
+            <Link href="/papers" className="px-5 py-2">
+              Papers
             </Link>
-            <Link href="/profile">
-              <a className="px-5 py-2">Profile</a>
+            <Link href="/profile" className="px-5 py-2">
+              Profile
             </Link>
           </div>
           <hr className="my-12" />
@@ -57,11 +57,11 @@ const Page: PageComponent = () => {
           </div>
           <hr className="my-12" />
           <div className="flex items-center justify-center">
-            <Link href="/login">
-              <a className="px-5 py-2">Login</a>
+            <Link href="/login" className="px-5 py-2">
+              Login
             </Link>
-            <Link href="/register">
-              <a className="px-5 py-2">Register</a>
+            <Link href="/register" className="px-5 py-2">
+              Register
             </Link>
           </div>
         </div>

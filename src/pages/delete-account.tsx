@@ -63,9 +63,7 @@ const Page: PageComponent = () => {
             Delete Account
           </Button>
           <span className="mx-2">or</span>
-          <Link href="/">
-            <a>cancel</a>
-          </Link>
+          <Link href="/">cancel</Link>
         </>
       )}
     </>

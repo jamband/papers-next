@@ -100,14 +100,10 @@ const Page: PageComponent = () => {
         </div>
         <FormSubmit disabled={isSubmitting}>Login</FormSubmit>
         <span className="mx-3">or</span>
-        <Link href="/forgot-password">
-          <a>Forgot password?</a>
-        </Link>
+        <Link href="/forgot-password">Forgot password?</Link>
       </form>
       <hr className="my-10" />
-      <Link href="/admin/login">
-        <a>Login as administrator</a>
-      </Link>
+      <Link href="/admin/login">Login as administrator</Link>
       <div className="mt-2 text-amber-500">
         <IconLightBulb className="mr-0.5 h-4 w-4 align-[-0.125em]" />
         This link usually does not exist. Displayed for development environment.

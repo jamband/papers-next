@@ -31,8 +31,8 @@ const Page: PageComponent = () => {
     <>
       <h1>Admin Home</h1>
       <div className="mt-16 flex items-center justify-center">
-        <Link href="/admin/users">
-          <a className="px-5 py-2">Users</a>
+        <Link href="/admin/users" className="px-5 py-2">
+          Users
         </Link>
       </div>
       <hr className="my-12" />
