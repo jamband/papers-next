@@ -1,5 +1,5 @@
+import type { ComponentProps } from "@/types/component-props";
 import type { FieldError, UseFormRegisterReturn } from "react-hook-form";
-import type { ComponentProps } from "~/types/component-props";
 
 type SharedProps = {
   className?: string;

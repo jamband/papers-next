@@ -1,20 +1,20 @@
+import { FormError } from "@/components/form-error";
+import { FormInput } from "@/components/form-input";
+import { FormSubmit } from "@/components/form-submit";
+import { NOTIFICATION_VERIFICATION_LINK_SENT } from "@/constants/notification";
+import { useForm } from "@/hooks/form";
+import { useNotificationAction } from "@/hooks/notification";
+import { useRequireGuest } from "@/hooks/require";
+import { IconLightBulb } from "@/icons/light-bulb";
+import { Layout } from "@/layouts/layout";
+import { setErrors } from "@/utils/form";
+import { http } from "@/utils/http";
+import type { Schema } from "@/validations/auth/register";
+import { schema } from "@/validations/auth/register";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
-import { FormError } from "~/components/form-error";
-import { FormInput } from "~/components/form-input";
-import { FormSubmit } from "~/components/form-submit";
-import { NOTIFICATION_VERIFICATION_LINK_SENT } from "~/constants/notification";
-import { useForm } from "~/hooks/form";
-import { useNotificationAction } from "~/hooks/notification";
-import { useRequireGuest } from "~/hooks/require";
-import { IconLightBulb } from "~/icons/light-bulb";
-import { Layout } from "~/layouts/layout";
-import { setErrors } from "~/utils/form";
-import { http } from "~/utils/http";
-import type { Schema } from "~/validations/auth/register";
-import { schema } from "~/validations/auth/register";
 import type { PageComponent } from "./_app";
 
 const Page: PageComponent = () => {

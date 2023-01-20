@@ -1,18 +1,18 @@
+import { FormError } from "@/components/form-error";
+import { FormInput } from "@/components/form-input";
+import { FormSubmit } from "@/components/form-submit";
+import { useForm } from "@/hooks/form";
+import { useNotificationAction } from "@/hooks/notification";
+import { useRequireGuest } from "@/hooks/require";
+import { Layout } from "@/layouts/layout";
+import { setErrors } from "@/utils/form";
+import { http } from "@/utils/http";
+import type { Schema } from "@/validations/auth/reset-password";
+import { label, schema } from "@/validations/auth/reset-password";
 import type { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
-import { FormError } from "~/components/form-error";
-import { FormInput } from "~/components/form-input";
-import { FormSubmit } from "~/components/form-submit";
-import { useForm } from "~/hooks/form";
-import { useNotificationAction } from "~/hooks/notification";
-import { useRequireGuest } from "~/hooks/require";
-import { Layout } from "~/layouts/layout";
-import { setErrors } from "~/utils/form";
-import { http } from "~/utils/http";
-import type { Schema } from "~/validations/auth/reset-password";
-import { label, schema } from "~/validations/auth/reset-password";
 import type { PageComponent } from "../_app";
 
 type Props = {

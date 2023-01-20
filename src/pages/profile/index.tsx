@@ -1,10 +1,10 @@
+import { FailedToFetch } from "@/components/failed-to-fetch";
+import { Loading } from "@/components/loading";
+import { useRequireVerified } from "@/hooks/require";
+import { Layout } from "@/layouts/layout";
+import type { Profile } from "@/types/profile";
 import Link from "next/link";
 import useSWR from "swr";
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { Loading } from "~/components/loading";
-import { useRequireVerified } from "~/hooks/require";
-import { Layout } from "~/layouts/layout";
-import type { Profile } from "~/types/profile";
 import type { PageComponent } from "../_app";
 
 const Page: PageComponent = () => {

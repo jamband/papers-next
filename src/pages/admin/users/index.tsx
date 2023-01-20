@@ -1,7 +1,7 @@
+import { Users } from "@/components/users";
+import { AdminLayout } from "@/layouts/admin-layout";
+import type { PageComponent } from "@/pages/_app";
 import Link from "next/link";
-import { Users } from "~/components/users";
-import { AdminLayout } from "~/layouts/admin-layout";
-import type { PageComponent } from "~/pages/_app";
 
 const Page: PageComponent = () => {
   return (

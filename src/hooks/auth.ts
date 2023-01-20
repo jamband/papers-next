@@ -1,6 +1,6 @@
+import { API_USER_KEY } from "@/constants/api";
+import type { Auth } from "@/types/auth";
 import useSWR from "swr";
-import { API_USER_KEY } from "~/constants/api";
-import type { Auth } from "~/types/auth";
 
 export const useAuth = () => {
   const { error, data } = useSWR<Auth | null>(API_USER_KEY);

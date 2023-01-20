@@ -1,9 +1,9 @@
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import {
   useNotificationAction,
   useNotificationState,
-} from "~/hooks/notification";
+} from "@/hooks/notification";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { Component } from "./component";
 import type { Props } from "./types";
 

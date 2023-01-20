@@ -1,21 +1,21 @@
+import { FormError } from "@/components/form-error";
+import { FormInput } from "@/components/form-input";
+import { FormSubmit } from "@/components/form-submit";
+import { API_USER_KEY } from "@/constants/api";
+import { useForm } from "@/hooks/form";
+import { useNotificationAction } from "@/hooks/notification";
+import { useRequireGuest } from "@/hooks/require";
+import { IconLightBulb } from "@/icons/light-bulb";
+import { Layout } from "@/layouts/layout";
+import { setErrors } from "@/utils/form";
+import { http } from "@/utils/http";
+import type { Schema } from "@/validations/admin/login";
+import { label, schema } from "@/validations/admin/login";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { useSWRConfig } from "swr";
-import { FormError } from "~/components/form-error";
-import { FormInput } from "~/components/form-input";
-import { FormSubmit } from "~/components/form-submit";
-import { API_USER_KEY } from "~/constants/api";
-import { useForm } from "~/hooks/form";
-import { useNotificationAction } from "~/hooks/notification";
-import { useRequireGuest } from "~/hooks/require";
-import { IconLightBulb } from "~/icons/light-bulb";
-import { Layout } from "~/layouts/layout";
-import { setErrors } from "~/utils/form";
-import { http } from "~/utils/http";
-import type { Schema } from "~/validations/admin/login";
-import { label, schema } from "~/validations/admin/login";
 import type { PageComponent } from "../_app";
 
 const Page: PageComponent = () => {

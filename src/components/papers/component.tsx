@@ -1,6 +1,6 @@
+import { IconClock } from "@/icons/clock";
+import { IconTrash } from "@/icons/trash";
 import Link from "next/link";
-import { IconClock } from "~/icons/clock";
-import { IconTrash } from "~/icons/trash";
 import { ActionButton } from "../action-button";
 import { ActionLink } from "../action-link";
 import type { _Props } from "./types";

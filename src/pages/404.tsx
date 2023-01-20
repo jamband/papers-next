@@ -1,6 +1,6 @@
+import { IconInformationCircle } from "@/icons/information-circle";
+import { Layout } from "@/layouts/layout";
 import Link from "next/link";
-import { IconInformationCircle } from "~/icons/information-circle";
-import { Layout } from "~/layouts/layout";
 import type { PageComponent } from "./_app";
 
 const Page: PageComponent = () => {

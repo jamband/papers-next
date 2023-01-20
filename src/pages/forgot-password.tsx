@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
-import type { SubmitHandler } from "react-hook-form";
-import { FormError } from "~/components/form-error";
-import { FormInput } from "~/components/form-input";
-import { FormSubmit } from "~/components/form-submit";
+import { FormError } from "@/components/form-error";
+import { FormInput } from "@/components/form-input";
+import { FormSubmit } from "@/components/form-submit";
 import {
   FAILED_TO_REQUEST,
   NOTIFICATION_PASSWORD_RESET_LINK_SENT,
-} from "~/constants/notification";
-import { useForm } from "~/hooks/form";
-import { useNotificationAction } from "~/hooks/notification";
-import { useRequireGuest } from "~/hooks/require";
-import { Layout } from "~/layouts/layout";
-import { setErrors } from "~/utils/form";
-import { http } from "~/utils/http";
-import type { Schema } from "~/validations/auth/forgot-password";
-import { label, schema } from "~/validations/auth/forgot-password";
+} from "@/constants/notification";
+import { useForm } from "@/hooks/form";
+import { useNotificationAction } from "@/hooks/notification";
+import { useRequireGuest } from "@/hooks/require";
+import { Layout } from "@/layouts/layout";
+import { setErrors } from "@/utils/form";
+import { http } from "@/utils/http";
+import type { Schema } from "@/validations/auth/forgot-password";
+import { label, schema } from "@/validations/auth/forgot-password";
+import { useEffect, useState } from "react";
+import type { SubmitHandler } from "react-hook-form";
 import type { PageComponent } from "./_app";
 
 const Page: PageComponent = () => {

@@ -1,7 +1,7 @@
-import { ExternalLink } from "~/components/external-link";
-import { APP_DESCRIPTION } from "~/constants/app";
-import { IconExternalLink } from "~/icons/external-link";
-import { Layout } from "~/layouts/layout";
+import { ExternalLink } from "@/components/external-link";
+import { APP_DESCRIPTION } from "@/constants/app";
+import { IconExternalLink } from "@/icons/external-link";
+import { Layout } from "@/layouts/layout";
 import type { PageComponent } from "./_app";
 
 const Page: PageComponent = () => {

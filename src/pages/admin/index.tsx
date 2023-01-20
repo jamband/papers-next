@@ -1,11 +1,11 @@
+import { Button } from "@/components/button";
+import { FailedToFetch } from "@/components/failed-to-fetch";
+import { Loading } from "@/components/loading";
+import { useAuth } from "@/hooks/auth";
+import { useLogout } from "@/hooks/logout";
+import { useRequireAdmin } from "@/hooks/require";
+import { AdminLayout } from "@/layouts/admin-layout";
 import Link from "next/link";
-import { Button } from "~/components/button";
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { Loading } from "~/components/loading";
-import { useAuth } from "~/hooks/auth";
-import { useLogout } from "~/hooks/logout";
-import { useRequireAdmin } from "~/hooks/require";
-import { AdminLayout } from "~/layouts/admin-layout";
 import type { PageComponent } from "../_app";
 
 const Page: PageComponent = () => {

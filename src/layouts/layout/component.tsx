@@ -1,7 +1,7 @@
+import { Notification } from "@/components/notification";
+import { NotificationProvider } from "@/contexts/notification";
+import { SWRConfigProvider } from "@/contexts/swr-config";
 import Head from "next/head";
-import { Notification } from "~/components/notification";
-import { NotificationProvider } from "~/contexts/notification";
-import { SWRConfigProvider } from "~/contexts/swr-config";
 import { Footer } from "../footer";
 import { Header } from "../header";
 import { Loading } from "../loading";

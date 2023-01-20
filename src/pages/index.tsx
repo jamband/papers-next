@@ -1,13 +1,13 @@
+import { Button } from "@/components/button";
+import { FailedToFetch } from "@/components/failed-to-fetch";
+import { Loading } from "@/components/loading";
+import { APP_DESCRIPTION } from "@/constants/app";
+import { useAuth } from "@/hooks/auth";
+import { useLogout } from "@/hooks/logout";
+import { useVerificationNotification } from "@/hooks/verification-notification";
+import { IconInformationCircle } from "@/icons/information-circle";
+import { Layout } from "@/layouts/layout";
 import Link from "next/link";
-import { Button } from "~/components/button";
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { Loading } from "~/components/loading";
-import { APP_DESCRIPTION } from "~/constants/app";
-import { useAuth } from "~/hooks/auth";
-import { useLogout } from "~/hooks/logout";
-import { useVerificationNotification } from "~/hooks/verification-notification";
-import { IconInformationCircle } from "~/icons/information-circle";
-import { Layout } from "~/layouts/layout";
 import type { PageComponent } from "./_app";
 
 const Page: PageComponent = () => {

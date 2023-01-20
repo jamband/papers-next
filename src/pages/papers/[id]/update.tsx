@@ -1,23 +1,23 @@
+import { FailedToFetch } from "@/components/failed-to-fetch";
+import { FormError } from "@/components/form-error";
+import { FormInput } from "@/components/form-input";
+import { FormSubmit } from "@/components/form-submit";
+import { FormTextarea } from "@/components/form-textarea";
+import { Loading } from "@/components/loading";
+import { useForm } from "@/hooks/form";
+import { usePaper } from "@/hooks/paper";
+import { useRequireVerified } from "@/hooks/require";
+import { Layout } from "@/layouts/layout";
+import type { PageComponent } from "@/pages/_app";
+import { setErrors } from "@/utils/form";
+import { http } from "@/utils/http";
+import type { Schema } from "@/validations/paper/update";
+import { schema } from "@/validations/paper/update";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { useSWRConfig } from "swr";
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { FormError } from "~/components/form-error";
-import { FormInput } from "~/components/form-input";
-import { FormSubmit } from "~/components/form-submit";
-import { FormTextarea } from "~/components/form-textarea";
-import { Loading } from "~/components/loading";
-import { useForm } from "~/hooks/form";
-import { usePaper } from "~/hooks/paper";
-import { useRequireVerified } from "~/hooks/require";
-import { Layout } from "~/layouts/layout";
-import type { PageComponent } from "~/pages/_app";
-import { setErrors } from "~/utils/form";
-import { http } from "~/utils/http";
-import type { Schema } from "~/validations/paper/update";
-import { schema } from "~/validations/paper/update";
 
 const Page: PageComponent = () => {
   useRequireVerified();

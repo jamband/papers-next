@@ -1,4 +1,4 @@
-import { IconExclamation } from "~/icons/exclamation";
+import { IconExclamation } from "@/icons/exclamation";
 import { Button } from "../button";
 import type { _Props } from "./types";
 
