@@ -19,7 +19,7 @@ export const Component: React.FC<_Props> = (props) => (
       <NotificationProvider>
         <div className="flex min-h-screen flex-col">
           <Header />
-          <main className="container mx-auto grow pt-28 pb-10">
+          <main className="container mx-auto grow pb-10 pt-28">
             <Notification className="mb-5" />
             {props.children}
           </main>

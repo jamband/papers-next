@@ -31,7 +31,7 @@ export const Component: React.FC<_Props> = (props) => (
           Delete
           <IconTrash className="ml-0.5 h-4 w-4 align-[-0.15em]" />
         </ActionButton>
-        <hr className="mt-3 mb-10" />
+        <hr className="mb-10 mt-3" />
       </div>
     ))}
   </>
