@@ -4,7 +4,7 @@ import { useForm as baseUseForm } from "react-hook-form";
 import type { AnyObject, ObjectSchema } from "yup";
 
 export const useForm = <T extends FieldValues>(
-  schema: ObjectSchema<AnyObject>
+  schema: ObjectSchema<AnyObject>,
 ) => {
   return baseUseForm<T>({ resolver: yupResolver(schema) });
 };
