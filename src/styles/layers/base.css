@@ -22,9 +22,12 @@
 
   input[type="email"],
   input[type="password"],
-  input[type="text"],
-  textarea {
+  input[type="text"] {
     @apply rounded border px-3 py-1;
+  }
+
+  textarea {
+    @apply rounded border px-3 py-1 align-top;
   }
 
   label {

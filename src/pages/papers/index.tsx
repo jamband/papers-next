@@ -11,7 +11,7 @@ const Page: PageComponent = () => {
   return (
     <>
       <h1 className="mb-5">Papers</h1>
-      <ActionLink href="/papers/create">
+      <ActionLink href="/papers/create" className="py-2">
         Create New Paper
         <IconPencil className="ml-1 h-4 w-4 align-[-0.125em]" />
       </ActionLink>

@@ -44,17 +44,13 @@ const Page: PageComponent = () => {
         <div>Created at: {paper.created_at}</div>
         <div>Updated at: {paper.updated_at}</div>
       </div>
-      <ActionLink href={`/papers/${paper.id}/update`} className="mr-3 text-sm">
-        Update →
-      </ActionLink>
-      <ActionButton
-        type="button"
-        onClick={() => deletePaper(paper.id)}
-        className="py-0.5 text-sm"
-      >
-        Delete
-        <IconTrash className="ml-0.5 h-4 w-4 align-[-0.2em]" />
-      </ActionButton>
+      <div className="flex gap-3 text-sm">
+        <ActionLink href={`/papers/${paper.id}/update`}>Update →</ActionLink>
+        <ActionButton type="button" onClick={() => deletePaper(paper.id)}>
+          Delete
+          <IconTrash className="ml-0.5 h-4 w-4 align-[-0.2em]" />
+        </ActionButton>
+      </div>
       <hr className="mt-4" />
       <div className="mt-10 text-center md:mt-20">
         <Link href="/papers" className="p-3">

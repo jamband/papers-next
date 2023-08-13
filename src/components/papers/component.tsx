@@ -17,20 +17,16 @@ export const Component: React.FC<_Props> = (props) => (
           <IconClock className="mr-0.5 h-4 w-4 align-[-0.2em]" />
           {paper.created_at}
         </div>
-        <ActionLink
-          href={`/papers/${paper.id}/update`}
-          className="mr-3 text-sm"
-        >
-          Update →
-        </ActionLink>
-        <ActionButton
-          type="button"
-          onClick={() => props.deletePaper(paper.id)}
-          className="py-0.5 text-sm"
-        >
-          Delete
-          <IconTrash className="ml-0.5 h-4 w-4 align-[-0.15em]" />
-        </ActionButton>
+        <div className="flex gap-3 text-sm">
+          <ActionLink href={`/papers/${paper.id}/update`}>Update →</ActionLink>
+          <ActionButton
+            type="button"
+            onClick={() => props.deletePaper(paper.id)}
+          >
+            Delete
+            <IconTrash className="ml-0.5 h-4 w-4 align-[-0.2em]" />
+          </ActionButton>
+        </div>
         <hr className="mb-10 mt-3" />
       </div>
     ))}
