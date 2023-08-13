@@ -1,5 +1,6 @@
-/** @type import("tailwindcss").Config */
-module.exports = {
+import type { Config } from "tailwindcss";
+
+export default {
   content: ["./src/**/*.tsx"],
   theme: {
     container: {
@@ -9,9 +10,9 @@ module.exports = {
       md: "768px",
     },
     fontSize: {
-      xxs: ["0.675rem"],
-      xs: ["0.8125rem"],
-      sm: ["0.9375rem"],
+      xxs: "0.675rem",
+      xs: "0.8125rem",
+      sm: "0.9375rem",
       base: ["1.0625rem", "1.7rem"],
       "3xl": ["1.65rem", "2.5rem"],
       "4xl": ["2rem", "2.5rem"],
@@ -36,8 +37,8 @@ module.exports = {
       },
       keyframes: {
         fadeIn: {
-          "0%": { opacity: 0 },
-          "100%": { opacity: 1 },
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
       },
       animation: {
@@ -45,4 +46,4 @@ module.exports = {
       },
     },
   },
-};
+} satisfies Config;
