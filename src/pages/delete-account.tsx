@@ -48,7 +48,7 @@ const Page: PageComponent = () => {
   return (
     <>
       {isDeleted ? (
-        <p className="grid h-70vh place-items-center bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-center text-5xl text-transparent">
+        <p className="grid h-[70vh] place-items-center bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-center text-5xl text-transparent">
           Thank you for using it so far.
         </p>
       ) : (

@@ -32,9 +32,6 @@ export default {
           900: "#020009",
         },
       },
-      height: {
-        "70vh": "70vh",
-      },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0" },
