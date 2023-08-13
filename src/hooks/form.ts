@@ -1,10 +1,10 @@
-import { yupResolver } from "@hookform/resolvers/yup";
+import { valibotResolver } from "@hookform/resolvers/valibot";
 import type { FieldValues } from "react-hook-form";
 import { useForm as baseUseForm } from "react-hook-form";
-import type { AnyObject, ObjectSchema } from "yup";
+import type { ObjectSchema, ObjectShape } from "valibot";
 
 export const useForm = <T extends FieldValues>(
-  schema: ObjectSchema<AnyObject>,
+  schema: ObjectSchema<ObjectShape, T>,
 ) => {
-  return baseUseForm<T>({ resolver: yupResolver(schema) });
+  return baseUseForm<T>({ resolver: valibotResolver(schema) });
 };

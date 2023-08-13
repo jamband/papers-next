@@ -1,13 +1,16 @@
-import type { InferType } from "yup";
-import { object, string } from "yup";
-import "../locale";
+import type { Output } from "valibot";
+import { minLength, object, string } from "valibot";
+
+const field = {
+  password: "Password",
+};
 
 export const schema = object({
-  password: string().required(),
+  password: string([minLength(1, `The ${field.password} field is required.`)]),
 });
 
-export type Schema = InferType<typeof schema>;
+export type Schema = Output<typeof schema>;
 
 export const label: Record<keyof Schema, string> = {
-  password: "Password",
+  password: field.password,
 };
