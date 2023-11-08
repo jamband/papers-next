@@ -1,12 +1,10 @@
 export type Props = {
   name: string;
-  label: string;
   className?: string;
+  label: string;
   inputClass: string;
   feedback: string | undefined;
-  placeholder?: string;
-  required?: boolean;
-  defaultValue?: string;
+  defaultChecked?: boolean;
 };
 
 export type _Props = Props & {

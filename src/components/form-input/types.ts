@@ -1,14 +1,20 @@
-import type { ComponentProps } from "@/types/component-props";
-import type { FieldError, UseFormRegisterReturn } from "react-hook-form";
+import type { MutableRefObject } from "react";
 
-type SharedProps = {
+export type Props = {
   className?: string;
-  register: UseFormRegisterReturn;
-  errors: FieldError | undefined;
+  label: string;
+  type: "email" | "password" | "text";
+  name: string;
+  inputClass: string;
+  feedback: string | undefined;
+  placeholder?: string;
+  autoComplete?: string;
+  required?: boolean;
+  defaultValue?: string;
+  focus?: boolean;
 };
 
-export type Props = SharedProps & ComponentProps<"input">;
-
-export type _Props = SharedProps & {
-  rest: ComponentProps<"input">;
+export type _Props = Props & {
+  id: string;
+  inputRef: MutableRefObject<HTMLInputElement | null>;
 };

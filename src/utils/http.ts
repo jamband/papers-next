@@ -2,7 +2,7 @@ import { API_CSRF_COOKIE, API_URL } from "../constants/api";
 
 type Init = Pick<RequestInit, "headers"> & {
   method?: "GET" | "POST" | "PUT" | "DELETE" | "OPTIONS" | "PATCH";
-  body?: Record<string, boolean | number | string | undefined> | null;
+  body?: string;
   params?: Record<string, string>;
 };
 
@@ -34,6 +34,11 @@ export const http = async (input: RequestInfo, init?: Init) => {
     method: init?.method || "GET",
     credentials: "include",
     headers: { ...headers, ...init?.headers },
-    body: init?.body ? JSON.stringify(init.body) : null,
+    body: init?.body ?? null,
   });
+};
+
+export const formDataToJsonString = (form: HTMLFormElement) => {
+  const data = Object.fromEntries(new FormData(form));
+  return JSON.stringify(data).replace('"on"', "true");
 };

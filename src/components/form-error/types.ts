@@ -1,5 +1,6 @@
 export type Props = {
-  children: React.ReactNode;
+  id: `${string}-feedback`;
+  message: string;
 };
 
 export type _Props = Props;

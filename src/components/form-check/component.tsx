@@ -3,23 +3,20 @@ import { FormLabel } from "../form-label";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
-  <fieldset className={`flex flex-col gap-1 ${props.className || ""}`}>
-    <FormLabel htmlFor={props.id} required={props.required}>
-      {props.label}
-    </FormLabel>
-    <textarea
+  <fieldset className={`flex gap-1 ${props.className || ""}`}>
+    <input
+      type="checkbox"
       name={props.name}
       id={props.id}
       className={`${props.inputClass} ${
         props.feedback
-          ? "outline-none ring-1 ring-red-400 focus:ring"
-          : "border"
+          ? "shadow-[0_0_0_1px_red] outline-offset-2a outline-none focus:shadow-[0_0_0_2px_red]"
+          : ""
       }`}
-      placeholder={props.placeholder}
-      aria-required={props.required}
       aria-describedby={`${props.id}-feedback`}
-      defaultValue={props.defaultValue || ""}
+      defaultChecked={props.defaultChecked || false}
     />
+    <FormLabel htmlFor={props.id}>{props.label}</FormLabel>
     {!!props.feedback && (
       <FormError id={`${props.id}-feedback`} message={props.feedback} />
     )}

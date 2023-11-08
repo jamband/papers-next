@@ -1,22 +1,17 @@
 import { FailedToFetch } from "@/components/failed-to-fetch";
-import { FormError } from "@/components/form-error";
 import { FormInput } from "@/components/form-input";
 import { FormSubmit } from "@/components/form-submit";
 import { FormTextarea } from "@/components/form-textarea";
 import { Loading } from "@/components/loading";
-import { useForm } from "@/hooks/form";
 import { usePaper } from "@/hooks/paper";
 import { useRequireVerified } from "@/hooks/require";
 import { Layout } from "@/layouts/layout";
 import type { PageComponent } from "@/pages/_app";
-import { setErrors } from "@/utils/form";
-import { http } from "@/utils/http";
-import type { Schema } from "@/validations/paper/update";
-import { schema } from "@/validations/paper/update";
+import { formDataToJsonString, http } from "@/utils/http";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import type { SubmitHandler } from "react-hook-form";
+import type { FormEvent } from "react";
+import { useState } from "react";
 import { useSWRConfig } from "swr";
 
 const Page: PageComponent = () => {
@@ -28,35 +23,29 @@ const Page: PageComponent = () => {
     data: paper,
   } = usePaper();
 
+  const [errors, setErrors] = useState({
+    title: "",
+    body: "",
+  });
+
   const { mutate } = useSWRConfig();
   const { push } = useRouter();
 
-  const {
-    register,
-    handleSubmit,
-    setError,
-    setFocus,
-    formState: { errors, isSubmitting },
-  } = useForm<Schema>(schema);
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
 
-  useEffect(() => {
-    if (paperError || paperIsLoading) return;
-    setFocus("title");
-  }, [paperError, paperIsLoading, setFocus]);
-
-  const onSubmit: SubmitHandler<Schema> = async (body) => {
-    const res = await http(`/papers/${paper.id}`, {
+    const response = await http(`/papers/${paper.id}`, {
       method: "PUT",
-      body,
+      body: formDataToJsonString(form),
     });
 
-    if (res.status === 422) {
-      const { errors } = await res.json();
-      setErrors(errors, setError);
+    if (response.status === 422) {
+      setErrors((await response.json()).errors);
       return;
     }
 
-    if (res.ok) {
+    if (response.ok) {
       await mutate(`/papers/${paper.id}`);
       await push(`/papers/${paper.id}`);
       return;
@@ -74,31 +63,26 @@ const Page: PageComponent = () => {
             <Loading className="flex items-center justify-center" />
           ) : (
             <>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="mb-5">
-                  <label htmlFor="title">Title</label>
-                  <FormInput
-                    id="title"
-                    className="w-full border-gray-700 bg-gray-900 md:w-1/2"
-                    type="text"
-                    defaultValue={paper.title}
-                    register={register("title")}
-                    errors={errors.title}
-                  />
-                  <FormError>{errors.title?.message}</FormError>
-                </div>
-                <div className="mb-6">
-                  <label htmlFor="body">Body</label>
-                  <FormTextarea
-                    id="body"
-                    className="w-full border-gray-700 bg-gray-900 md:w-1/2"
-                    defaultValue={paper.body}
-                    register={register("body")}
-                    errors={errors.body}
-                  />
-                  <FormError>{errors.body?.message}</FormError>
-                </div>
-                <FormSubmit disabled={isSubmitting}>Update</FormSubmit>
+              <form onSubmit={handleSubmit}>
+                <FormInput
+                  type="text"
+                  name="title"
+                  label="Title"
+                  className="mb-6"
+                  inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+                  defaultValue={paper.title}
+                  feedback={errors.title}
+                  focus
+                />
+                <FormTextarea
+                  name="body"
+                  label="Body"
+                  className="mb-6"
+                  inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+                  defaultValue={paper.body}
+                  feedback={errors.body}
+                />
+                <FormSubmit disabled={false}>Update</FormSubmit>
               </form>
               <hr className="mt-4" />
               <div className="mt-10 text-center md:mt-20">

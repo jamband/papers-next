@@ -1,15 +1,14 @@
+import { useEffect, useId, useRef } from "react";
 import { Component } from "./component";
 import type { Props } from "./types";
 
 export const FormInput: React.FC<Props> = (props) => {
-  const { errors, register, ...rest } = props;
+  const id = useId();
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
-  return (
-    <Component
-      className={rest.className}
-      errors={errors}
-      register={register}
-      rest={rest}
-    />
-  );
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, [inputRef]);
+
+  return <Component {...props} id={id} inputRef={inputRef} />;
 };

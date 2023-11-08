@@ -1,56 +1,48 @@
-import { FormError } from "@/components/form-error";
+import { FormCheck } from "@/components/form-check";
 import { FormInput } from "@/components/form-input";
 import { FormSubmit } from "@/components/form-submit";
 import { API_USER_KEY } from "@/constants/api";
 import { FAILED_TO_REQUEST } from "@/constants/notification";
-import { useForm } from "@/hooks/form";
 import { useNotificationAction } from "@/hooks/notification";
 import { useRequireGuest } from "@/hooks/require";
 import { IconLightBulb } from "@/icons/light-bulb";
 import { Layout } from "@/layouts/layout";
-import { setErrors } from "@/utils/form";
-import { http } from "@/utils/http";
-import type { Schema } from "@/validations/auth/login";
-import { label, schema } from "@/validations/auth/login";
+import { formDataToJsonString, http } from "@/utils/http";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import type { SubmitHandler } from "react-hook-form";
+import type { FormEvent } from "react";
+import { useState } from "react";
 import { useSWRConfig } from "swr";
 import type { PageComponent } from "./_app";
 
 const Page: PageComponent = () => {
   useRequireGuest();
 
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    remember: "",
+  });
+
   const { mutate } = useSWRConfig();
   const { push } = useRouter();
   const { notification } = useNotificationAction();
 
-  const {
-    register,
-    handleSubmit,
-    setError,
-    setFocus,
-    formState: { errors, isSubmitting },
-  } = useForm<Schema>(schema);
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
 
-  useEffect(() => {
-    setFocus("email");
-  }, [setFocus]);
-
-  const onSubmit: SubmitHandler<Schema> = async (body) => {
     await http("/login", {
       method: "POST",
-      body,
+      body: formDataToJsonString(form),
     })
-      .then(async (res) => {
-        if (res.status === 422) {
-          const { errors } = await res.json();
-          setErrors(errors, setError);
+      .then(async (response) => {
+        if (response.status === 422) {
+          setErrors((await response.json()).errors);
           return;
         }
 
-        if (res.ok) {
+        if (response.ok) {
           await mutate(API_USER_KEY, undefined);
           await push("/");
           notification({ message: "Logged in successfully." });
@@ -67,38 +59,34 @@ const Page: PageComponent = () => {
   return (
     <>
       <h1 className="mb-5">Login</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mb-5">
-          <label htmlFor="email">{label.email}</label>
-          <FormInput
-            id="email"
-            className="w-full border-gray-700 bg-gray-900 md:w-1/2"
-            type="text"
-            autoComplete="email"
-            register={register("email")}
-            errors={errors.email}
-          />
-          <FormError>{errors.email?.message}</FormError>
-        </div>
-        <div className="mb-5">
-          <label htmlFor="password">{label.password}</label>
-          <FormInput
-            id="password"
-            className="w-full border-gray-700 bg-gray-900 md:w-1/2"
-            type="password"
-            autoComplete="current-password"
-            register={register("password")}
-            errors={errors.password}
-          />
-          <FormError>{errors.password?.message}</FormError>
-        </div>
-        <div className="mb-6">
-          <label htmlFor="remember_me">
-            <input id="remember_me" name="remember" type="checkbox" />
-            <span className="ml-2 text-sm">Remember me</span>
-          </label>
-        </div>
-        <FormSubmit disabled={isSubmitting}>Login</FormSubmit>
+      <form onSubmit={handleSubmit}>
+        <FormInput
+          type="text"
+          name="email"
+          label="Email"
+          className="mb-5"
+          inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+          autoComplete="email"
+          feedback={errors.email}
+          focus
+        />
+        <FormInput
+          type="password"
+          name="password"
+          label="Password"
+          className="mb-5"
+          inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+          autoComplete="current-password"
+          feedback={errors.password}
+        />
+        <FormCheck
+          name="remember"
+          label="Remeber me"
+          className="mb-6"
+          inputClass=""
+          feedback={errors.remember}
+        />
+        <FormSubmit disabled={false}>Login</FormSubmit>
         <span className="mx-3">or</span>
         <Link href="/forgot-password">Forgot password?</Link>
       </form>
