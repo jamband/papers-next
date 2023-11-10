@@ -11,6 +11,7 @@ import { formDataToJsonString, http } from "@/utils/http";
 import type { FormEvent } from "react";
 import { useState } from "react";
 import type { PageComponent } from "./_app";
+import styles from "./forgot-password.module.css";
 
 const Page: PageComponent = () => {
   useRequireGuest();
@@ -50,26 +51,26 @@ const Page: PageComponent = () => {
   };
 
   return (
-    <>
-      <h1 className="mb-5">Forgot password</h1>
-      <p className="mb-5">
+    <div className={styles.container}>
+      <h1>Forgot password</h1>
+      <p>
         Forgot your password? No problem. Just let us know your email address
         and we will email you a password reset link that will allow you to
         choose a new one.
       </p>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <FormInput
           type="text"
           name="email"
           label="Email"
-          className="mb-8"
-          inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+          className={styles.fieldset}
+          inputClass={styles.textbox}
           feedback={errors.email}
           focus
         />
         <FormSubmit disabled={isSend}>Send Email</FormSubmit>
       </form>
-    </>
+    </div>
   );
 };
 

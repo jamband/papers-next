@@ -15,19 +15,15 @@
     "@types/react": "18.2.24",
     "@typescript-eslint/eslint-plugin": "6.7.4",
     "@typescript-eslint/parser": "6.7.4",
-    "autoprefixer": "10.4.16",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.4",
     "eslint-config-prettier": "9.0.0",
     "next": "13.5.4",
-    "postcss": "8.4.31",
-    "postcss-import": "15.1.0",
     "prettier": "3.0.3",
-    "prettier-plugin-tailwindcss": "0.5.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "swr": "2.2.4",
-    "tailwindcss": "3.3.3",
+    "the-new-css-reset": "1.11.1",
     "typescript": "5.2.2"
   }
 }

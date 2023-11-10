@@ -1,0 +1,45 @@
+html {
+  line-height: 1.5;
+  scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: rgb(var(--gray-800));
+  color: rgb(var(--gray-400));
+  font-family: system-ui, Arial, sans-serif;
+  font-size: var(--text-base);
+  line-height: inherit;
+}
+
+h1 {
+  color: rgb(var(--gray-100));
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  color: rgb(var(--gray-100));
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+a {
+  color: rgb(var(--green-600));
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: underline;
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.25em;
+}
+
+button {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+hr {
+  border: 1px solid rgb(var(--gray-700));
+}

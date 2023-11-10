@@ -9,6 +9,7 @@ import { IconInformationCircle } from "@/icons/information-circle";
 import { Layout } from "@/layouts/layout";
 import Link from "next/link";
 import type { PageComponent } from "./_app";
+import styles from "./index.module.css";
 
 const Page: PageComponent = () => {
   const { authError, authIsLoading, auth } = useAuth();
@@ -19,54 +20,54 @@ const Page: PageComponent = () => {
   if (authError) {
     return (
       <>
-        <h1 className="mb-10 md:mb-20">Home</h1>
-        <FailedToFetch className="text-center" />
+        <h1>Home</h1>
+        <FailedToFetch />
       </>
     );
   }
 
   if (authIsLoading) {
-    return <Loading className="flex items-center justify-center" />;
+    return <Loading className={styles.loading} />;
   }
 
   return (
-    <>
-      <h1 className="mb-10 md:mb-20">Home</h1>
+    <div className={styles.container}>
+      <h1>Home</h1>
       {auth ? (
-        <div className="animate-fadeIn">
-          <div className="flex items-center justify-center">
-            <Link href="/papers" className="px-5 py-2">
+        <div className={styles.content}>
+          <div className={styles.main}>
+            <Link href="/papers" className={styles.mainLink}>
               Papers
             </Link>
-            <Link href="/profile" className="px-5 py-2">
+            <Link href="/profile" className={styles.mainLink}>
               Profile
             </Link>
           </div>
-          <hr className="my-12" />
-          <div className="text-center">
+          <hr />
+          <div className={styles.footer}>
             <Button type="button" onClick={logout}>
               Logout
             </Button>
           </div>
         </div>
       ) : (
-        <div className="animate-fadeIn">
-          <div className="text-center">
-            <IconInformationCircle className="mr-1 h-4 w-4 align-[-0.125em]" />
+        <div className={styles.content}>
+          <div className={styles.description}>
+            <IconInformationCircle className={styles.icon} />
             {APP_DESCRIPTION}
           </div>
-          <hr className="my-12" />
-          <div className="flex items-center justify-center">
-            <Link href="/login" className="px-5 py-2">
+          <hr />
+          <div className={styles.footer}>
+            <Link href="/login" className={styles.footerLink}>
               Login
             </Link>
-            <Link href="/register" className="px-5 py-2">
+            <Link href="/register" className={styles.footerLink}>
               Register
             </Link>
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

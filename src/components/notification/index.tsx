@@ -12,15 +12,6 @@ export const Notification: React.FC<Props> = (props) => {
   const { clear } = useNotificationAction();
   const { pathname } = useRouter();
 
-  let className =
-    "pr-12 flex items-center relative bg-gray-700 rounded shadow-sm shadow-gray-900";
-
-  className += color === "green" ? " text-green-600" : " text-amber-500";
-
-  if (props.className) {
-    className += ` ${props.className}`;
-  }
-
   useEffect(() => {
     if (!message) return;
     clear();
@@ -28,5 +19,5 @@ export const Notification: React.FC<Props> = (props) => {
 
   if (!message) return null;
 
-  return <Component message={message} clear={clear} className={className} />;
+  return <Component {...props} message={message} clear={clear} color={color} />;
 };

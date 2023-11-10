@@ -1,0 +1,4 @@
+.container {
+  color: rgb(var(--red-400) / 80%);
+  font-size: var(--text-base);
+}

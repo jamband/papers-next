@@ -8,6 +8,7 @@ import { IconTrash } from "@/icons/trash";
 import { Layout } from "@/layouts/layout";
 import type { PageComponent } from "@/pages/_app";
 import Link from "next/link";
+import styles from "./index.module.css";
 
 const Page: PageComponent = () => {
   useRequireVerified();
@@ -22,42 +23,47 @@ const Page: PageComponent = () => {
 
   if (paperError) {
     return (
-      <>
-        <h1 className="mb-5">Faild to fetch</h1>
-        <FailedToFetch className="mb-10" />
-        <div className="text-center">
+      <div className={styles.container}>
+        <h1>Faild to fetch</h1>
+        <FailedToFetch />
+        <div className={styles.footer}>
           <Link href="/papers">Back to Papers</Link>
         </div>
-      </>
+      </div>
     );
   }
 
   if (paperIsLoading) {
-    return <Loading className="flex items-center justify-center" />;
+    return <Loading className={styles.loading} />;
   }
 
   return (
-    <>
-      <h1 className="mb-5">{paper.title}</h1>
-      <div className="mb-3">{paper.body}</div>
-      <div className="mb-1 text-sm text-gray-400">
+    <div className={styles.container}>
+      <h1>{paper.title}</h1>
+      <div>{paper.body}</div>
+      <div>
         <div>Created at: {paper.created_at}</div>
         <div>Updated at: {paper.updated_at}</div>
       </div>
-      <div className="flex gap-3 text-sm">
-        <ActionLink href={`/papers/${paper.id}/update`}>Update →</ActionLink>
+      <div className={styles.action}>
+        <ActionLink
+          href={`/papers/${paper.id}/update`}
+          className={styles.updateLink}
+        >
+          Update →
+        </ActionLink>
         <ActionButton type="button" onClick={() => deletePaper(paper.id)}>
           Delete
-          <IconTrash className="ml-0.5 h-4 w-4 align-[-0.2em]" />
+          <IconTrash className={styles.deleteButtonIcon} />
         </ActionButton>
       </div>
-      <hr className="mt-4" />
-      <div className="mt-10 text-center md:mt-20">
-        <Link href="/papers" className="p-3">
+      <hr />
+      <div className={styles.footer}>
+        <Link href="/papers" className={styles.footerLink}>
           ← Back to Papers
         </Link>
       </div>
-    </>
+    </div>
   );
 };
 

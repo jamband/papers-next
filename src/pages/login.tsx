@@ -14,6 +14,7 @@ import type { FormEvent } from "react";
 import { useState } from "react";
 import { useSWRConfig } from "swr";
 import type { PageComponent } from "./_app";
+import styles from "./login.module.css";
 
 const Page: PageComponent = () => {
   useRequireGuest();
@@ -57,15 +58,15 @@ const Page: PageComponent = () => {
   };
 
   return (
-    <>
-      <h1 className="mb-5">Login</h1>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.container}>
+      <h1>Login</h1>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <FormInput
           type="text"
           name="email"
           label="Email"
-          className="mb-5"
-          inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+          className={styles.fieldset}
+          inputClass={styles.textbox}
           autoComplete="email"
           feedback={errors.email}
           focus
@@ -74,29 +75,33 @@ const Page: PageComponent = () => {
           type="password"
           name="password"
           label="Password"
-          className="mb-5"
-          inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+          className={styles.fieldset}
+          inputClass={styles.textbox}
           autoComplete="current-password"
           feedback={errors.password}
         />
         <FormCheck
           name="remember"
           label="Remeber me"
-          className="mb-6"
-          inputClass=""
+          className={styles.fieldset}
           feedback={errors.remember}
         />
-        <FormSubmit disabled={false}>Login</FormSubmit>
-        <span className="mx-3">or</span>
-        <Link href="/forgot-password">Forgot password?</Link>
+        <div className={styles.login}>
+          <FormSubmit disabled={false}>Login</FormSubmit>
+          or
+          <Link href="/forgot-password">Forgot password?</Link>
+        </div>
       </form>
-      <hr className="my-10" />
-      <Link href="/admin/login">Login as administrator</Link>
-      <div className="mt-2 text-amber-500">
-        <IconLightBulb className="mr-0.5 h-4 w-4 align-[-0.125em]" />
-        This link usually does not exist. Displayed for development environment.
+      <hr />
+      <div className={styles.footer}>
+        <Link href="/admin/login">Login as administrator</Link>
+        <div className={styles.footerDescription}>
+          <IconLightBulb className={styles.footerIcon} />
+          This link usually does not exist. Displayed for development
+          environment.
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

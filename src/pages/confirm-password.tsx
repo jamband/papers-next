@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import type { FormEvent } from "react";
 import { useState } from "react";
 import type { PageComponent } from "./_app";
+import styles from "./confirm-password.module.css";
 
 const Page: PageComponent = () => {
   useRequireVerified();
@@ -45,25 +46,25 @@ const Page: PageComponent = () => {
   };
 
   return (
-    <>
-      <h1 className="mb-5">Confirm your password</h1>
-      <p className="mb-5">
+    <div className={styles.container}>
+      <h1>Confirm your password</h1>
+      <p>
         This is a secure area of the application. Please confirm your password
         before continuing.
       </p>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <FormInput
           type="password"
           name="password"
           label="Password"
-          className="mb-6"
-          inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+          className={styles.fieldset}
+          inputClass={styles.textbox}
           feedback={errors.password}
           focus
         />
         <FormSubmit disabled={false}>Confirm</FormSubmit>
       </form>
-    </>
+    </div>
   );
 };
 

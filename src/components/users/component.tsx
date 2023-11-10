@@ -1,41 +1,43 @@
 import { IconExclamation } from "@/icons/exclamation";
 import { Button } from "../button";
+import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
-  <>
+  <div className={styles.container}>
     {props.users?.map((user) => (
       <div key={user.id}>
-        <div>
-          <span className="text-gray-400">Name: </span>
-          <span className="font-bold">{user.name}</span>
+        <div className={styles.section}>
+          <div className={styles.title}>Name:</div>
+          <div className={styles.value}>{user.name}</div>
         </div>
-        <div>
-          <span className="text-gray-400">Email: </span>
-          <span className="font-bold">{user.email}</span>
+        <div className={styles.section}>
+          <div className={styles.title}>Email:</div>
+          <div className={styles.value}>{user.email}</div>
         </div>
-        <div>
-          <span className="text-gray-400">Email verified at: </span>
-          <span className="font-bold">{user.email_verified_at}</span>
+        <div className={styles.section}>
+          <div className={styles.title}>Email verified at:</div>
+          <div className={styles.value}>{user.email_verified_at}</div>
         </div>
-        <div>
-          <span className="text-gray-400">Created at: </span>
-          <span className="font-bold">{user.created_at}</span>
+        <div className={styles.section}>
+          <div className={styles.title}>Created at: </div>
+          <div className={styles.value}>{user.created_at}</div>
         </div>
-        <div className="mb-2">
-          <span className="text-gray-400">Updated at: </span>
-          <span className="font-bold">{user.updated_at}</span>
+        <div className={styles.section}>
+          <div className={styles.title}>Updated at: </div>
+          <div className={styles.value}>{user.updated_at}</div>
         </div>
         <Button
           type="button"
+          className={styles.deleteButton}
           onClick={() => props.deleteUser(user.id)}
           color="red"
         >
-          <IconExclamation className="mr-0.5 h-4 w-4 align-[-0.15em]" />
+          <IconExclamation className={styles.deleteButtonIcon} />
           Delete
         </Button>
-        <hr className="mb-10 mt-3" />
+        <hr className={styles.divider} />
       </div>
     ))}
-  </>
+  </div>
 );

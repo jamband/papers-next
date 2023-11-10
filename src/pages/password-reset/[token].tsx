@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import type { FormEvent } from "react";
 import { useState } from "react";
 import type { PageComponent } from "../_app";
+import styles from "./token.module.css";
 
 type Props = {
   token: string;
@@ -62,16 +63,16 @@ const Page: PageComponent<Props> = (props) => {
   };
 
   return (
-    <>
-      <h1 className="mb-5">Reset password</h1>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.container}>
+      <h1>Reset password</h1>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <input type="hidden" name="token" defaultValue={props.token} />
         <FormInput
           type="text"
           name="email"
           label="Email"
-          className="mb-5"
-          inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+          className={styles.fieldset}
+          inputClass={styles.textbox}
           feedback={errors.email || errors.token}
           focus
         />
@@ -79,21 +80,21 @@ const Page: PageComponent<Props> = (props) => {
           type="password"
           name="password"
           label="Password"
-          className="mb-6"
-          inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+          className={styles.fieldset}
+          inputClass={styles.textbox}
           feedback={errors.password}
         />
         <FormInput
           type="password"
           name="password_confirmation"
           label="Confirm Password"
-          className="mb-10"
-          inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+          className={styles.fieldset}
+          inputClass={styles.textbox}
           feedback={errors.password_confirmation}
         />
         <FormSubmit disabled={false}>Reset Password</FormSubmit>
       </form>
-    </>
+    </div>
   );
 };
 

@@ -1,22 +1,21 @@
 import { IconInformationCircle } from "@/icons/information-circle";
 import { Layout } from "@/layouts/layout";
 import Link from "next/link";
+import styles from "./404.module.css";
 import type { PageComponent } from "./_app";
 
 const Page: PageComponent = () => {
   return (
-    <>
-      <h1 className="mb-5">Not Found</h1>
-      <p className="flex items-center">
-        <IconInformationCircle className="h-4 w-4" />
-        <div className="ml-1">Page not found.</div>
+    <div className={styles.conatiner}>
+      <h1>Not Found</h1>
+      <p className={styles.description}>
+        <IconInformationCircle className={styles.icon} />
+        Page not found.
       </p>
-      <div className="mt-20 text-center">
-        <Link href="/" className="px-5 py-3">
-          Back to Home
-        </Link>
-      </div>
-    </>
+      <Link href="/" className={styles.link}>
+        Back to Home
+      </Link>
+    </div>
   );
 };
 

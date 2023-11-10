@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import type { FormEvent } from "react";
 import { useState } from "react";
 import type { PageComponent } from "./_app";
+import styles from "./register.module.css";
 
 const Page: PageComponent = () => {
   useRequireGuest();
@@ -47,15 +48,15 @@ const Page: PageComponent = () => {
   };
 
   return (
-    <>
-      <h1 className="mb-5">Register</h1>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.container}>
+      <h1>Register</h1>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <FormInput
           type="text"
           name="name"
           label="Name"
-          className="mb-5"
-          inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+          className={styles.fieldset}
+          inputClass={styles.textbox}
           feedback={errors.name}
           focus
         />
@@ -63,16 +64,16 @@ const Page: PageComponent = () => {
           type="text"
           name="email"
           label="Email"
-          className="mb-5"
-          inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+          className={styles.fieldset}
+          inputClass={styles.textbox}
           feedback={errors.email}
         />
         <FormInput
           type="password"
           name="password"
           label="Password"
-          className="mb-5"
-          inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+          className={styles.fieldset}
+          inputClass={styles.textbox}
           autoComplete="current-password"
           feedback={errors.password}
         />
@@ -80,17 +81,19 @@ const Page: PageComponent = () => {
           type="password"
           name="password_confirmation"
           label="Confirm Password"
-          className="mb-5"
-          inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+          className={styles.fieldset}
+          inputClass={styles.textbox}
           feedback={errors.password_cofirmation}
         />
         <FormSubmit disabled={false}>Reigster</FormSubmit>
       </form>
-      <hr className="my-10" />
-      <IconLightBulb className="mr-0.5 h-4 w-4 align-[-0.1em]" />
-      If you have already registered as a user, please{" "}
-      <Link href="/login">Login from this link</Link>.
-    </>
+      <hr />
+      <div className={styles.footer}>
+        <IconLightBulb className={styles.footerIcon} />
+        If you have already registered as a user, please{" "}
+        <Link href="/login">Login from this link</Link>.
+      </div>
+    </div>
   );
 };
 

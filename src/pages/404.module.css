@@ -1,0 +1,22 @@
+.conatiner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.description {
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.icon {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}

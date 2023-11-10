@@ -4,6 +4,7 @@ import useSWR from "swr";
 import { FailedToFetch } from "../failed-to-fetch";
 import { Loading } from "../loading";
 import { Component } from "./component";
+import styles from "./styles.module.css";
 
 export const Users: React.FC = () => {
   const { error, data } = useSWR<User[]>("/admin/users");
@@ -14,7 +15,7 @@ export const Users: React.FC = () => {
   }
 
   if (!error && !data) {
-    return <Loading className="flex items-center justify-center" />;
+    return <Loading className={styles.loading} />;
   }
 
   return <Component users={data} deleteUser={deleteUser} />;

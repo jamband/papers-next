@@ -2,6 +2,7 @@ import { useDeletePaper, usePapers } from "@/hooks/paper";
 import { FailedToFetch } from "../failed-to-fetch";
 import { Loading } from "../loading";
 import { Component } from "./component";
+import styles from "./styles.module.css";
 
 export const Papers: React.FC = () => {
   const { error, isLoading, data } = usePapers();
@@ -10,7 +11,7 @@ export const Papers: React.FC = () => {
   if (error) return <FailedToFetch />;
 
   if (isLoading) {
-    return <Loading className="flex items-center justify-center" />;
+    return <Loading className={styles.loading} />;
   }
 
   return <Component papers={data} deletePaper={deletePaper} />;

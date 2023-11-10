@@ -6,6 +6,7 @@ import type { Profile } from "@/types/profile";
 import Link from "next/link";
 import useSWR from "swr";
 import type { PageComponent } from "../_app";
+import styles from "./styles.module.css";
 
 const Page: PageComponent = () => {
   useRequireVerified();
@@ -13,25 +14,29 @@ const Page: PageComponent = () => {
   const { error, data } = useSWR<Profile>("/profile");
 
   return (
-    <>
-      <h1 className="mb-5">Profile</h1>
+    <div className={styles.container}>
+      <h1>Profile</h1>
       {error ? (
         <FailedToFetch />
       ) : (
         <>
           {!error && !data ? (
-            <Loading className="flex items-center justify-center" />
+            <Loading className={styles.loading} />
           ) : (
-            <>
-              <div>Name: {data?.name}</div>
-              <div>Email: {data?.email}</div>
-              <hr className="my-10" />
-              <Link href="/delete-account">Delete account</Link>
-            </>
+            <div className={styles.content}>
+              <div className={styles.main}>
+                <div>Name: {data?.name}</div>
+                <div>Email: {data?.email}</div>
+              </div>
+              <hr />
+              <Link href="/delete-account" className={styles.link}>
+                Delete account
+              </Link>
+            </div>
           )}
         </>
       )}
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,19 @@
+.container {
+  border-radius: var(--rounded);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  color: rgb(var(--gray-100));
+  padding: 0.5rem 1rem;
+}
+
+.container:disabled {
+  background: rgb(var(--gray-800));
+  color: rgb(var(--gray-400));
+}
+
+.green {
+  background: rgb(var(--green-700));
+}
+
+.red {
+  background: rgb(var(--red-700));
+}

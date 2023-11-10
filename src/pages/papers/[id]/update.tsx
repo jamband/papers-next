@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 import type { FormEvent } from "react";
 import { useState } from "react";
 import { useSWRConfig } from "swr";
+import styles from "./update.module.css";
 
 const Page: PageComponent = () => {
   useRequireVerified();
@@ -53,23 +54,23 @@ const Page: PageComponent = () => {
   };
 
   return (
-    <>
-      <h1 className="mb-5">Update Paper</h1>
+    <div className={styles.container}>
+      <h1>Update Paper</h1>
       {paperError ? (
         <FailedToFetch />
       ) : (
         <>
           {paperIsLoading ? (
-            <Loading className="flex items-center justify-center" />
+            <Loading className={styles.loading} />
           ) : (
             <>
-              <form onSubmit={handleSubmit}>
+              <form className={styles.form} onSubmit={handleSubmit}>
                 <FormInput
                   type="text"
                   name="title"
                   label="Title"
-                  className="mb-6"
-                  inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+                  className={styles.fieldset}
+                  inputClass={styles.textbox}
                   defaultValue={paper.title}
                   feedback={errors.title}
                   focus
@@ -77,16 +78,16 @@ const Page: PageComponent = () => {
                 <FormTextarea
                   name="body"
                   label="Body"
-                  className="mb-6"
-                  inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+                  className={styles.fieldset}
+                  inputClass={styles.textarea}
                   defaultValue={paper.body}
                   feedback={errors.body}
                 />
                 <FormSubmit disabled={false}>Update</FormSubmit>
               </form>
-              <hr className="mt-4" />
-              <div className="mt-10 text-center md:mt-20">
-                <Link href="/papers" className="p-3">
+              <hr />
+              <div className={styles.footer}>
+                <Link href="/papers" className={styles.footerLink}>
                   ← Back to Papers
                 </Link>
               </div>
@@ -94,7 +95,7 @@ const Page: PageComponent = () => {
           )}
         </>
       )}
-    </>
+    </div>
   );
 };
 

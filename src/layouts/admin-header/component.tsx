@@ -1,16 +1,11 @@
 import { APP_NAME } from "@/constants/app";
 import Link from "next/link";
+import styles from "./styles.module.css";
 
 export const Component: React.FC = () => (
   <header>
-    <nav
-      className="fixed z-20 w-full bg-gray-700 py-4 text-center font-semibold"
-      aria-label="Header navigation"
-    >
-      <Link
-        href="/admin"
-        className="rounded px-4 py-2 text-gray-100 no-underline active:bg-gray-600"
-      >
+    <nav className={styles.navigation} aria-label="Header navigation">
+      <Link href="/admin" className={styles.link}>
         {APP_NAME}
       </Link>
     </nav>

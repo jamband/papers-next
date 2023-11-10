@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useSWRConfig } from "swr";
 import type { PageComponent } from "./_app";
+import styles from "./delete-account.module.css";
 
 const Page: PageComponent = () => {
   useRequireVerified();
@@ -48,23 +49,28 @@ const Page: PageComponent = () => {
   return (
     <>
       {isDeleted ? (
-        <p className="grid h-[70vh] place-items-center bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-center text-5xl text-transparent">
-          Thank you for using it so far.
-        </p>
+        <p className={styles.message}>Thank you for using it so far.</p>
       ) : (
-        <>
-          <h1 className="mb-5">Delete account</h1>
-          <p className="mb-5 text-red-600">
-            <IconExclamation className="mr-0.5 h-4 w-4 align-[-0.2em]" />
+        <div className={styles.container}>
+          <h1>Delete account</h1>
+          <p className={styles.description}>
+            <IconExclamation className={styles.icon} />
             When the account is deleted, the related data will also be deleted.
           </p>
-          <Button type="button" color="red" onClick={deleteAccount}>
-            <IconExclamation className="mr-0.5 h-4 w-4 align-[-0.2em]" />
-            Delete Account
-          </Button>
-          <span className="mx-2">or</span>
-          <Link href="/">cancel</Link>
-        </>
+          <div className={styles.action}>
+            <Button
+              type="button"
+              color="red"
+              className={styles.button}
+              onClick={deleteAccount}
+            >
+              <IconExclamation className={styles.icon} />
+              Delete Account
+            </Button>
+            <span className="mx-2">or</span>
+            <Link href="/">cancel</Link>
+          </div>
+        </div>
       )}
     </>
   );

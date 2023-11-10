@@ -2,31 +2,32 @@ import { ExternalLink } from "@/components/external-link";
 import { IconExternalLink } from "@/icons/external-link";
 import { Layout } from "@/layouts/layout";
 import type { PageComponent } from "./_app";
+import styles from "./contact.module.css";
 
 const Page: PageComponent = () => {
   return (
-    <>
-      <h1 className="mb-5">Contact</h1>
+    <div className={styles.container}>
+      <h1>Contact</h1>
       <p>
         Please to the message via{" "}
         <ExternalLink
           href="https://twitter.com/livejam_db"
-          className="text-green-600"
+          className={styles.link}
         >
           Twitter
-          <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
+          <IconExternalLink className={styles.icon} />
         </ExternalLink>{" "}
         or{" "}
         <ExternalLink
           href="https://github.com/jamband/papers-next/issues"
-          className="text-green-600"
+          className={styles.link}
         >
           GitHub Issues
-          <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
+          <IconExternalLink className={styles.icon} />
         </ExternalLink>
         .
       </p>
-    </>
+    </div>
   );
 };
 

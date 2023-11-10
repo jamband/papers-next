@@ -9,6 +9,7 @@ import type { FormEvent } from "react";
 import { useState } from "react";
 import { useSWRConfig } from "swr";
 import type { PageComponent } from "../_app";
+import styles from "./create.module.css";
 
 const Page: PageComponent = () => {
   useRequireVerified();
@@ -43,28 +44,28 @@ const Page: PageComponent = () => {
   };
 
   return (
-    <>
-      <h1 className="mb-5">Create New Paper</h1>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.container}>
+      <h1>Create New Paper</h1>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <FormInput
           type="text"
           name="title"
           label="Title"
-          className="mb-5"
-          inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+          className={styles.fieldset}
+          inputClass={styles.textbox}
           feedback={errors.title}
           focus
         />
         <FormTextarea
           name="body"
           label="Body"
-          className="mb-6"
-          inputClass="w-full border-gray-700 bg-gray-900 md:w-1/2"
+          className={styles.fieldset}
+          inputClass={styles.textarea}
           feedback={errors.body}
         />
         <FormSubmit disabled={false}>Create</FormSubmit>
       </form>
-    </>
+    </div>
   );
 };
 

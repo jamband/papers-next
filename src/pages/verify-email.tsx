@@ -9,6 +9,7 @@ import { useRequireAuth } from "@/hooks/require";
 import { Layout } from "@/layouts/layout";
 import { http } from "@/utils/http";
 import type { PageComponent } from "./_app";
+import styles from "./verify-email.module.css";
 
 const Page: PageComponent = () => {
   useRequireAuth();
@@ -36,23 +37,27 @@ const Page: PageComponent = () => {
   };
 
   return (
-    <>
-      <h1 className="mb-5">Email Verification</h1>
-      <p className="mb-5">
+    <div className={styles.container}>
+      <h1>Email Verification</h1>
+      <p>
         Thanks for registered! Before getting started, could you verify your
         email address by clicking on the link we just emailed to you? If you
         didn&apos;t receive the email, we will gladly send you another.
       </p>
-      <Button type="button" onClick={resendEmailVerification}>
+      <Button
+        type="button"
+        className={styles.button}
+        onClick={resendEmailVerification}
+      >
         Resend Verification Email
       </Button>
-      <hr className="my-10" />
-      <div className="flex items-center justify-center">
+      <hr />
+      <div className={styles.footer}>
         <Button type="button" onClick={logout}>
           Logout
         </Button>
       </div>
-    </>
+    </div>
   );
 };
 

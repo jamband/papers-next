@@ -3,24 +3,25 @@ import { APP_DESCRIPTION } from "@/constants/app";
 import { IconExternalLink } from "@/icons/external-link";
 import { Layout } from "@/layouts/layout";
 import type { PageComponent } from "./_app";
+import styles from "./about.module.css";
 
 const Page: PageComponent = () => {
   return (
-    <>
-      <h1 className="mb-5">About</h1>
-      <p className="mb-5">{APP_DESCRIPTION}</p>
+    <div className={styles.container}>
+      <h1>About</h1>
+      <p>{APP_DESCRIPTION}</p>
       <p>
         This website is an open source project. See{" "}
         <ExternalLink
           href="https://github.com/jamband/papers-next"
-          className="text-green-600"
+          className={styles.link}
         >
           GitHub jamband/papers-next
-          <IconExternalLink className="h-4 w-4 align-[-0.125em]" />
+          <IconExternalLink className={styles.icon} />
         </ExternalLink>{" "}
         for details.
       </p>
-    </>
+    </div>
   );
 };
 

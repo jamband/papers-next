@@ -1,24 +1,19 @@
 import { ExternalLink } from "@/components/external-link";
 import Link from "next/link";
+import styles from "./styles.module.css";
 
 export const Component: React.FC = () => (
-  <footer className="bg-gray-700 py-3">
-    <nav aria-label="Footer navigation" className="flex justify-center gap-x-3">
-      <Link
-        href="/about"
-        className="rounded px-4 py-1 text-gray-100 no-underline active:bg-gray-600"
-      >
+  <footer className={styles.container}>
+    <nav className={styles.navigation} aria-label="Footer navigation">
+      <Link href="/about" className={styles.link}>
         About
       </Link>
-      <Link
-        href="/contact"
-        className="rounded px-4 py-1 text-gray-100 no-underline active:bg-gray-600"
-      >
+      <Link href="/contact" className={styles.link}>
         Contact
       </Link>
       <ExternalLink
         href="https://github.com/jamband/papers-next"
-        className="rounded px-4 py-1 text-gray-100 no-underline active:bg-gray-600"
+        className={styles.link}
       >
         GitHub
       </ExternalLink>

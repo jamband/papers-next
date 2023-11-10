@@ -6,6 +6,7 @@ import { AdminFooter } from "../admin-footer";
 import { AdminHeader } from "../admin-header";
 import { Loading } from "../loading";
 import { Title } from "../title";
+import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
@@ -17,10 +18,10 @@ export const Component: React.FC<_Props> = (props) => (
       <Title title={props.title} />
       <Loading />
       <NotificationProvider>
-        <div className="flex min-h-screen flex-col">
+        <div className={styles.container}>
           <AdminHeader />
-          <main className="container mx-auto grow pb-10 pt-28">
-            <Notification className="mb-5" />
+          <main className={styles.main}>
+            <Notification />
             {props.children}
           </main>
           <AdminFooter />

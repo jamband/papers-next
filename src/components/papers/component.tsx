@@ -3,31 +3,37 @@ import { IconTrash } from "@/icons/trash";
 import Link from "next/link";
 import { ActionButton } from "../action-button";
 import { ActionLink } from "../action-link";
+import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
   <>
     {props.papers.map((paper) => (
-      <div key={paper.id}>
-        <h2 className="mb-3">
+      <div className={styles.container} key={paper.id}>
+        <h2>
           <Link href={`/papers/${paper.id}`}>{paper.title}</Link>
         </h2>
-        <div className="mb-3">{paper.body}</div>
-        <div className="mb-1 text-sm text-gray-400">
-          <IconClock className="mr-0.5 h-4 w-4 align-[-0.2em]" />
+        <div>{paper.body}</div>
+        <div className={styles.createdAt}>
+          <IconClock className={styles.clockIcon} />
           {paper.created_at}
         </div>
-        <div className="flex gap-3 text-sm">
-          <ActionLink href={`/papers/${paper.id}/update`}>Update →</ActionLink>
+        <div className={styles.action}>
+          <ActionLink
+            href={`/papers/${paper.id}/update`}
+            className={styles.updateLink}
+          >
+            Update →
+          </ActionLink>
           <ActionButton
             type="button"
             onClick={() => props.deletePaper(paper.id)}
           >
             Delete
-            <IconTrash className="ml-0.5 h-4 w-4 align-[-0.2em]" />
+            <IconTrash className={styles.deleteButtonIcon} />
           </ActionButton>
         </div>
-        <hr className="mb-10 mt-3" />
+        <hr />
       </div>
     ))}
   </>
