@@ -1,9 +1,0 @@
-@import url("the-new-css-reset");
-
-input[type="checkbox"] {
-  all: revert;
-}
-
-:focus {
-  outline: revert;
-}
