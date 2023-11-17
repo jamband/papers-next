@@ -7,7 +7,7 @@ import type { Props } from "./types";
 
 export const Paper: React.FC<Props> = (props) => {
   const { paper } = usePaper();
-  const { deletePaper } = useDeletePaper();
+  const { action: deletePaper } = useDeletePaper();
 
   return <Component {...props} paper={paper} deletePaper={deletePaper} />;
 };

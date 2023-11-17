@@ -29,7 +29,7 @@ export const usePapers = () => {
 export const useDeletePaper = () => {
   const router = useRouter();
 
-  const deletePaper = async (id: number) => {
+  const action = async (id: number) => {
     if (confirm("Are you sure?")) {
       await generateCsrfCookie();
 
@@ -53,6 +53,6 @@ export const useDeletePaper = () => {
   };
 
   return {
-    deletePaper,
+    action,
   } as const;
 };

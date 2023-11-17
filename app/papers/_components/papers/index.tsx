@@ -5,7 +5,7 @@ import { Component } from "./component";
 
 export const Papers: React.FC = () => {
   const { papers } = usePapers();
-  const { deletePaper } = useDeletePaper();
+  const { action: deletePaper } = useDeletePaper();
 
   return <Component papers={papers} deletePaper={deletePaper} />;
 };

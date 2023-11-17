@@ -7,5 +7,5 @@ export type Props = {
 
 export type _Props = Props & {
   paper: ReturnType<typeof usePaper>["paper"];
-  deletePaper: ReturnType<typeof useDeletePaper>["deletePaper"];
+  deletePaper: ReturnType<typeof useDeletePaper>["action"];
 };
