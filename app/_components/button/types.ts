@@ -1,8 +1,9 @@
-import type { ComponentProps } from "@/types/component-props";
-
-export type Props = ComponentProps<"button"> & {
+export type Props = {
+  type: "button" | "submit";
   color?: "green" | "red";
   className?: string;
+  disabled?: boolean;
+  onClick?: () => void;
   children: React.ReactNode;
 };
 
