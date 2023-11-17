@@ -15,7 +15,7 @@ export const useCreatePaper = () => {
 
   const action = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    generateCsrfCookie();
+    await generateCsrfCookie();
 
     const response = await fetch(`${API_URL}/papers`, {
       method: "POST",

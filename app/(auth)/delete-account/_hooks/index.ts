@@ -8,9 +8,9 @@ export const useDeleteAccount = () => {
   const { push } = useRouter();
 
   const action = async () => {
-    await generateCsrfCookie();
-
     if (confirm("Are you sure you want to delete it?")) {
+      await generateCsrfCookie();
+
       const response = await fetch(`${API_URL}/delete-account`, {
         method: "POST",
         cache: "no-store",

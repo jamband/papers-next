@@ -30,9 +30,9 @@ export const useDeletePaper = () => {
   const router = useRouter();
 
   const deletePaper = async (id: number) => {
-    await generateCsrfCookie();
-
     if (confirm("Are you sure?")) {
+      await generateCsrfCookie();
+
       const response = await fetch(`${API_URL}/papers/${id}`, {
         method: "DELETE",
         cache: "no-store",
