@@ -1,4 +1,4 @@
-import { usePasswordConfirm } from "@/(auth)/_hooks/password-confirm";
+import { API_URL } from "@/_constants/api";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useAuth } from "./auth";
@@ -31,14 +31,18 @@ export const useRequireVerified = () => {
 
 export const useRequirePasswordConfirm = () => {
   const { push } = useRouter();
-  const { passwordConfirm } = usePasswordConfirm();
 
   useEffect(() => {
-    async () => {
-      if (await passwordConfirm()) {
+    (async () => {
+      const response = await fetch(`${API_URL}/confirmed-password`, {
+        cache: "no-store",
+        credentials: "include",
+      });
+
+      if (!response.ok) {
         push("/confirm-password");
         return;
       }
-    };
-  }, [passwordConfirm, push]);
+    })();
+  }, [push]);
 };
