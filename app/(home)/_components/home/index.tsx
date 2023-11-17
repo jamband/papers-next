@@ -4,7 +4,7 @@ import { useAuth, useVerificationNotification } from "@/_hooks/auth";
 import { Component } from "./component";
 import type { Props } from "./types";
 
-export const HomeMain: React.FC<Props> = (props) => {
+export const Home: React.FC<Props> = (props) => {
   useVerificationNotification();
 
   const { auth } = useAuth();
