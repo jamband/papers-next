@@ -1,4 +1,4 @@
-import type { usePaper } from "../../../_hooks";
+import type { usePaper } from "@/papers/[id]/_hooks";
 import type { useUpdatePaper } from "../../_hooks";
 
 export type Props = {

@@ -7,9 +7,14 @@ import type { FormEvent } from "react";
 import { useState } from "react";
 
 export const useLogin = () => {
+  const [errors, setErrors] = useState<{
+    email?: string;
+    password?: string;
+    remember?: string;
+  }>();
+
   const router = useRouter();
   const { notification } = useNotificationAction();
-  const [errors, setErrors] = useState();
 
   const action = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

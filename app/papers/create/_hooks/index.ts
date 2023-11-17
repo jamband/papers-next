@@ -6,10 +6,10 @@ import type { FormEvent } from "react";
 import { useState } from "react";
 
 export const useCreatePaper = () => {
-  const [errors, setErrors] = useState({
-    title: "",
-    body: "",
-  });
+  const [errors, setErrors] = useState<{
+    title?: string;
+    body?: string;
+  }>();
 
   const { push } = useRouter();
 

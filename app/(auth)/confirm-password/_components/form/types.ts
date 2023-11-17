@@ -1,12 +1,10 @@
-import type { FormEvent } from "react";
+import type { useConfirmPassword } from "../../_hooks";
 
 export type Props = {
   //
 };
 
 export type _Props = Props & {
-  action: (event: FormEvent<HTMLFormElement>) => void;
-  errors?: {
-    password?: string;
-  };
+  action: ReturnType<typeof useConfirmPassword>["action"];
+  errors: ReturnType<typeof useConfirmPassword>["errors"];
 };

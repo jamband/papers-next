@@ -8,7 +8,13 @@ import type { FormEvent } from "react";
 import { useState } from "react";
 
 export const useRegister = () => {
-  const [errors, setErrors] = useState();
+  const [errors, setErrors] = useState<{
+    name?: string;
+    email?: string;
+    password?: string;
+    password_confirmation?: string;
+  }>();
+
   const router = useRouter();
   const { notification } = useNotificationAction();
 

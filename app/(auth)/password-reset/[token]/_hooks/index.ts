@@ -7,7 +7,13 @@ import type { FormEvent } from "react";
 import { useState } from "react";
 
 export const useResetPassword = () => {
-  const [errors, setErrors] = useState();
+  const [errors, setErrors] = useState<{
+    token?: string;
+    email?: string;
+    password?: string;
+    password_confirmation?: string;
+  }>();
+
   const router = useRouter();
   const { notification } = useNotificationAction();
 

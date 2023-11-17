@@ -6,8 +6,12 @@ import type { FormEvent } from "react";
 import { useState } from "react";
 
 export const useUpdatePaper = () => {
+  const [errors, setErrors] = useState<{
+    title?: string;
+    body?: string;
+  }>();
+
   const params = useParams();
-  const [errors, setErrors] = useState<{ title?: string; body?: string }>();
   const { push } = useRouter();
 
   const action = async (event: FormEvent<HTMLFormElement>) => {

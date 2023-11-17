@@ -7,8 +7,11 @@ import type { FormEvent } from "react";
 import { useState } from "react";
 
 export const useForgotPassword = () => {
+  const [errors, setErrors] = useState<{
+    email?: string;
+  }>();
+
   const { notification } = useNotificationAction();
-  const [errors, setErrors] = useState();
   const [isSend, setIsSend] = useState(false);
 
   const action = async (event: FormEvent<HTMLFormElement>) => {

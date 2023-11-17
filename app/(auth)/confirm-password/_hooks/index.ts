@@ -8,7 +8,10 @@ import type { FormEvent } from "react";
 import { useState } from "react";
 
 export const useConfirmPassword = () => {
-  const [errors, setErrors] = useState();
+  const [errors, setErrors] = useState<{
+    password?: string;
+  }>();
+
   const { back } = useRouter();
   const { notification } = useNotificationAction();
 

@@ -1,16 +1,11 @@
-import type { FormEvent } from "react";
+import type { useResetPassword } from "../../_hooks";
 
 export type Props = {
   //
 };
 
 export type _Props = Props & {
-  action: (event: FormEvent<HTMLFormElement>) => void;
+  action: ReturnType<typeof useResetPassword>["action"];
   token: string;
-  errors?: {
-    token?: string;
-    email?: string;
-    password?: string;
-    password_confirmation?: string;
-  };
+  errors?: ReturnType<typeof useResetPassword>["errors"];
 };
