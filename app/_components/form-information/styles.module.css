@@ -1,0 +1,9 @@
+.container {
+  background: rgb(var(--gray-700));
+  border-radius: var(--rounded);
+  padding: 0.5rem 0.75rem;
+}
+
+.required {
+  color: rgb(var(--red-400));
+}
