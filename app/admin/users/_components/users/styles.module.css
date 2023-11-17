@@ -1,0 +1,37 @@
+.loading {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.section {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.value {
+  font-weight: bold;
+}
+
+.deleteButton {
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.deleteButtonIcon {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.divider {
+  margin-top: 1.25rem;
+}

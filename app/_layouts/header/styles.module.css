@@ -1,0 +1,21 @@
+.navigation {
+  background: rgb(var(--gray-700));
+  font-weight: 600;
+  padding: 0.75rem 0;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 20;
+}
+
+.link {
+  border-radius: var(--rounded);
+  color: rgb(var(--gray-100));
+  font-weight: 700;
+  padding: 0.25rem 1rem;
+  text-decoration: none;
+}
+
+.link:active {
+  background: rgb(var(--gray-600));
+}

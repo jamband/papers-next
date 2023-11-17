@@ -1,0 +1,27 @@
+.container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.fieldset {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .fieldset {
+    width: 50%;
+  }
+}
+
+.textbox {
+  background: rgb(var(--gray-900));
+  border: 1px solid rgb(var(--gray-700));
+}
+
+.textarea {
+  background: rgb(var(--gray-900));
+  border: 1px solid rgb(var(--gray-700));
+}

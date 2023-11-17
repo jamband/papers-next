@@ -1,0 +1,52 @@
+.message {
+  background-clip: text;
+  background-image: linear-gradient(
+    to right,
+    rgb(192, 132, 252),
+    rgb(219, 39, 119)
+  );
+  color: transparent;
+  display: grid;
+  font-size: 4rem;
+  height: 60vh;
+  line-height: 1.2;
+  place-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .message {
+    height: 70vh;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: rgb(var(--red-600));
+}
+
+.icon {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.action {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button {
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+}
