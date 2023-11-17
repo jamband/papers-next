@@ -3,9 +3,3 @@
   flex-direction: column;
   gap: 1.25rem;
 }
-
-.loading {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}

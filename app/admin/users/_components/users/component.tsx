@@ -16,23 +16,23 @@ export const Component: React.FC<_Props> = (props) => (
         {props.users?.map((user) => (
           <div key={user.id}>
             <div className={styles.section}>
-              <div className={styles.title}>Name:</div>
+              <div>Name:</div>
               <div className={styles.value}>{user.name}</div>
             </div>
             <div className={styles.section}>
-              <div className={styles.title}>Email:</div>
+              <div>Email:</div>
               <div className={styles.value}>{user.email}</div>
             </div>
             <div className={styles.section}>
-              <div className={styles.title}>Email verified at:</div>
+              <div>Email verified at:</div>
               <div className={styles.value}>{user.email_verified_at}</div>
             </div>
             <div className={styles.section}>
-              <div className={styles.title}>Created at: </div>
+              <div>Created at: </div>
               <div className={styles.value}>{user.created_at}</div>
             </div>
             <div className={styles.section}>
-              <div className={styles.title}>Updated at: </div>
+              <div>Updated at: </div>
               <div className={styles.value}>{user.updated_at}</div>
             </div>
             <Button
