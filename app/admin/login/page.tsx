@@ -1,7 +1,12 @@
 import { IconLightBulb } from "@/_icons/light-bulb";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Form } from "./_components/form";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "Login as administrator",
+};
 
 export default function Page() {
   return (
