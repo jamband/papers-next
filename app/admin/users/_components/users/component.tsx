@@ -1,9 +1,9 @@
-import { Loading } from "@/_components/loading";
-import type { _Props } from "./types";
-import styles from "./styles.module.css";
-import { FailedToFetch } from "@/_components/failed-to-fetch";
 import { Button } from "@/_components/button";
+import { FailedToFetch } from "@/_components/failed-to-fetch";
+import { Loading } from "@/_components/loading";
 import { IconExclamation } from "@/_icons/exclamation";
+import styles from "./styles.module.css";
+import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
   <>

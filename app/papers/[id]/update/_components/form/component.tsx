@@ -1,11 +1,11 @@
-import { Loading } from "@/_components/loading";
-import type { _Props } from "./types";
-import styles from "./styles.module.css";
 import { FailedToFetch } from "@/_components/failed-to-fetch";
 import { FormInput } from "@/_components/form-input";
-import { FormTextarea } from "@/_components/form-textarea";
 import { FormSubmit } from "@/_components/form-submit";
+import { FormTextarea } from "@/_components/form-textarea";
+import { Loading } from "@/_components/loading";
 import Link from "next/link";
+import styles from "./styles.module.css";
+import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
   <>

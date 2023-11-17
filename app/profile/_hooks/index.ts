@@ -1,6 +1,6 @@
+import { API_URL } from "@/_constants/api";
 import { useEffect, useState } from "react";
 import type { Profile } from "../_types";
-import { API_URL } from "@/_constants/api";
 
 export const useProfile = () => {
   const [profile, setProfile] = useState<Profile | null>();
