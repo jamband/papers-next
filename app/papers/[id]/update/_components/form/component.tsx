@@ -1,8 +1,8 @@
 import { FailedToFetch } from "@/_components/failed-to-fetch";
-import { FormInformation } from "@/_components/form-information";
-import { FormInput } from "@/_components/form-input";
-import { FormSubmit } from "@/_components/form-submit";
-import { FormTextarea } from "@/_components/form-textarea";
+import { FormInformation } from "@/_components/form/information";
+import { FormInput } from "@/_components/form/input";
+import { FormSubmit } from "@/_components/form/submit";
+import { FormTextarea } from "@/_components/form/textarea";
 import { Loading } from "@/_components/loading";
 import Link from "next/link";
 import styles from "./styles.module.css";

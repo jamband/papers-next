@@ -1,4 +1,4 @@
-import { Button } from "../button";
+import { Button } from "@/_components/button";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
 

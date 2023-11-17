@@ -1,5 +1,5 @@
-import { FormError } from "../form-error";
-import { FormLabel } from "../form-label";
+import { FormError } from "../error";
+import { FormLabel } from "../label";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
