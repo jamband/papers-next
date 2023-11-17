@@ -1,5 +1,5 @@
 import { API_URL } from "@/_constants/api";
-import type { Paper } from "@/_types/paper";
+import type { Paper } from "@/papers/_types";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 

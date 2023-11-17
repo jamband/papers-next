@@ -1,8 +1,8 @@
 import { API_URL } from "@/_constants/api";
-import type { Paper } from "@/_types/paper";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import type { Paper } from "../_types";
 
 export const usePapers = () => {
   const [papers, setPapers] = useState<Array<Paper> | null>();

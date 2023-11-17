@@ -1,7 +1,7 @@
 import { API_URL } from "@/_constants/api";
 import { useNotificationAction } from "@/_hooks/notification";
-import type { User } from "@/_types/user";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
+import type { User } from "@/admin/_types";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
