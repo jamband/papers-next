@@ -6,7 +6,7 @@ export const useProfile = () => {
   const [profile, setProfile] = useState<Profile | null>();
 
   useEffect(() => {
-    async () => {
+    (async () => {
       const response = await fetch(`${API_URL}/profile`, {
         cache: "no-store",
         credentials: "include",
@@ -21,7 +21,7 @@ export const useProfile = () => {
         setProfile(await response.json());
         return;
       }
-    };
+    })();
   }, []);
 
   return {
