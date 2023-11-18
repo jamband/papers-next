@@ -25,7 +25,6 @@ export const useLogin = () => {
       method: "POST",
       credentials: "include",
       headers: {
-        Accept: "application/json",
         "Content-Type": "application/json",
         "X-XSRF-TOKEN": getCsrfToken(),
       },
