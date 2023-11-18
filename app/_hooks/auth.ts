@@ -53,7 +53,6 @@ export const useLogout = () => {
 
     if (response.ok) {
       router.push("/");
-      router.refresh();
       notification({ message: "Logged out successfully." });
       return;
     }

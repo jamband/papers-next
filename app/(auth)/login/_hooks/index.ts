@@ -34,7 +34,6 @@ export const useLogin = () => {
 
     if (response.ok) {
       router.push("/");
-      router.refresh();
       notification({ message: "Logged in successfully." });
       return;
     }

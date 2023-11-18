@@ -35,7 +35,6 @@ export const useResetPassword = () => {
 
     if (response.ok) {
       router.push("/login");
-      router.refresh();
       notification({ message: "Your password has been reset!" });
       return;
     }

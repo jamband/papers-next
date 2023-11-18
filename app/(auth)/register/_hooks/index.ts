@@ -36,7 +36,6 @@ export const useRegister = () => {
 
     if (response.ok) {
       router.push("/");
-      router.refresh();
       notification({ message: NOTIFICATION_VERIFICATION_LINK_SENT });
       return;
     }

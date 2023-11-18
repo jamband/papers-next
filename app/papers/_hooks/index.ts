@@ -46,7 +46,6 @@ export const useDeletePaper = () => {
 
       if (response.ok) {
         router.push("/papers");
-        router.refresh();
         return;
       }
     }
