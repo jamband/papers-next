@@ -1,11 +1,14 @@
 "use client";
 
 import { useAuth } from "@/_hooks/auth";
+import { useRequireAdmin } from "@/_hooks/require";
 import { useLogout } from "@/admin/_hooks";
 import { Component } from "./component";
 import type { Props } from "./types";
 
 export const Home: React.FC<Props> = (props) => {
+  useRequireAdmin();
+
   const { auth } = useAuth();
   const { action: logout } = useLogout();
 
