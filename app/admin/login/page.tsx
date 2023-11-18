@@ -1,3 +1,4 @@
+import { Message } from "@/_components/message";
 import { IconLightBulb } from "@/_icons/light-bulb";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -18,10 +19,10 @@ export default function Page() {
       <hr />
       <div className={styles.footer}>
         <Link href="/login">Login as regular user</Link>
-        <div className={styles.footerDescription}>
-          <IconLightBulb className={styles.footerIcon} />
-          This is a login link for regular users.
-        </div>
+        <Message className={styles.footerMessage}>
+          <IconLightBulb className={styles.footerMessageIcon} />
+          <p>This is a login link for regular users.</p>
+        </Message>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { Message } from "@/_components/message";
 import { IconLightBulb } from "@/_icons/light-bulb";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -16,11 +17,13 @@ export default async function Page() {
       <hr />
       <div className={styles.footer}>
         <Link href="/admin/login">Login as administrator</Link>
-        <div className={styles.footerDescription}>
-          <IconLightBulb className={styles.footerIcon} />
-          This link usually does not exist. Displayed for development
-          environment.
-        </div>
+        <Message className={styles.footerMessage}>
+          <IconLightBulb className={styles.footerMessageIcon} />
+          <p>
+            This link usually does not exist. Displayed for development
+            environment.
+          </p>
+        </Message>
       </div>
     </div>
   );

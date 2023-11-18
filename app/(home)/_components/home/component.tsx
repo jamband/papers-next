@@ -1,5 +1,6 @@
 import { Loading } from "@/_components/loading";
 import { LogoutButton } from "@/_components/logout-button";
+import { Message } from "@/_components/message";
 import { APP_DESCRIPTION } from "@/_constants/app";
 import { IconInformationCircle } from "@/_icons/information-circle";
 import Link from "next/link";
@@ -14,10 +15,10 @@ export const Component: React.FC<_Props> = (props) => (
       </div>
     ) : props.auth === null ? (
       <div className={styles.content}>
-        <div className={styles.description}>
-          <IconInformationCircle className={styles.icon} />
-          {APP_DESCRIPTION}
-        </div>
+        <Message className={styles.message}>
+          <IconInformationCircle className={styles.messageIcon} />
+          <p>{APP_DESCRIPTION}</p>
+        </Message>
         <hr />
         <div className={styles.footer}>
           <Link href="/login" className={styles.footerLink}>

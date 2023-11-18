@@ -1,3 +1,4 @@
+import { Message } from "@/_components/message";
 import { IconLightBulb } from "@/_icons/light-bulb";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -14,10 +15,14 @@ export default async function Page() {
       <h1>Register</h1>
       <Form />
       <hr />
-      <div className={styles.footer}>
-        <IconLightBulb className={styles.footerIcon} />
-        If you have already registered as a user, please{" "}
-        <Link href="/login">Login from this link</Link>.
+      <div>
+        <Message className={styles.footerMessage}>
+          <IconLightBulb className={styles.footerMessageIcon} />
+          <p>
+            If you have already registered as a user, please{" "}
+            <Link href="/login">Login from this link</Link>.
+          </p>
+        </Message>
       </div>
     </div>
   );
