@@ -24,7 +24,7 @@ export const useAuth = () => {
         setAuth(null);
       }
     })();
-  }, []);
+  }, [auth]);
 
   return {
     auth,
