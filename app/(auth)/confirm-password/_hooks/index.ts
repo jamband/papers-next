@@ -1,5 +1,4 @@
 import { API_URL } from "@/_constants/api";
-import { NOTIFICATION_TOO_MANY_REQUEST } from "@/_constants/notification";
 import { useNotificationAction } from "@/_hooks/notification";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import { formDataToJsonString } from "@/_utils/form";
@@ -41,7 +40,11 @@ export const useConfirmPassword = () => {
     }
 
     if (response.status === 429) {
-      notification({ message: NOTIFICATION_TOO_MANY_REQUEST, color: "yellow" });
+      notification({
+        message:
+          "There are too many requests. Please wait for a while and try again.",
+        color: "yellow",
+      });
       return;
     }
   };

@@ -1,5 +1,4 @@
 import { API_URL } from "@/_constants/api";
-import { NOTIFICATION_PASSWORD_RESET_LINK_SENT } from "@/_constants/notification";
 import { useNotificationAction } from "@/_hooks/notification";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import { formDataToJsonString } from "@/_utils/form";
@@ -31,7 +30,7 @@ export const useForgotPassword = () => {
 
     if (response.ok) {
       setIsSend(true);
-      notification({ message: NOTIFICATION_PASSWORD_RESET_LINK_SENT });
+      notification({ message: "We have emailed your password reset link." });
       return;
     }
 

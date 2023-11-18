@@ -1,5 +1,4 @@
 import { API_URL, API_USER_KEY } from "@/_constants/api";
-import { NOTIFICATION_VERIFICATION_VERIFIED } from "@/_constants/notification";
 import type { Auth } from "@/_types/auth";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -70,7 +69,7 @@ export const useVerificationNotification = () => {
     }
 
     if (auth?.is_verified && searchParams.get("verified") === "1") {
-      notification({ message: NOTIFICATION_VERIFICATION_VERIFIED });
+      notification({ message: "User registration has been completed." });
       return;
     }
   }, [auth, searchParams, notification]);

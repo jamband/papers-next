@@ -1,5 +1,4 @@
 import { API_URL } from "@/_constants/api";
-import { NOTIFICATION_VERIFICATION_LINK_SENT } from "@/_constants/notification";
 import { useNotificationAction } from "@/_hooks/notification";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import { formDataToJsonString } from "@/_utils/form";
@@ -35,7 +34,10 @@ export const useRegister = () => {
 
     if (response.ok) {
       router.push("/");
-      notification({ message: NOTIFICATION_VERIFICATION_LINK_SENT });
+      notification({
+        message:
+          "A verification link has been sent to the email address you provided during registration.",
+      });
       return;
     }
 
