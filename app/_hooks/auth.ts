@@ -10,7 +10,7 @@ export const useAuth = () => {
   const [auth, setAuth] = useState<Auth | null>();
 
   useEffect(() => {
-    const getAuth = async () => {
+    async () => {
       const response = await fetch(API_URL + API_USER_KEY, {
         cache: "no-store",
         credentials: "include",
@@ -24,8 +24,6 @@ export const useAuth = () => {
         setAuth(null);
       }
     };
-
-    getAuth();
   }, []);
 
   return {
