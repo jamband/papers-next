@@ -12,10 +12,14 @@ export const Component: React.FC<_Props> = (props) => (
   >
     <div className={styles.message}>
       <IconInformationCircle className={styles.messageIcon} />
-      {props.message}
+      <p>{props.message}</p>
+      <button
+        onClick={props.clear}
+        className={styles.button}
+        aria-label="Close"
+      >
+        <IconX className={styles.buttonIcon} />
+      </button>
     </div>
-    <button onClick={props.clear} className={styles.button} aria-label="Close">
-      <IconX className={styles.buttonIcon} />
-    </button>
   </div>
 );
