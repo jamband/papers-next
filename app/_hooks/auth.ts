@@ -10,7 +10,7 @@ export const useAuth = () => {
   const [auth, setAuth] = useState<Auth | null>();
 
   useEffect(() => {
-    async () => {
+    (async () => {
       const response = await fetch(API_URL + API_USER_KEY, {
         cache: "no-store",
         credentials: "include",
@@ -23,7 +23,7 @@ export const useAuth = () => {
       if (response.status === 204) {
         setAuth(null);
       }
-    };
+    })();
   }, []);
 
   return {
