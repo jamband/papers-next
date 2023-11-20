@@ -2,11 +2,12 @@ import { API_URL } from "@/_constants/api";
 import { useNotificationAction } from "@/_hooks/notification";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import type { User } from "@/admin/_types";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export const useUsers = () => {
   const [users, setUsers] = useState<Array<User> | null>();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     fetch(`${API_URL}/admin/users`, {
@@ -18,7 +19,7 @@ export const useUsers = () => {
         return;
       }
     });
-  }, []);
+  }, [searchParams]);
 
   return {
     users,
@@ -40,7 +41,7 @@ export const useDeleteUser = () => {
         headers: { "X-XSRF-TOKEN": getCsrfToken() },
       }).then((response) => {
         if (response.ok) {
-          push("/admin/users");
+          push(`/admin/users?q=${crypto.randomUUID()}`);
           notification({ message: "The user has been deleted." });
           return;
         }

@@ -1,11 +1,12 @@
 import { API_URL } from "@/_constants/api";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { Paper } from "../_types";
 
 export const usePapers = () => {
   const [papers, setPapers] = useState<Array<Paper> | null>();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     fetch(`${API_URL}/papers`, {
@@ -17,7 +18,7 @@ export const usePapers = () => {
         return;
       }
     });
-  }, []);
+  }, [searchParams]);
 
   return {
     papers,
@@ -38,7 +39,7 @@ export const useDeletePaper = () => {
         headers: { "X-XSRF-TOKEN": getCsrfToken() },
       }).then((response) => {
         if (response.ok) {
-          router.push("/papers");
+          router.push(`/papers?q=${crypto.randomUUID()}`);
           return;
         }
       });
