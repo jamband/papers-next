@@ -19,7 +19,7 @@ export const usePapers = () => {
         return;
       }
     })();
-  }, [papers]);
+  }, []);
 
   return {
     papers,
