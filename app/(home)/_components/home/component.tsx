@@ -5,6 +5,7 @@ import { IconInformationCircle } from "@/_icons/information-circle";
 import Link from "next/link";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
+import { LogoutButton } from "@/_components/logout-button";
 
 export const Component: React.FC<_Props> = (props) => (
   <>
@@ -40,7 +41,7 @@ export const Component: React.FC<_Props> = (props) => (
         </div>
         <hr />
         <div className={styles.footer}>
-          <Link href="/logout">Logout</Link>
+          <LogoutButton />
         </div>
       </div>
     )}

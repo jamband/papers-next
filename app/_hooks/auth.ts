@@ -7,6 +7,8 @@ import { useNotificationAction } from "./notification";
 
 export const useAuth = () => {
   const [auth, setAuth] = useState<Auth | null>();
+  const searchParams = useSearchParams();
+  const q = searchParams.get("q");
 
   useEffect(() => {
     fetch(API_URL + API_USER_KEY, {
@@ -23,7 +25,7 @@ export const useAuth = () => {
         return;
       }
     });
-  }, []);
+  }, [q]);
 
   return {
     auth,
@@ -44,7 +46,7 @@ export const useLogout = () => {
       headers: { "X-XSRF-TOKEN": getCsrfToken() },
     }).then((response) => {
       if (response.ok) {
-        router.push("/");
+        router.push(`/?q=${crypto.randomUUID()}`);
         notification({ message: "Logged out successfully.", autoClose: true });
         return;
       }
