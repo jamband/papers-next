@@ -11,7 +11,6 @@ export const useNotificationAction = () => {
 
   const notification = useCallback(
     (payload: State) => {
-      payload.color = payload.color ?? "green";
       dispatch({ type: "notification", payload });
     },
     [dispatch],

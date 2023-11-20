@@ -33,7 +33,7 @@ export const useLogin = () => {
 
     if (response.ok) {
       router.push("/");
-      notification({ message: "Logged in successfully." });
+      notification({ message: "Logged in successfully.", autoClose: true });
       return;
     }
 

@@ -1,11 +1,11 @@
 export type State = {
   message: string;
-  color?: "green" | "yellow";
+  autoClose?: boolean;
 };
 
 export const initialState: State = {
   message: "",
-  color: "green",
+  autoClose: false,
 };
 
 export type Action =

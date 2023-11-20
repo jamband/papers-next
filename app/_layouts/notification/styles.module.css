@@ -25,12 +25,6 @@
   padding: 0.75rem;
 }
 
-@media (min-width: 768px) {
-  .message {
-    gap: 0.25rem;
-  }
-}
-
 .messageIcon {
   height: 1.25rem;
   margin: 0.1rem 0 0 0;

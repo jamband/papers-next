@@ -5,5 +5,4 @@ export type Props = {
 export type _Props = Props & {
   message: string;
   clear: () => void;
-  color?: "green" | "yellow";
 };

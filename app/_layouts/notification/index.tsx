@@ -8,16 +8,18 @@ import { Component } from "./component";
 import type { Props } from "./types";
 
 export const Notification: React.FC<Props> = (props) => {
-  const { message, color } = useNotificationState();
+  const { message, autoClose } = useNotificationState();
   const { clear } = useNotificationAction();
 
   if (message === "") {
     return null;
   }
 
-  setTimeout(() => {
-    clear();
-  }, 5000);
+  if (autoClose) {
+    setTimeout(() => {
+      clear();
+    }, 5000);
+  }
 
-  return <Component {...props} message={message} clear={clear} color={color} />;
+  return <Component {...props} message={message} clear={clear} />;
 };
