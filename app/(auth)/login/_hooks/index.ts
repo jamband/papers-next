@@ -20,7 +20,7 @@ export const useLogin = () => {
     event.preventDefault();
     await generateCsrfCookie();
 
-    const response = await fetch(`${API_URL}/login`, {
+    await fetch(`${API_URL}/login`, {
       cache: "no-store",
       method: "POST",
       credentials: "include",
@@ -29,18 +29,18 @@ export const useLogin = () => {
         "X-XSRF-TOKEN": getCsrfToken(),
       },
       body: formDataToJsonString(new FormData(event.target as HTMLFormElement)),
+    }).then(async (response) => {
+      if (response.ok) {
+        router.push("/");
+        notification({ message: "Logged in successfully.", autoClose: true });
+        return;
+      }
+
+      if (response.status === 422) {
+        setErrors((await response.json()).errors);
+        return;
+      }
     });
-
-    if (response.ok) {
-      router.push("/");
-      notification({ message: "Logged in successfully.", autoClose: true });
-      return;
-    }
-
-    if (response.status === 422) {
-      setErrors((await response.json()).errors);
-      return;
-    }
   };
 
   return {

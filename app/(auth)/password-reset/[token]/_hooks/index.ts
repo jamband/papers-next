@@ -21,7 +21,7 @@ export const useResetPassword = () => {
     event.preventDefault();
     await generateCsrfCookie();
 
-    const response = await fetch(`${API_URL}/reset-password`, {
+    await fetch(`${API_URL}/reset-password`, {
       method: "POST",
       cache: "no-store",
       credentials: "include",
@@ -30,18 +30,18 @@ export const useResetPassword = () => {
         "X-XSRF-TOKEN": getCsrfToken(),
       },
       body: formDataToJsonString(new FormData(event.target as HTMLFormElement)),
+    }).then(async (response) => {
+      if (response.ok) {
+        router.push("/login");
+        notification({ message: "Your password has been reset!" });
+        return;
+      }
+
+      if (response.status === 422) {
+        setErrors((await response.json()).errors);
+        return;
+      }
     });
-
-    if (response.ok) {
-      router.push("/login");
-      notification({ message: "Your password has been reset!" });
-      return;
-    }
-
-    if (response.status === 422) {
-      setErrors((await response.json()).errors);
-      return;
-    }
   };
 
   return {

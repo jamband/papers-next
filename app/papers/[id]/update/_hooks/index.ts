@@ -18,7 +18,7 @@ export const useUpdatePaper = () => {
     event.preventDefault();
     await generateCsrfCookie();
 
-    const response = await fetch(`${API_URL}/papers/${params.id}`, {
+    await fetch(`${API_URL}/papers/${params.id}`, {
       method: "PUT",
       cache: "no-store",
       credentials: "include",
@@ -27,17 +27,17 @@ export const useUpdatePaper = () => {
         "X-XSRF-TOKEN": getCsrfToken(),
       },
       body: formDataToJsonString(new FormData(event.target as HTMLFormElement)),
+    }).then(async (response) => {
+      if (response.ok) {
+        push(`/papers/${params.id}`);
+        return;
+      }
+
+      if (response.status === 422) {
+        setErrors((await response.json()).errors);
+        return;
+      }
     });
-
-    if (response.ok) {
-      push(`/papers/${params.id}`);
-      return;
-    }
-
-    if (response.status === 422) {
-      setErrors((await response.json()).errors);
-      return;
-    }
   };
 
   return {

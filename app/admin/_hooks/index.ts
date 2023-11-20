@@ -10,20 +10,18 @@ export const useLogout = () => {
   const action = async () => {
     await generateCsrfCookie();
 
-    const response = await fetch(`${API_URL}/admin/logout`, {
+    await fetch(`${API_URL}/admin/logout`, {
       method: "POST",
       cache: "no-store",
       credentials: "include",
-      headers: {
-        "X-XSRF-TOKEN": getCsrfToken(),
-      },
+      headers: { "X-XSRF-TOKEN": getCsrfToken() },
+    }).then((response) => {
+      if (response.ok) {
+        router.push("/");
+        notification({ message: "Logged out successfully.", autoClose: true });
+        return;
+      }
     });
-
-    if (response.ok) {
-      router.push("/");
-      notification({ message: "Logged out successfully.", autoClose: true });
-      return;
-    }
   };
 
   return {

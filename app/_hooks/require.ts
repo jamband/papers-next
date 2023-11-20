@@ -90,16 +90,14 @@ export const useRequirePasswordConfirm = () => {
   const { push } = useRouter();
 
   useEffect(() => {
-    (async () => {
-      const response = await fetch(`${API_URL}/confirmed-password`, {
-        cache: "no-store",
-        credentials: "include",
-      });
-
+    fetch(`${API_URL}/confirmed-password`, {
+      cache: "no-store",
+      credentials: "include",
+    }).then((response) => {
       if (!response.ok) {
         push("/confirm-password");
         return;
       }
-    })();
+    });
   }, [push]);
 };

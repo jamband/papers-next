@@ -8,31 +8,30 @@ export const useVerifyEmail = () => {
   const action = async () => {
     await generateCsrfCookie();
 
-    const response = await fetch(`${API_URL}/email/verification-notification`, {
+    await fetch(`${API_URL}/email/verification-notification`, {
       method: "POST",
       cache: "no-store",
       credentials: "include",
       headers: {
         "X-XSRF-TOKEN": getCsrfToken(),
       },
+    }).then((response) => {
+      if (response.ok) {
+        notification({
+          message:
+            "A new verification link has been sent to the email address you provided during registration.",
+        });
+        return;
+      }
+
+      if (response.status === 429) {
+        notification({
+          message:
+            "There are too many requests. Please wait for a while and try again.",
+        });
+        return;
+      }
     });
-
-    if (response.ok) {
-      notification({
-        message:
-          "A new verification link has been sent to the email address you provided during registration.",
-      });
-      return;
-    }
-
-    if (response.status === 429) {
-      notification({
-        message:
-          "There are too many requests. Please wait for a while and try again.",
-        color: "yellow",
-      });
-      return;
-    }
   };
 
   return {

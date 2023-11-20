@@ -18,7 +18,7 @@ export const useConfirmPassword = () => {
     event.preventDefault();
     await generateCsrfCookie();
 
-    const response = await fetch(`${API_URL}/confirm-password`, {
+    await fetch(`${API_URL}/confirm-password`, {
       method: "POST",
       cache: "no-store",
       credentials: "include",
@@ -27,26 +27,24 @@ export const useConfirmPassword = () => {
         "X-XSRF-TOKEN": getCsrfToken(),
       },
       body: formDataToJsonString(new FormData(event.target as HTMLFormElement)),
+    }).then(async (response) => {
+      if (response.ok) {
+        back();
+        return;
+      }
+
+      if (response.status === 422) {
+        setErrors((await response.json()).errors);
+        return;
+      }
+      if (response.status === 429) {
+        notification({
+          message:
+            "There are too many requests. Please wait for a while and try again.",
+        });
+        return;
+      }
     });
-
-    if (response.ok) {
-      back();
-      return;
-    }
-
-    if (response.status === 422) {
-      setErrors((await response.json()).errors);
-      return;
-    }
-
-    if (response.status === 429) {
-      notification({
-        message:
-          "There are too many requests. Please wait for a while and try again.",
-        color: "yellow",
-      });
-      return;
-    }
   };
 
   return {

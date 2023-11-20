@@ -21,7 +21,7 @@ export const useRegister = () => {
     event.preventDefault();
     await generateCsrfCookie();
 
-    const response = await fetch(`${API_URL}/register`, {
+    await fetch(`${API_URL}/register`, {
       method: "POST",
       cache: "no-store",
       credentials: "include",
@@ -30,21 +30,21 @@ export const useRegister = () => {
         "X-XSRF-TOKEN": getCsrfToken(),
       },
       body: formDataToJsonString(new FormData(event.target as HTMLFormElement)),
+    }).then(async (response) => {
+      if (response.ok) {
+        router.push("/");
+        notification({
+          message:
+            "A verification link has been sent to the email address you provided during registration.",
+        });
+        return;
+      }
+
+      if (response.status === 422) {
+        setErrors((await response.json()).errors);
+        return;
+      }
     });
-
-    if (response.ok) {
-      router.push("/");
-      notification({
-        message:
-          "A verification link has been sent to the email address you provided during registration.",
-      });
-      return;
-    }
-
-    if (response.status === 422) {
-      setErrors((await response.json()).errors);
-      return;
-    }
   };
 
   return {

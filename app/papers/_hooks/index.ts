@@ -8,17 +8,15 @@ export const usePapers = () => {
   const [papers, setPapers] = useState<Array<Paper> | null>();
 
   useEffect(() => {
-    (async () => {
-      const response = await fetch(`${API_URL}/papers`, {
-        cache: "no-store",
-        credentials: "include",
-      });
-
+    fetch(`${API_URL}/papers`, {
+      cache: "no-store",
+      credentials: "include",
+    }).then(async (response) => {
       if (response.ok) {
         setPapers(await response.json());
         return;
       }
-    })();
+    });
   }, []);
 
   return {
@@ -33,19 +31,17 @@ export const useDeletePaper = () => {
     if (confirm("Are you sure?")) {
       await generateCsrfCookie();
 
-      const response = await fetch(`${API_URL}/papers/${id}`, {
+      await fetch(`${API_URL}/papers/${id}`, {
         method: "DELETE",
         cache: "no-store",
         credentials: "include",
-        headers: {
-          "X-XSRF-TOKEN": getCsrfToken(),
-        },
+        headers: { "X-XSRF-TOKEN": getCsrfToken() },
+      }).then((response) => {
+        if (response.ok) {
+          router.push("/papers");
+          return;
+        }
       });
-
-      if (response.ok) {
-        router.push("/papers");
-        return;
-      }
     }
   };
 

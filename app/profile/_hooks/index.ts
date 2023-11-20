@@ -6,12 +6,10 @@ export const useProfile = () => {
   const [profile, setProfile] = useState<Profile | null>();
 
   useEffect(() => {
-    (async () => {
-      const response = await fetch(`${API_URL}/profile`, {
-        cache: "no-store",
-        credentials: "include",
-      });
-
+    fetch(`${API_URL}/profile`, {
+      cache: "no-store",
+      credentials: "include",
+    }).then(async (response) => {
       if (response.ok) {
         setProfile(await response.json());
         return;
@@ -21,7 +19,7 @@ export const useProfile = () => {
         setProfile(await response.json());
         return;
       }
-    })();
+    });
   }, []);
 
   return {

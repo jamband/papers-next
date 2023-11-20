@@ -9,17 +9,15 @@ export const useUsers = () => {
   const [users, setUsers] = useState<Array<User> | null>();
 
   useEffect(() => {
-    (async () => {
-      const response = await fetch(`${API_URL}/admin/users`, {
-        cache: "no-store",
-        credentials: "include",
-      });
-
+    fetch(`${API_URL}/admin/users`, {
+      cache: "no-store",
+      credentials: "include",
+    }).then(async (response) => {
       if (response.ok) {
         setUsers(await response.json());
         return;
       }
-    })();
+    });
   }, []);
 
   return {
@@ -35,20 +33,18 @@ export const useDeleteUser = () => {
     if (confirm("Are you sure you want to delete it?")) {
       await generateCsrfCookie();
 
-      const response = await fetch(`${API_URL}/admin/users/${id}`, {
+      await fetch(`${API_URL}/admin/users/${id}`, {
         method: "DELETE",
         cache: "no-store",
         credentials: "include",
-        headers: {
-          "X-XSRF-TOKEN": getCsrfToken(),
-        },
+        headers: { "X-XSRF-TOKEN": getCsrfToken() },
+      }).then((response) => {
+        if (response.ok) {
+          push("/admin/users");
+          notification({ message: "The user has been deleted." });
+          return;
+        }
       });
-
-      if (response.ok) {
-        push("/admin/users");
-        notification({ message: "The user has been deleted." });
-        return;
-      }
     }
   };
 

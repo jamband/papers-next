@@ -9,20 +9,20 @@ export const useAuth = () => {
   const [auth, setAuth] = useState<Auth | null>();
 
   useEffect(() => {
-    (async () => {
-      const response = await fetch(API_URL + API_USER_KEY, {
-        cache: "no-store",
-        credentials: "include",
-      });
-
+    fetch(API_URL + API_USER_KEY, {
+      cache: "no-store",
+      credentials: "include",
+    }).then(async (response) => {
       if (response.status === 200) {
         setAuth(await response.json());
+        return;
       }
 
       if (response.status === 204) {
         setAuth(null);
+        return;
       }
-    })();
+    });
   }, []);
 
   return {
@@ -37,20 +37,18 @@ export const useLogout = () => {
   const action = async () => {
     await generateCsrfCookie();
 
-    const response = await fetch(`${API_URL}/logout`, {
+    await fetch(`${API_URL}/logout`, {
       method: "POST",
       cache: "no-store",
       credentials: "include",
-      headers: {
-        "X-XSRF-TOKEN": getCsrfToken(),
-      },
+      headers: { "X-XSRF-TOKEN": getCsrfToken() },
+    }).then((response) => {
+      if (response.ok) {
+        router.push("/");
+        notification({ message: "Logged out successfully.", autoClose: true });
+        return;
+      }
     });
-
-    if (response.ok) {
-      router.push("/");
-      notification({ message: "Logged out successfully.", autoClose: true });
-      return;
-    }
   };
 
   return {

@@ -8,17 +8,15 @@ export const usePaper = () => {
   const params = useParams();
 
   useEffect(() => {
-    (async () => {
-      const response = await fetch(`${API_URL}/papers/${params.id}`, {
-        cache: "no-store",
-        credentials: "include",
-      });
-
+    fetch(`${API_URL}/papers/${params.id}`, {
+      cache: "no-store",
+      credentials: "include",
+    }).then(async (response) => {
       if (response.ok) {
         setPaper(await response.json());
         return;
       }
-    })();
+    });
   }, [params]);
 
   return {
