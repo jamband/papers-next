@@ -1,11 +1,11 @@
 import { Loading } from "@/_components/loading";
+import { LogoutButton } from "@/_components/logout-button";
 import { Message } from "@/_components/message";
 import { APP_DESCRIPTION } from "@/_constants/app";
 import { IconInformationCircle } from "@/_icons/information-circle";
 import Link from "next/link";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
-import { LogoutButton } from "@/_components/logout-button";
 
 export const Component: React.FC<_Props> = (props) => (
   <>
