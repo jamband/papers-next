@@ -1,5 +1,4 @@
 import { Loading } from "@/_components/loading";
-import { LogoutButton } from "@/_components/logout-button";
 import { Message } from "@/_components/message";
 import { APP_DESCRIPTION } from "@/_constants/app";
 import { IconInformationCircle } from "@/_icons/information-circle";
@@ -41,7 +40,7 @@ export const Component: React.FC<_Props> = (props) => (
         </div>
         <hr />
         <div className={styles.footer}>
-          <LogoutButton />
+          <Link href="/logout">Logout</Link>
         </div>
       </div>
     )}
