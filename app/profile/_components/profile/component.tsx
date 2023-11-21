@@ -8,7 +8,7 @@ export const Component: React.FC<_Props> = (props) => (
   <>
     {props.profile === undefined ? (
       <Loading className={styles.loading} />
-    ) : props.profile === null ? (
+    ) : props.profile instanceof Error ? (
       <FailedToFetch />
     ) : (
       <div className={styles.content}>

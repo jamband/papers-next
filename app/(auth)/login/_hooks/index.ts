@@ -29,18 +29,22 @@ export const useLogin = () => {
         "X-XSRF-TOKEN": getCsrfToken(),
       },
       body: formDataToJsonString(new FormData(event.target as HTMLFormElement)),
-    }).then(async (response) => {
-      if (response.ok) {
-        router.push("/");
-        notification({ message: "Logged in successfully.", autoClose: true });
-        return;
-      }
+    })
+      .then(async (response) => {
+        if (response.ok) {
+          router.push("/");
+          notification({ message: "Logged in successfully.", autoClose: true });
+          return;
+        }
 
-      if (response.status === 422) {
-        setErrors((await response.json()).errors);
-        return;
-      }
-    });
+        if (response.status === 422) {
+          setErrors((await response.json()).errors);
+          return;
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return {

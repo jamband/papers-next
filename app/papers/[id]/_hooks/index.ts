@@ -4,19 +4,24 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export const usePaper = () => {
-  const [paper, setPaper] = useState<Paper | null>();
+  const [paper, setPaper] = useState<Paper | Error>();
   const params = useParams();
 
   useEffect(() => {
     fetch(`${API_URL}/papers/${params.id}`, {
       cache: "no-store",
       credentials: "include",
-    }).then(async (response) => {
-      if (response.ok) {
-        setPaper(await response.json());
-        return;
-      }
-    });
+    })
+      .then(async (response) => {
+        if (response.ok) {
+          setPaper(await response.json());
+          return;
+        }
+      })
+      .catch((error) => {
+        setPaper(error);
+        console.error(error);
+      });
   }, [params]);
 
   return {

@@ -1,3 +1,4 @@
+import { FailedToFetch } from "@/_components/failed-to-fetch";
 import { Loading } from "@/_components/loading";
 import { LogoutButton } from "@/_components/logout-button";
 import { Message } from "@/_components/message";
@@ -13,6 +14,8 @@ export const Component: React.FC<_Props> = (props) => (
       <div className={styles.content}>
         <Loading className={styles.loading} />
       </div>
+    ) : props.auth instanceof Error ? (
+      <FailedToFetch />
     ) : props.auth === null ? (
       <div className={styles.content}>
         <Message className={styles.message}>

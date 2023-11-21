@@ -26,18 +26,24 @@ export const useForgotPassword = () => {
         "X-XSRF-TOKEN": getCsrfToken(),
       },
       body: formDataToJsonString(new FormData(event.target as HTMLFormElement)),
-    }).then(async (response) => {
-      if (response.ok) {
-        setIsSend(true);
-        notification({ message: "We have emailed your password reset link." });
-        return;
-      }
+    })
+      .then(async (response) => {
+        if (response.ok) {
+          setIsSend(true);
+          notification({
+            message: "We have emailed your password reset link.",
+          });
+          return;
+        }
 
-      if (response.status === 422) {
-        setErrors((await response.json()).errors);
-        return;
-      }
-    });
+        if (response.status === 422) {
+          setErrors((await response.json()).errors);
+          return;
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return {

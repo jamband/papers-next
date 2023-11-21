@@ -30,21 +30,25 @@ export const useRegister = () => {
         "X-XSRF-TOKEN": getCsrfToken(),
       },
       body: formDataToJsonString(new FormData(event.target as HTMLFormElement)),
-    }).then(async (response) => {
-      if (response.ok) {
-        router.push("/");
-        notification({
-          message:
-            "A verification link has been sent to the email address you provided during registration.",
-        });
-        return;
-      }
+    })
+      .then(async (response) => {
+        if (response.ok) {
+          router.push("/");
+          notification({
+            message:
+              "A verification link has been sent to the email address you provided during registration.",
+          });
+          return;
+        }
 
-      if (response.status === 422) {
-        setErrors((await response.json()).errors);
-        return;
-      }
-    });
+        if (response.status === 422) {
+          setErrors((await response.json()).errors);
+          return;
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return {

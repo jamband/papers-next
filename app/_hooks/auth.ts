@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useNotificationAction } from "./notification";
 
 export const useAuth = () => {
-  const [auth, setAuth] = useState<Auth | null>();
+  const [auth, setAuth] = useState<Auth | Error | null>();
   const searchParams = useSearchParams();
   const q = searchParams.get("q");
 
@@ -14,17 +14,22 @@ export const useAuth = () => {
     fetch(API_URL + API_USER_KEY, {
       cache: "no-store",
       credentials: "include",
-    }).then(async (response) => {
-      if (response.status === 200) {
-        setAuth(await response.json());
-        return;
-      }
+    })
+      .then(async (response) => {
+        if (response.status === 200) {
+          setAuth(await response.json());
+          return;
+        }
 
-      if (response.status === 204) {
-        setAuth(null);
-        return;
-      }
-    });
+        if (response.status === 204) {
+          setAuth(null);
+          return;
+        }
+      })
+      .catch((error) => {
+        setAuth(error);
+        console.error(error);
+      });
   }, [q]);
 
   return {
@@ -64,7 +69,7 @@ export const useVerificationNotification = () => {
   const { notification } = useNotificationAction();
 
   useEffect(() => {
-    if (auth === undefined) {
+    if (auth === undefined || auth instanceof Error) {
       return;
     }
 

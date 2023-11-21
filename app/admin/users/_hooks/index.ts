@@ -6,19 +6,24 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export const useUsers = () => {
-  const [users, setUsers] = useState<Array<User> | null>();
+  const [users, setUsers] = useState<Array<User> | Error>();
   const searchParams = useSearchParams();
 
   useEffect(() => {
     fetch(`${API_URL}/admin/users`, {
       cache: "no-store",
       credentials: "include",
-    }).then(async (response) => {
-      if (response.ok) {
-        setUsers(await response.json());
-        return;
-      }
-    });
+    })
+      .then(async (response) => {
+        if (response.ok) {
+          setUsers(await response.json());
+          return;
+        }
+      })
+      .catch((error) => {
+        setUsers(error);
+        console.error(error);
+      });
   }, [searchParams]);
 
   return {
@@ -39,13 +44,17 @@ export const useDeleteUser = () => {
         cache: "no-store",
         credentials: "include",
         headers: { "X-XSRF-TOKEN": getCsrfToken() },
-      }).then((response) => {
-        if (response.ok) {
-          push(`/admin/users?q=${crypto.randomUUID()}`);
-          notification({ message: "The user has been deleted." });
-          return;
-        }
-      });
+      })
+        .then((response) => {
+          if (response.ok) {
+            push(`/admin/users?q=${crypto.randomUUID()}`);
+            notification({ message: "The user has been deleted." });
+            return;
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   };
 

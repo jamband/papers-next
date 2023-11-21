@@ -12,11 +12,11 @@ export const Component: React.FC<_Props> = (props) => (
   <>
     {props.papers === undefined ? (
       <Loading />
-    ) : props.papers === null ? (
+    ) : props.papers instanceof Error ? (
       <FailedToFetch />
     ) : (
       <>
-        {props.papers.map((paper) => (
+        {props.papers?.map((paper) => (
           <div className={styles.container} key={paper.id}>
             <h2>
               <Link href={`/papers/${paper.id}`}>{paper.title}</Link>

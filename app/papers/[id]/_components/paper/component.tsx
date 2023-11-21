@@ -11,7 +11,7 @@ export const Component: React.FC<_Props> = (props) => (
   <div className={styles.container}>
     {props.paper === undefined ? (
       <Loading className={styles.loading} />
-    ) : props.paper === null ? (
+    ) : props.paper instanceof Error ? (
       <FailedToFetch />
     ) : (
       <>
@@ -23,14 +23,14 @@ export const Component: React.FC<_Props> = (props) => (
         </div>
         <div className={styles.action}>
           <ActionLink
-            href={`/papers/${props.paper.id}/update`}
+            href={`/papers/${props.paperId}/update`}
             className={styles.updateLink}
           >
             Update →
           </ActionLink>
           <ActionButton
             type="button"
-            onClick={() => props.deletePaper(props.paper?.id || 0)}
+            onClick={() => props.deletePaper(props.paperId)}
           >
             Delete
             <IconTrash className={styles.deleteButtonIcon} />

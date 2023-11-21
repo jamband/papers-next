@@ -15,13 +15,20 @@ export const useLogout = () => {
       cache: "no-store",
       credentials: "include",
       headers: { "X-XSRF-TOKEN": getCsrfToken() },
-    }).then((response) => {
-      if (response.ok) {
-        router.push("/");
-        notification({ message: "Logged out successfully.", autoClose: true });
-        return;
-      }
-    });
+    })
+      .then((response) => {
+        if (response.ok) {
+          router.push("/");
+          notification({
+            message: "Logged out successfully.",
+            autoClose: true,
+          });
+          return;
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return {

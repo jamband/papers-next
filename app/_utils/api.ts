@@ -4,6 +4,8 @@ export const generateCsrfCookie = async () => {
   await fetch(API_URL + API_CSRF_COOKIE, {
     cache: "no-store",
     credentials: "include",
+  }).catch((error) => {
+    console.error(error);
   });
 };
 

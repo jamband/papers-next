@@ -27,24 +27,28 @@ export const useConfirmPassword = () => {
         "X-XSRF-TOKEN": getCsrfToken(),
       },
       body: formDataToJsonString(new FormData(event.target as HTMLFormElement)),
-    }).then(async (response) => {
-      if (response.ok) {
-        back();
-        return;
-      }
+    })
+      .then(async (response) => {
+        if (response.ok) {
+          back();
+          return;
+        }
 
-      if (response.status === 422) {
-        setErrors((await response.json()).errors);
-        return;
-      }
-      if (response.status === 429) {
-        notification({
-          message:
-            "There are too many requests. Please wait for a while and try again.",
-        });
-        return;
-      }
-    });
+        if (response.status === 422) {
+          setErrors((await response.json()).errors);
+          return;
+        }
+        if (response.status === 429) {
+          notification({
+            message:
+              "There are too many requests. Please wait for a while and try again.",
+          });
+          return;
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return {

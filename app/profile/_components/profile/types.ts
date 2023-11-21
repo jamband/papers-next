@@ -1,9 +1,9 @@
-import type { Profile } from "@/profile/_types";
+import type { useProfile } from "@/profile/_hooks";
 
 export type Props = {
   //
 };
 
 export type _Props = Props & {
-  profile?: Profile | null;
+  profile: ReturnType<typeof useProfile>["profile"];
 };

@@ -27,17 +27,22 @@ export const useUpdatePaper = () => {
         "X-XSRF-TOKEN": getCsrfToken(),
       },
       body: formDataToJsonString(new FormData(event.target as HTMLFormElement)),
-    }).then(async (response) => {
-      if (response.ok) {
-        push(`/papers/${params.id}`);
-        return;
-      }
+    })
+      .then(async (response) => {
+        if (response.ok) {
+          push(`/papers/${params.id}`);
+          return;
+        }
 
-      if (response.status === 422) {
-        setErrors((await response.json()).errors);
-        return;
-      }
-    });
+        if (response.status === 422) {
+          setErrors((await response.json()).errors);
+          return;
+        }
+      })
+      .catch((error) => {
+        setErrors(error);
+        console.error(error);
+      });
   };
 
   return {

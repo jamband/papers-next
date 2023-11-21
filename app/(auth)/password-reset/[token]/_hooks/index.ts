@@ -30,18 +30,22 @@ export const useResetPassword = () => {
         "X-XSRF-TOKEN": getCsrfToken(),
       },
       body: formDataToJsonString(new FormData(event.target as HTMLFormElement)),
-    }).then(async (response) => {
-      if (response.ok) {
-        router.push("/login");
-        notification({ message: "Your password has been reset!" });
-        return;
-      }
+    })
+      .then(async (response) => {
+        if (response.ok) {
+          router.push("/login");
+          notification({ message: "Your password has been reset!" });
+          return;
+        }
 
-      if (response.status === 422) {
-        setErrors((await response.json()).errors);
-        return;
-      }
-    });
+        if (response.status === 422) {
+          setErrors((await response.json()).errors);
+          return;
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return {

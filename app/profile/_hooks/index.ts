@@ -3,23 +3,23 @@ import { useEffect, useState } from "react";
 import type { Profile } from "../_types";
 
 export const useProfile = () => {
-  const [profile, setProfile] = useState<Profile | null>();
+  const [profile, setProfile] = useState<Profile | Error>();
 
   useEffect(() => {
     fetch(`${API_URL}/profile`, {
       cache: "no-store",
       credentials: "include",
-    }).then(async (response) => {
-      if (response.ok) {
-        setProfile(await response.json());
-        return;
-      }
-
-      if (!response.ok) {
-        setProfile(await response.json());
-        return;
-      }
-    });
+    })
+      .then(async (response) => {
+        if (response.ok) {
+          setProfile(await response.json());
+          return;
+        }
+      })
+      .catch((error) => {
+        setProfile(error);
+        console.error(error);
+      });
   }, []);
 
   return {

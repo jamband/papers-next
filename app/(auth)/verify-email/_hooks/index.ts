@@ -15,23 +15,27 @@ export const useVerifyEmail = () => {
       headers: {
         "X-XSRF-TOKEN": getCsrfToken(),
       },
-    }).then((response) => {
-      if (response.ok) {
-        notification({
-          message:
-            "A new verification link has been sent to the email address you provided during registration.",
-        });
-        return;
-      }
+    })
+      .then((response) => {
+        if (response.ok) {
+          notification({
+            message:
+              "A new verification link has been sent to the email address you provided during registration.",
+          });
+          return;
+        }
 
-      if (response.status === 429) {
-        notification({
-          message:
-            "There are too many requests. Please wait for a while and try again.",
-        });
-        return;
-      }
-    });
+        if (response.status === 429) {
+          notification({
+            message:
+              "There are too many requests. Please wait for a while and try again.",
+          });
+          return;
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return {

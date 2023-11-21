@@ -9,7 +9,7 @@ export const Component: React.FC<_Props> = (props) => (
   <>
     {props.users === undefined ? (
       <Loading className={styles.loading} />
-    ) : props.users === null ? (
+    ) : props.users instanceof Error ? (
       <FailedToFetch />
     ) : (
       <div className={styles.container}>

@@ -12,7 +12,7 @@ export const Component: React.FC<_Props> = (props) => (
   <>
     {props.paper === undefined ? (
       <Loading className={styles.loading} />
-    ) : props.paper === null ? (
+    ) : props.paper instanceof Error ? (
       <FailedToFetch />
     ) : (
       <>

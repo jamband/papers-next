@@ -16,17 +16,21 @@ export const useDeleteAccount = () => {
         cache: "no-store",
         credentials: "include",
         headers: { "X-XSRF-TOKEN": getCsrfToken() },
-      }).then((response) => {
-        if (response.ok) {
-          setIsDeleted(true);
-          return;
-        }
+      })
+        .then((response) => {
+          if (response.ok) {
+            setIsDeleted(true);
+            return;
+          }
 
-        if (response.status === 423) {
-          push("/confirm-password");
-          return;
-        }
-      });
+          if (response.status === 423) {
+            push("/confirm-password");
+            return;
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   };
 

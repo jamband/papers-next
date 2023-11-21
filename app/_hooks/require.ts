@@ -8,7 +8,7 @@ export const useRequireGuest = () => {
   const { push } = useRouter();
 
   useEffect(() => {
-    if (auth === undefined) {
+    if (auth === undefined || auth instanceof Error) {
       return;
     }
 
@@ -29,7 +29,7 @@ export const useRequireAuth = () => {
   const { push } = useRouter();
 
   useEffect(() => {
-    if (auth === undefined) {
+    if (auth === undefined || auth instanceof Error) {
       return;
     }
 
@@ -49,7 +49,7 @@ export const useRequireVerified = () => {
   const { push } = useRouter();
 
   useEffect(() => {
-    if (auth === undefined) {
+    if (auth === undefined || auth instanceof Error) {
       return;
     }
 
@@ -75,7 +75,7 @@ export const useRequireAdmin = () => {
   const { push } = useRouter();
 
   useEffect(() => {
-    if (auth === undefined) {
+    if (auth === undefined || auth instanceof Error) {
       return;
     }
 
@@ -93,11 +93,15 @@ export const useRequirePasswordConfirm = () => {
     fetch(`${API_URL}/confirmed-password`, {
       cache: "no-store",
       credentials: "include",
-    }).then((response) => {
-      if (!response.ok) {
-        push("/confirm-password");
-        return;
-      }
-    });
+    })
+      .then((response) => {
+        if (!response.ok) {
+          push("/confirm-password");
+          return;
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, [push]);
 };

@@ -5,19 +5,24 @@ import { useEffect, useState } from "react";
 import type { Paper } from "../_types";
 
 export const usePapers = () => {
-  const [papers, setPapers] = useState<Array<Paper> | null>();
+  const [papers, setPapers] = useState<Array<Paper> | Error>();
   const searchParams = useSearchParams();
 
   useEffect(() => {
     fetch(`${API_URL}/papers`, {
       cache: "no-store",
       credentials: "include",
-    }).then(async (response) => {
-      if (response.ok) {
-        setPapers(await response.json());
-        return;
-      }
-    });
+    })
+      .then(async (response) => {
+        if (response.ok) {
+          setPapers(await response.json());
+          return;
+        }
+      })
+      .catch((error) => {
+        setPapers(error);
+        console.error(error);
+      });
   }, [searchParams]);
 
   return {
@@ -37,12 +42,16 @@ export const useDeletePaper = () => {
         cache: "no-store",
         credentials: "include",
         headers: { "X-XSRF-TOKEN": getCsrfToken() },
-      }).then((response) => {
-        if (response.ok) {
-          router.push(`/papers?q=${crypto.randomUUID()}`);
-          return;
-        }
-      });
+      })
+        .then((response) => {
+          if (response.ok) {
+            router.push(`/papers?q=${crypto.randomUUID()}`);
+            return;
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   };
 
