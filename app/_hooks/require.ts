@@ -70,6 +70,22 @@ export const useRequireVerified = () => {
   }, [auth, push]);
 };
 
+export const useRequireNotAdmin = () => {
+  const { auth } = useAuth();
+  const { push } = useRouter();
+
+  useEffect(() => {
+    if (auth === undefined || auth instanceof Error) {
+      return;
+    }
+
+    if (auth?.role === "admin") {
+      push("/admin");
+      return;
+    }
+  }, [auth, push]);
+};
+
 export const useRequireAdmin = () => {
   const { auth } = useAuth();
   const { push } = useRouter();
