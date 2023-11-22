@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { APP_NAME } from "./_constants/app";
+import { AuthProvider } from "./_contexts/auth";
 import { NotificationProvider } from "./_contexts/notification";
+import { Auth } from "./_layouts/auth";
 import { Footer } from "./_layouts/footer";
 import { Header } from "./_layouts/header";
 import { Loading } from "./_layouts/loading";
@@ -27,14 +29,17 @@ export default function RootLayout(props: Props) {
         <Suspense fallback={null}>
           <Loading />
         </Suspense>
-        <NotificationProvider>
-          <Header />
-          <main className={styles.main}>
-            <Notification />
-            {props.children}
-          </main>
-          <Footer />
-        </NotificationProvider>
+        <AuthProvider>
+          <Auth />
+          <NotificationProvider>
+            <Header />
+            <main className={styles.main}>
+              <Notification />
+              {props.children}
+            </main>
+            <Footer />
+          </NotificationProvider>
+        </AuthProvider>
       </body>
     </html>
   );

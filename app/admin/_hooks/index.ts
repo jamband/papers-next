@@ -1,9 +1,11 @@
 import { API_URL } from "@/_constants/api";
+import { useAuthAction } from "@/_hooks/auth";
 import { useNotificationAction } from "@/_hooks/notification";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import { useRouter } from "next/navigation";
 
 export const useLogout = () => {
+  const { clearAuth } = useAuthAction();
   const router = useRouter();
   const { notification } = useNotificationAction();
 
@@ -18,6 +20,7 @@ export const useLogout = () => {
     })
       .then((response) => {
         if (response.ok) {
+          clearAuth();
           router.push("/");
           notification({
             message: "Logged out successfully.",

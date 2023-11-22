@@ -1,10 +1,10 @@
 import { API_URL } from "@/_constants/api";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { useAuth } from "./auth";
+import { useAuthState } from "./auth";
 
 export const useRequireGuest = () => {
-  const { auth } = useAuth();
+  const auth = useAuthState();
   const { push } = useRouter();
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export const useRequireGuest = () => {
 };
 
 export const useRequireAuth = () => {
-  const { auth } = useAuth();
+  const auth = useAuthState();
   const { push } = useRouter();
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export const useRequireAuth = () => {
 };
 
 export const useRequireVerified = () => {
-  const { auth } = useAuth();
+  const auth = useAuthState();
   const { push } = useRouter();
 
   useEffect(() => {
@@ -71,7 +71,7 @@ export const useRequireVerified = () => {
 };
 
 export const useRequireNotAdmin = () => {
-  const { auth } = useAuth();
+  const auth = useAuthState();
   const { push } = useRouter();
 
   useEffect(() => {
@@ -87,7 +87,7 @@ export const useRequireNotAdmin = () => {
 };
 
 export const useRequireAdmin = () => {
-  const { auth } = useAuth();
+  const auth = useAuthState();
   const { push } = useRouter();
 
   useEffect(() => {

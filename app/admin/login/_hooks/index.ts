@@ -1,4 +1,5 @@
-import { API_URL } from "@/_constants/api";
+import { API_URL, API_USER_KEY } from "@/_constants/api";
+import { useAuthAction } from "@/_hooks/auth";
 import { useNotificationAction } from "@/_hooks/notification";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import { formDataToJsonString } from "@/_utils/form";
@@ -13,6 +14,7 @@ export const useLogin = () => {
     remember?: string;
   }>();
 
+  const { setAuth } = useAuthAction();
   const { push } = useRouter();
   const { notification } = useNotificationAction();
 
@@ -32,6 +34,25 @@ export const useLogin = () => {
     })
       .then(async (response) => {
         if (response.ok) {
+          await fetch(API_URL + API_USER_KEY, {
+            cache: "no-store",
+            credentials: "include",
+          })
+            .then(async (response) => {
+              if (response.status === 200) {
+                setAuth(await response.json());
+                return;
+              }
+              if (response.status === 204) {
+                setAuth(null);
+                return;
+              }
+            })
+            .catch((error) => {
+              setAuth(error);
+              console.error(error);
+            });
+
           push("/admin");
           notification({ message: "Logged in successfully." });
           return;

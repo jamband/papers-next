@@ -1,43 +1,37 @@
-import { API_URL, API_USER_KEY } from "@/_constants/api";
-import type { Auth } from "@/_types/auth";
+import { API_URL } from "@/_constants/api";
+import { DispatchContext, StateContext } from "@/_contexts/auth";
+import type { State } from "@/_reducers/auth";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useContext, useEffect } from "react";
 import { useNotificationAction } from "./notification";
 
-export const useAuth = () => {
-  const [auth, setAuth] = useState<Auth | Error | null>();
-  const searchParams = useSearchParams();
-  const q = searchParams.get("q");
+export const useAuthState = () => {
+  return useContext(StateContext);
+};
 
-  useEffect(() => {
-    fetch(API_URL + API_USER_KEY, {
-      cache: "no-store",
-      credentials: "include",
-    })
-      .then(async (response) => {
-        if (response.status === 200) {
-          setAuth(await response.json());
-          return;
-        }
+export const useAuthAction = () => {
+  const dispatch = useContext(DispatchContext);
 
-        if (response.status === 204) {
-          setAuth(null);
-          return;
-        }
-      })
-      .catch((error) => {
-        setAuth(error);
-        console.error(error);
-      });
-  }, [q]);
+  const setAuth = useCallback(
+    (payload: State) => {
+      dispatch({ type: "set", payload });
+    },
+    [dispatch],
+  );
+
+  const clearAuth = useCallback(() => {
+    dispatch({ type: "clear" });
+  }, [dispatch]);
 
   return {
-    auth,
+    setAuth,
+    clearAuth,
   } as const;
 };
 
 export const useLogout = () => {
+  const { clearAuth } = useAuthAction();
   const router = useRouter();
   const { notification } = useNotificationAction();
 
@@ -51,7 +45,8 @@ export const useLogout = () => {
       headers: { "X-XSRF-TOKEN": getCsrfToken() },
     }).then((response) => {
       if (response.ok) {
-        router.push(`/?q=${crypto.randomUUID()}`);
+        clearAuth();
+        router.push("/");
         notification({ message: "Logged out successfully.", autoClose: true });
         return;
       }
@@ -64,7 +59,7 @@ export const useLogout = () => {
 };
 
 export const useVerificationNotification = () => {
-  const { auth } = useAuth();
+  const auth = useAuthState();
   const searchParams = useSearchParams();
   const { notification } = useNotificationAction();
 
