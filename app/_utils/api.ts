@@ -1,7 +1,7 @@
-import { API_CSRF_COOKIE, API_URL } from "@/_constants/api";
+import { API_URL } from "@/_constants/api";
 
 export const generateCsrfCookie = async () => {
-  await fetch(API_URL + API_CSRF_COOKIE, {
+  await fetch(`${API_URL}/csrf-cookie`, {
     cache: "no-store",
     credentials: "include",
   }).catch((error) => {

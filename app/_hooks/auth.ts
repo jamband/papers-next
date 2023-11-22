@@ -1,4 +1,4 @@
-import { API_URL, API_USER_KEY } from "@/_constants/api";
+import { API_URL } from "@/_constants/api";
 import { DispatchContext, StateContext } from "@/_contexts/auth";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -13,7 +13,7 @@ export const useAuthAction = () => {
   const dispatch = useContext(DispatchContext);
 
   const setAuth = useCallback(async () => {
-    const payload = await fetch(API_URL + API_USER_KEY, {
+    const payload = await fetch(`${API_URL}/user`, {
       cache: "no-store",
       credentials: "include",
     })
