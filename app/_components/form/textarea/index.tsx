@@ -1,3 +1,5 @@
+"use client";
+
 import { useId } from "react";
 import { Component } from "./component";
 import type { Props } from "./types";
