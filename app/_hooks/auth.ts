@@ -1,6 +1,5 @@
-import { API_URL } from "@/_constants/api";
+import { API_URL, API_USER_KEY } from "@/_constants/api";
 import { DispatchContext, StateContext } from "@/_contexts/auth";
-import type { State } from "@/_reducers/auth";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useContext, useEffect } from "react";
@@ -13,12 +12,27 @@ export const useAuthState = () => {
 export const useAuthAction = () => {
   const dispatch = useContext(DispatchContext);
 
-  const setAuth = useCallback(
-    (payload: State) => {
-      dispatch({ type: "set", payload });
-    },
-    [dispatch],
-  );
+  const setAuth = useCallback(async () => {
+    const payload = await fetch(API_URL + API_USER_KEY, {
+      cache: "no-store",
+      credentials: "include",
+    })
+      .then(async (response) => {
+        if (response.status === 200) {
+          return await response.json();
+        }
+
+        if (response.status === 204) {
+          return null;
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        return error;
+      });
+
+    dispatch({ type: "set", payload });
+  }, [dispatch]);
 
   const clearAuth = useCallback(() => {
     dispatch({ type: "clear" });
