@@ -1,4 +1,3 @@
-import { ExternalLink } from "@/_components/external-link";
 import { IconExternalLink } from "@/_icons/external-link";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
@@ -13,21 +12,25 @@ export default function Page() {
       <h1>Contact</h1>
       <p>
         Please to the message via{" "}
-        <ExternalLink
+        <a
           href="https://twitter.com/livejam_db"
           className={styles.link}
+          target="_blank"
+          rel="noreferrer"
         >
           Twitter
           <IconExternalLink className={styles.icon} />
-        </ExternalLink>{" "}
+        </a>{" "}
         or{" "}
-        <ExternalLink
+        <a
           href="https://github.com/jamband/papers-next/issues"
           className={styles.link}
+          target="_blank"
+          rel="noreferrer"
         >
           GitHub Issues
           <IconExternalLink className={styles.icon} />
-        </ExternalLink>
+        </a>
         .
       </p>
     </div>

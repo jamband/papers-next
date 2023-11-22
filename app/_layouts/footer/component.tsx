@@ -1,4 +1,3 @@
-import { ExternalLink } from "@/_components/external-link";
 import Link from "next/link";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
@@ -12,12 +11,14 @@ export const Component: React.FC<_Props> = () => (
       <Link href="/contact" className={styles.link}>
         Contact
       </Link>
-      <ExternalLink
+      <a
         href="https://github.com/jamband/papers-next"
         className={styles.link}
+        target="_blank"
+        rel="noreferrer"
       >
         GitHub
-      </ExternalLink>
+      </a>
     </nav>
   </footer>
 );

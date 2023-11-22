@@ -1,4 +1,3 @@
-import { ExternalLink } from "@/_components/external-link";
 import { APP_DESCRIPTION } from "@/_constants/app";
 import { IconExternalLink } from "@/_icons/external-link";
 import type { Metadata } from "next";
@@ -15,13 +14,15 @@ export default function Page() {
       <p>{APP_DESCRIPTION}</p>
       <p>
         This website is an open source project. See{" "}
-        <ExternalLink
+        <a
           href="https://github.com/jamband/papers-next"
           className={styles.link}
+          target="_blank"
+          rel="noreferrer"
         >
           GitHub jamband/papers-next
           <IconExternalLink className={styles.icon} />
-        </ExternalLink>{" "}
+        </a>{" "}
         for details.
       </p>
     </div>
