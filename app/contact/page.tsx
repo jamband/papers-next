@@ -18,7 +18,7 @@ export default function Page() {
           target="_blank"
           rel="noreferrer"
         >
-          Twitter
+          X
           <IconExternalLink className={styles.icon} />
         </a>{" "}
         or{" "}
