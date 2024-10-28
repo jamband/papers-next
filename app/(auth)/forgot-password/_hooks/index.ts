@@ -19,7 +19,6 @@ export const useForgotPassword = () => {
 
     await fetch(`${API_URL}/forgot-password`, {
       method: "POST",
-      cache: "no-store",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",

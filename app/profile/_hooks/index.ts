@@ -7,7 +7,6 @@ export const useProfile = () => {
 
   useEffect(() => {
     fetch(`${API_URL}/profile`, {
-      cache: "no-store",
       credentials: "include",
     })
       .then(async (response) => {

@@ -2,7 +2,6 @@ import { API_URL } from "@/_constants/api";
 
 export const generateCsrfCookie = async () => {
   await fetch(`${API_URL}/csrf-cookie`, {
-    cache: "no-store",
     credentials: "include",
   }).catch((error) => {
     console.error(error);

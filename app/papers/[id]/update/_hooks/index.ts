@@ -20,7 +20,6 @@ export const useUpdatePaper = () => {
 
     await fetch(`${API_URL}/papers/${params.id}`, {
       method: "PUT",
-      cache: "no-store",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",

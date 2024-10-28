@@ -9,7 +9,6 @@ export const usePaper = () => {
 
   useEffect(() => {
     fetch(`${API_URL}/papers/${params.id}`, {
-      cache: "no-store",
       credentials: "include",
     })
       .then(async (response) => {

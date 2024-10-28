@@ -19,7 +19,6 @@ export const useCreatePaper = () => {
 
     await fetch(`${API_URL}/papers`, {
       method: "POST",
-      cache: "no-store",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",

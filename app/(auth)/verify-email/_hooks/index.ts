@@ -10,7 +10,6 @@ export const useVerifyEmail = () => {
 
     await fetch(`${API_URL}/email/verification-notification`, {
       method: "POST",
-      cache: "no-store",
       credentials: "include",
       headers: {
         "X-XSRF-TOKEN": getCsrfToken(),

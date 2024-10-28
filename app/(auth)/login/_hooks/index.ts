@@ -23,7 +23,6 @@ export const useLogin = () => {
     await generateCsrfCookie();
 
     await fetch(`${API_URL}/login`, {
-      cache: "no-store",
       method: "POST",
       credentials: "include",
       headers: {

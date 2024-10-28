@@ -15,7 +15,6 @@ export const useDeleteAccount = () => {
 
       await fetch(`${API_URL}/delete-account`, {
         method: "POST",
-        cache: "no-store",
         credentials: "include",
         headers: { "X-XSRF-TOKEN": getCsrfToken() },
       })

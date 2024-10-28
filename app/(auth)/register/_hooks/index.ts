@@ -25,7 +25,6 @@ export const useRegister = () => {
 
     await fetch(`${API_URL}/register`, {
       method: "POST",
-      cache: "no-store",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",

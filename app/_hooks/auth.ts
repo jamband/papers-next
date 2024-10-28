@@ -14,7 +14,6 @@ export const useAuthAction = () => {
 
   const setAuth = useCallback(async () => {
     const payload = await fetch(`${API_URL}/user`, {
-      cache: "no-store",
       credentials: "include",
     })
       .then(async (response) => {
@@ -54,7 +53,6 @@ export const useLogout = () => {
 
     await fetch(`${API_URL}/logout`, {
       method: "POST",
-      cache: "no-store",
       credentials: "include",
       headers: { "X-XSRF-TOKEN": getCsrfToken() },
     }).then((response) => {

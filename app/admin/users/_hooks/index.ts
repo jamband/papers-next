@@ -11,7 +11,6 @@ export const useUsers = () => {
 
   useEffect(() => {
     fetch(`${API_URL}/admin/users`, {
-      cache: "no-store",
       credentials: "include",
     })
       .then(async (response) => {
@@ -41,7 +40,6 @@ export const useDeleteUser = () => {
 
       await fetch(`${API_URL}/admin/users/${id}`, {
         method: "DELETE",
-        cache: "no-store",
         credentials: "include",
         headers: { "X-XSRF-TOKEN": getCsrfToken() },
       })

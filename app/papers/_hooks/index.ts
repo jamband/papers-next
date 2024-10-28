@@ -10,7 +10,6 @@ export const usePapers = () => {
 
   useEffect(() => {
     fetch(`${API_URL}/papers`, {
-      cache: "no-store",
       credentials: "include",
     })
       .then(async (response) => {
@@ -39,7 +38,6 @@ export const useDeletePaper = () => {
 
       await fetch(`${API_URL}/papers/${id}`, {
         method: "DELETE",
-        cache: "no-store",
         credentials: "include",
         headers: { "X-XSRF-TOKEN": getCsrfToken() },
       })

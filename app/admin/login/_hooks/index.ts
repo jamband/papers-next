@@ -24,7 +24,6 @@ export const useLogin = () => {
 
     await fetch(`${API_URL}/admin/login`, {
       method: "POST",
-      cache: "no-store",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",

@@ -107,7 +107,6 @@ export const useRequirePasswordConfirm = () => {
 
   useEffect(() => {
     fetch(`${API_URL}/confirmed-password`, {
-      cache: "no-store",
       credentials: "include",
     })
       .then((response) => {

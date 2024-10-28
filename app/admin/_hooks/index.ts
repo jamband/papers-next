@@ -14,7 +14,6 @@ export const useLogout = () => {
 
     await fetch(`${API_URL}/admin/logout`, {
       method: "POST",
-      cache: "no-store",
       credentials: "include",
       headers: { "X-XSRF-TOKEN": getCsrfToken() },
     })

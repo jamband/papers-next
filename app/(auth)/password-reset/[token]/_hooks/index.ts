@@ -23,7 +23,6 @@ export const useResetPassword = () => {
 
     await fetch(`${API_URL}/reset-password`, {
       method: "POST",
-      cache: "no-store",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",

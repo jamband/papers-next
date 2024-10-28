@@ -20,7 +20,6 @@ export const useConfirmPassword = () => {
 
     await fetch(`${API_URL}/confirm-password`, {
       method: "POST",
-      cache: "no-store",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
