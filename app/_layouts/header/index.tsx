@@ -1,6 +1,5 @@
 import { Component } from "./component";
-import type { Props } from "./types";
 
-export const Header: React.FC<Props> = () => {
+export const Header: React.FC = () => {
   return <Component />;
 };

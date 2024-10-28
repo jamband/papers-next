@@ -1,9 +1,5 @@
 import type { Auth } from "@/_types/auth";
 
-export type Props = {
-  //
-};
-
-export type _Props = Props & {
+export type _Props = {
   auth?: Auth | null;
 };

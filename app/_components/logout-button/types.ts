@@ -1,7 +1,3 @@
-export type Props = {
-  //
-};
-
-export type _Props = Props & {
+export type _Props = {
   action: () => void;
 };

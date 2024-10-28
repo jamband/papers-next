@@ -5,9 +5,8 @@ import { useDeletePaper } from "@/papers/_hooks";
 import { useParams } from "next/navigation";
 import { usePaper } from "../../_hooks";
 import { Component } from "./component";
-import type { Props } from "./types";
 
-export const Paper: React.FC<Props> = (props) => {
+export const Paper: React.FC = () => {
   useRequireVerified();
 
   const params = useParams();
@@ -17,11 +16,6 @@ export const Paper: React.FC<Props> = (props) => {
   const { action: deletePaper } = useDeletePaper();
 
   return (
-    <Component
-      {...props}
-      paper={paper}
-      paperId={paperId}
-      deletePaper={deletePaper}
-    />
+    <Component paper={paper} paperId={paperId} deletePaper={deletePaper} />
   );
 };

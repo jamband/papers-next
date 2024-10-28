@@ -3,12 +3,11 @@
 import { useRequireVerified } from "@/_hooks/require";
 import { useCreatePaper } from "../../_hooks";
 import { Component } from "./component";
-import type { Props } from "./types";
 
-export const Form: React.FC<Props> = (props) => {
+export const Form: React.FC = () => {
   useRequireVerified();
 
   const { action, errors } = useCreatePaper();
 
-  return <Component {...props} action={action} errors={errors} />;
+  return <Component action={action} errors={errors} />;
 };

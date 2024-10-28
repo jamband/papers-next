@@ -3,9 +3,9 @@
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Component } from "./component";
-import type { Props, _Props } from "./types";
+import type { _Props } from "./types";
 
-export const Loading: React.FC<Props> = () => {
+export const Loading: React.FC = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [state, setState] = useState<_Props["state"]>("initial");
