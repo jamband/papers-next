@@ -2,15 +2,15 @@ import { API_URL } from "@/_constants/api";
 import { DispatchContext, StateContext } from "@/_contexts/auth";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useContext, useEffect } from "react";
+import { use, useCallback, useEffect } from "react";
 import { useNotificationAction } from "./notification";
 
 export const useAuthState = () => {
-  return useContext(StateContext);
+  return use(StateContext);
 };
 
 export const useAuthAction = () => {
-  const dispatch = useContext(DispatchContext);
+  const dispatch = use(DispatchContext);
 
   const setAuth = useCallback(async () => {
     const payload = await fetch(`${API_URL}/user`, {
