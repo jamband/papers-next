@@ -13,16 +13,16 @@
   "dependencies": {
     "@types/node": "20.17.9",
     "@types/react": "19.0.1",
-    "@types/react-dom": "19.0.1",
+    "@types/react-dom": "19.0.2",
     "eslint": "9.16.0",
-    "eslint-config-next": "15.0.4",
+    "eslint-config-next": "15.1.0",
     "eslint-config-prettier": "9.1.0",
-    "next": "15.0.4",
+    "next": "15.1.0",
     "prettier": "3.4.2",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "the-new-css-reset": "1.11.3",
     "typescript": "5.7.2",
-    "typescript-eslint": "8.17.0"
+    "typescript-eslint": "8.18.0"
   }
 }
