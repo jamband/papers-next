@@ -6,7 +6,7 @@
   text-decoration: none;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .container:hover {
     background: rgb(var(--green-700));
     color: rgb(var(--gray-100));

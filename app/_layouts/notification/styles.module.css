@@ -39,7 +39,7 @@
   margin: 0 0 0 auto;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .button:hover {
     color: rgb(var(--gray-100));
     background: rgb(var(--gray-600));
