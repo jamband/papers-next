@@ -11,10 +11,6 @@ import { Notification } from "./_layouts/notification";
 import "./_styles/app.css";
 import styles from "./layout.module.css";
 
-type Props = {
-  children: React.ReactNode;
-};
-
 export const metadata: Metadata = {
   title: {
     default: APP_NAME,
@@ -22,7 +18,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout(props: Props) {
+export default function RootLayout(props: LayoutProps<"/">) {
   return (
     <html lang="en">
       <body className={styles.container}>
