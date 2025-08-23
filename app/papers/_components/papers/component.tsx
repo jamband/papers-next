@@ -4,6 +4,7 @@ import { FailedToFetch } from "@/_components/failed-to-fetch";
 import { Loading } from "@/_components/loading";
 import { IconClock } from "@/_icons/clock";
 import { IconTrash } from "@/_icons/trash";
+import type { Route } from "next";
 import Link from "next/link";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
@@ -28,7 +29,7 @@ export const Component: React.FC<_Props> = (props) => (
             </div>
             <div className={styles.action}>
               <ActionLink
-                href={`/papers/${paper.id}/update`}
+                href={`/papers/${paper.id}/update` as Route}
                 className={styles.updateLink}
               >
                 Update →

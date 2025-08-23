@@ -1,5 +1,7 @@
+import type { Route } from "next";
+
 export type Props = {
-  href: string;
+  href: Route;
   className?: string;
   children: React.ReactNode;
 };
