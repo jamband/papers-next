@@ -1,5 +1,5 @@
 .container::after {
   color: rgb(var(--red-400));
   content: "*";
-  margin-left: 0.25rem;
+  margin: 0 0 0 0.25rem;
 }

@@ -6,7 +6,7 @@
 
 .container {
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
   gap: 1.25rem;
 }
 
@@ -14,7 +14,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  margin-top: 4rem;
+  margin: 4rem 0 0;
 }
 
 .link {
