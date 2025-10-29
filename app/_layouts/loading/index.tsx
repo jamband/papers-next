@@ -11,7 +11,9 @@ export const Loading: React.FC = () => {
   const [state, setState] = useState<_Props["state"]>("initial");
 
   useEffect(() => {
-    setState("start");
+    setTimeout(() => {
+      setState("start");
+    }, 100);
 
     setTimeout(() => {
       setState("complete");
