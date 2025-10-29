@@ -1,4 +1,4 @@
-import { IconExternalLink } from "@/_icons/external-link";
+import { IconUpRightFromSquare } from "@/_icons/up-right-from-square";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
 
@@ -19,7 +19,7 @@ export default function Page() {
           rel="noreferrer"
         >
           X
-          <IconExternalLink className={styles.icon} />
+          <IconUpRightFromSquare className={styles.linkIcon} />
         </a>{" "}
         or{" "}
         <a
@@ -29,7 +29,7 @@ export default function Page() {
           rel="noreferrer"
         >
           GitHub Issues
-          <IconExternalLink className={styles.icon} />
+          <IconUpRightFromSquare className={styles.linkIcon} />
         </a>
         .
       </p>

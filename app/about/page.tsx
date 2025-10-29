@@ -1,5 +1,5 @@
 import { APP_DESCRIPTION } from "@/_constants/app";
-import { IconExternalLink } from "@/_icons/external-link";
+import { IconUpRightFromSquare } from "@/_icons/up-right-from-square";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
 
@@ -21,7 +21,7 @@ export default function Page() {
           rel="noreferrer"
         >
           GitHub jamband/papers-next
-          <IconExternalLink className={styles.icon} />
+          <IconUpRightFromSquare className={styles.linkIcon} />
         </a>{" "}
         for details.
       </p>

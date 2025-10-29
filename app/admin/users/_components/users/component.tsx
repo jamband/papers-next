@@ -1,7 +1,7 @@
 import { Button } from "@/_components/button";
 import { FailedToFetch } from "@/_components/failed-to-fetch";
 import { Loading } from "@/_components/loading";
-import { IconExclamation } from "@/_icons/exclamation";
+import { IconTriangleExclamation } from "@/_icons/triangle-exclamation";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
@@ -41,7 +41,7 @@ export const Component: React.FC<_Props> = (props) => (
               onClick={() => props.deleteUser(user.id)}
               color="red"
             >
-              <IconExclamation className={styles.deleteButtonIcon} />
+              <IconTriangleExclamation className={styles.deleteButtonIcon} />
               Delete
             </Button>
             <hr className={styles.divider} />

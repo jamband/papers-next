@@ -2,6 +2,8 @@ import { ActionButton } from "@/_components/action-button";
 import { ActionLink } from "@/_components/action-link";
 import { FailedToFetch } from "@/_components/failed-to-fetch";
 import { Loading } from "@/_components/loading";
+import { IconArrowLeft } from "@/_icons/arrow-left";
+import { IconArrowRight } from "@/_icons/arrow-right";
 import { IconTrash } from "@/_icons/trash";
 import type { Route } from "next";
 import Link from "next/link";
@@ -27,7 +29,8 @@ export const Component: React.FC<_Props> = (props) => (
             href={`/papers/${props.paperId}/update` as Route}
             className={styles.updateLink}
           >
-            Update →
+            Update
+            <IconArrowRight className={styles.updateLinkIcon} />
           </ActionLink>
           <ActionButton
             type="button"
@@ -40,7 +43,8 @@ export const Component: React.FC<_Props> = (props) => (
         <hr />
         <div className={styles.footer}>
           <Link href="/papers" className={styles.footerLink}>
-            ← Back to Papers
+            <IconArrowLeft className={styles.footerLinkIcon} />
+            Back to Papers
           </Link>
         </div>
       </>

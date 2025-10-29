@@ -8,9 +8,10 @@
   align-items: center;
   color: rgb(var(--green-600));
   display: inline-flex;
+  gap: 0.125rem;
 }
 
-.icon {
+.linkIcon {
   height: 1rem;
   width: 1rem;
 }

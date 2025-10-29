@@ -4,6 +4,7 @@ import { FormInput } from "@/_components/form/input";
 import { FormSubmit } from "@/_components/form/submit";
 import { FormTextarea } from "@/_components/form/textarea";
 import { Loading } from "@/_components/loading";
+import { IconArrowLeft } from "@/_icons/arrow-left";
 import Link from "next/link";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
@@ -43,7 +44,8 @@ export const Component: React.FC<_Props> = (props) => (
         <hr />
         <div className={styles.footer}>
           <Link href="/papers" className={styles.footerLink}>
-            ← Back to Papers
+            <IconArrowLeft className={styles.footerLinkIcon} />
+            Back to Papers
           </Link>
         </div>
       </>

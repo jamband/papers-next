@@ -24,7 +24,7 @@
   display: flex;
   gap: 0.25rem;
   justify-content: center;
-  margin-top: 1rem;
+  margin: 1rem 0 0;
 }
 
 .deleteButtonIcon {
@@ -33,5 +33,5 @@
 }
 
 .divider {
-  margin-top: 1.25rem;
+  margin: 1.25rem 0 0;
 }

@@ -27,8 +27,8 @@
 
 .messageIcon {
   height: 1.25rem;
-  margin: 0.1rem 0 0 0;
-  min-width: 1.25rem;
+  margin: 0.2rem 0 0 0;
+  width: 1.25rem;
 }
 
 .button {
@@ -47,7 +47,7 @@
 }
 
 .buttonIcon {
-  height: 1.4rem;
+  height: 1.25rem;
   margin: 0.1rem 0.1rem 0 0.1rem;
-  width: 1.4rem;
+  width: 1.25rem;
 }

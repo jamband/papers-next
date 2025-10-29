@@ -3,7 +3,7 @@ import { Loading } from "@/_components/loading";
 import { LogoutButton } from "@/_components/logout-button";
 import { Message } from "@/_components/message";
 import { APP_DESCRIPTION } from "@/_constants/app";
-import { IconInformationCircle } from "@/_icons/information-circle";
+import { IconCircleInfo } from "@/_icons/circle-info";
 import Link from "next/link";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
@@ -19,7 +19,7 @@ export const Component: React.FC<_Props> = (props) => (
     ) : props.auth === null ? (
       <div className={styles.content}>
         <Message className={styles.message}>
-          <IconInformationCircle className={styles.messageIcon} />
+          <IconCircleInfo className={styles.messageIcon} />
           <p>{APP_DESCRIPTION}</p>
         </Message>
         <hr />

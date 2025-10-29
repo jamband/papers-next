@@ -8,6 +8,7 @@ import type { Route } from "next";
 import Link from "next/link";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
+import { IconArrowRight } from "@/_icons/arrow-right";
 
 export const Component: React.FC<_Props> = (props) => (
   <>
@@ -32,7 +33,8 @@ export const Component: React.FC<_Props> = (props) => (
                 href={`/papers/${paper.id}/update` as Route}
                 className={styles.updateLink}
               >
-                Update →
+                Update
+                <IconArrowRight className={styles.updateLinkIcon} />
               </ActionLink>
               <ActionButton
                 type="button"
