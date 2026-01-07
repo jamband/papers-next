@@ -16,7 +16,7 @@
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .information {
     width: 50%;
   }
@@ -26,7 +26,7 @@
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .fieldset {
     width: 50%;
   }

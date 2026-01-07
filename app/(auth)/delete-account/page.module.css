@@ -14,7 +14,7 @@
   text-align: center;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .message {
     height: 70vh;
   }
