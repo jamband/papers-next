@@ -2,7 +2,7 @@ import { API_URL } from "@/_constants/api";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import { formDataToJsonString } from "@/_utils/form";
 import { useRouter } from "next/navigation";
-import type { FormEvent } from "react";
+import type { SubmitEvent } from "react";
 import { useState } from "react";
 
 export const useCreatePaper = () => {
@@ -13,7 +13,7 @@ export const useCreatePaper = () => {
 
   const { push } = useRouter();
 
-  const action = async (event: FormEvent<HTMLFormElement>) => {
+  const action = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     await generateCsrfCookie();
 

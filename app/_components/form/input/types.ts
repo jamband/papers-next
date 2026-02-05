@@ -1,4 +1,4 @@
-import type { MutableRefObject } from "react";
+import type { RefObject } from "react";
 
 export type Props = {
   className?: string;
@@ -16,5 +16,5 @@ export type Props = {
 
 export type _Props = Props & {
   id: string;
-  inputRef: MutableRefObject<HTMLInputElement | null>;
+  inputRef: RefObject<HTMLInputElement | null>;
 };

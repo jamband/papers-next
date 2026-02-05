@@ -4,7 +4,7 @@ import { useNotificationAction } from "@/_hooks/notification";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import { formDataToJsonString } from "@/_utils/form";
 import { useRouter } from "next/navigation";
-import type { FormEvent } from "react";
+import type { SubmitEvent } from "react";
 import { useState } from "react";
 
 export const useLogin = () => {
@@ -18,7 +18,7 @@ export const useLogin = () => {
   const { push } = useRouter();
   const { notification } = useNotificationAction();
 
-  const action = async (event: FormEvent<HTMLFormElement>) => {
+  const action = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     await generateCsrfCookie();
 
