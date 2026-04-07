@@ -1,14 +1,3 @@
-.foo1 {
-  display: flex;
-  flex-flow: column;
-  flex-wrap: wrap;
-}
-
-.foo1 {
-  display: flex;
-  flex-flow: column wrap;
-}
-
 .container {
   display: flex;
   flex-flow: column;

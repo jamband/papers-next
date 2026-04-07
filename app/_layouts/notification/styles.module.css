@@ -10,10 +10,8 @@
   right: 0.75rem;
   top: 0.75rem;
   z-index: 50;
-}
 
-@media (width >= 48rem) {
-  .container {
+  @media (width >= 48rem) {
     left: auto;
   }
 }
@@ -37,12 +35,12 @@
   color: rgb(var(--gray-400));
   line-height: 1;
   margin: 0 0 0 auto;
-}
 
-@media (any-hover: hover) {
-  .button:hover {
-    color: rgb(var(--gray-100));
-    background: rgb(var(--gray-600));
+  @media (any-hover: hover) {
+    &:hover {
+      color: rgb(var(--gray-100));
+      background: rgb(var(--gray-600));
+    }
   }
 }
 

@@ -6,11 +6,11 @@
   display: inline-flex;
   gap: 0.25rem;
   padding: 0.25rem 0.75rem;
-}
 
-@media (any-hover: hover) {
-  .container:hover {
-    background: rgb(var(--green-700));
-    color: rgb(var(--gray-100));
+  @media (any-hover: hover) {
+    &:hover {
+      background: rgb(var(--green-700));
+      color: rgb(var(--gray-100));
+    }
   }
 }

@@ -12,10 +12,8 @@
   line-height: 1.2;
   place-items: center;
   text-align: center;
-}
 
-@media (width >= 48rem) {
-  .message {
+  @media (width >= 48rem) {
     height: 70vh;
   }
 }

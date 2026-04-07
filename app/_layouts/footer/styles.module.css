@@ -14,8 +14,8 @@
   color: rgb(var(--gray-100));
   padding: 0.25rem 0.75rem;
   text-decoration: none;
-}
 
-.link:active {
-  background: rgb(var(--gray-600));
+  &:active {
+    background: rgb(var(--gray-600));
+  }
 }

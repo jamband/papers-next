@@ -2,10 +2,8 @@
   align-items: flex-start;
   display: flex;
   gap: 0.5rem;
-}
 
-@media (width >= 48rem) {
-  .container {
+  @media (width >= 48rem) {
     gap: 0.25rem;
   }
 }
