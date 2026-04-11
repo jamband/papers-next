@@ -1,5 +1,4 @@
 html {
-  line-height: 1.5;
   scrollbar-gutter: stable;
   -webkit-text-size-adjust: 100%;
 }
@@ -9,7 +8,7 @@ body {
   color: rgb(var(--gray-400));
   font-family: system-ui, Arial, sans-serif;
   font-size: var(--text-base);
-  line-height: inherit;
+  line-height: 1.5;
 }
 
 h1 {
@@ -42,4 +41,8 @@ button {
 
 hr {
   border: 1px solid rgb(var(--gray-700));
+}
+
+:focus {
+  outline: revert;
 }
