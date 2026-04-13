@@ -9,6 +9,7 @@ export const Component: React.FC<_Props> = (props) => (
       <IconCircleInfo className={styles.messageIcon} />
       <p>{props.message}</p>
       <button
+        type="button"
         onClick={props.clear}
         className={styles.button}
         aria-label="Close"

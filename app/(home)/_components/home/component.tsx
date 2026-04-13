@@ -1,10 +1,10 @@
+import Link from "next/link";
 import { FailedToFetch } from "@/_components/failed-to-fetch";
 import { Loading } from "@/_components/loading";
 import { LogoutButton } from "@/_components/logout-button";
 import { Message } from "@/_components/message";
 import { APP_DESCRIPTION } from "@/_constants/app";
 import { IconCircleInfo } from "@/_icons/circle-info";
-import Link from "next/link";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
 

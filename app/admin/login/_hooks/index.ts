@@ -1,11 +1,11 @@
+import { useRouter } from "next/navigation";
+import type { SubmitEvent } from "react";
+import { useState } from "react";
 import { API_URL } from "@/_constants/api";
 import { useAuthAction } from "@/_hooks/auth";
 import { useNotificationAction } from "@/_hooks/notification";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import { formDataToJsonString } from "@/_utils/form";
-import { useRouter } from "next/navigation";
-import type { SubmitEvent } from "react";
-import { useState } from "react";
 
 export const useLogin = () => {
   const [errors, setErrors] = useState<{

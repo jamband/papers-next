@@ -5,8 +5,8 @@
 }
 
 .loading {
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
@@ -16,40 +16,40 @@
 }
 
 .updateLink {
-  align-items: center;
-  color: rgb(var(--gray-400));
   display: inline-flex;
-  font-weight: 600;
   gap: 0.25rem;
+  align-items: center;
+  font-weight: 600;
+  color: rgb(var(--gray-400));
 }
 
 .updateLinkIcon {
-  height: 1.25rem;
   width: 1.25rem;
+  height: 1.25rem;
 }
 
 .deleteButtonIcon {
-  height: 1.25rem;
   width: 1.25rem;
+  height: 1.25rem;
 }
 
 .footer {
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: center;
   margin: 1rem 0 0;
 }
 
 .footerLink {
-  align-items: center;
-  border-bottom: 1px solid rgb(var(--green-600));
   display: inline-flex;
   gap: 0.25rem;
+  align-items: center;
   text-decoration: none;
+  border-bottom: 1px solid rgb(var(--green-600));
 }
 
 .footerLinkIcon {
+  width: 1.25rem;
   height: 1.25rem;
   margin: 0.125rem 0 0;
-  width: 1.25rem;
 }

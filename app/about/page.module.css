@@ -5,13 +5,13 @@
 }
 
 .link {
-  align-items: center;
-  color: rgb(var(--green-600));
   display: inline-flex;
   gap: 0.125rem;
+  align-items: center;
+  color: rgb(var(--green-600));
 }
 
 .linkIcon {
-  height: 1rem;
   width: 1rem;
+  height: 1rem;
 }

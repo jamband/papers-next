@@ -4,39 +4,39 @@ html {
 }
 
 body {
-  background-color: rgb(var(--gray-800));
-  color: rgb(var(--gray-400));
   font-family: system-ui, Arial, sans-serif;
   font-size: var(--text-base);
   line-height: 1.5;
+  color: rgb(var(--gray-400));
+  background-color: rgb(var(--gray-800));
 }
 
 h1 {
-  color: rgb(var(--gray-100));
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
+  color: rgb(var(--gray-100));
 }
 
 h2 {
-  color: rgb(var(--gray-100));
   font-size: 2rem;
   font-weight: 600;
   line-height: 1.2;
+  color: rgb(var(--gray-100));
 }
 
 a {
-  color: rgb(var(--green-600));
-  cursor: pointer;
   display: inline-block;
+  color: rgb(var(--green-600));
   text-decoration: underline;
   text-decoration-thickness: 0.05em;
   text-underline-offset: 0.25em;
+  cursor: pointer;
 }
 
 button {
-  cursor: pointer;
   font-weight: 600;
+  cursor: pointer;
 }
 
 hr {

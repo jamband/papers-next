@@ -1,8 +1,8 @@
+import Link from "next/link";
 import { FormCheck } from "@/_components/form/check";
 import { FormInformation } from "@/_components/form/information";
 import { FormInput } from "@/_components/form/input";
 import { FormSubmit } from "@/_components/form/submit";
-import Link from "next/link";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
 

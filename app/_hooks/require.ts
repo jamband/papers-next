@@ -1,6 +1,6 @@
-import { API_URL } from "@/_constants/api";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { API_URL } from "@/_constants/api";
 import { useAuthState } from "./auth";
 
 export const useRequireGuest = () => {

@@ -1,6 +1,6 @@
 .loading {
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
@@ -20,16 +20,16 @@
 }
 
 .deleteButton {
-  align-items: center;
   display: flex;
   gap: 0.25rem;
+  align-items: center;
   justify-content: center;
   margin: 1rem 0 0;
 }
 
 .deleteButtonIcon {
-  height: 1.25rem;
   width: 1.25rem;
+  height: 1.25rem;
 }
 
 .divider {

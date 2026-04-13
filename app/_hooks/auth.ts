@@ -1,8 +1,8 @@
+import { useRouter, useSearchParams } from "next/navigation";
+import { use, useCallback, useEffect } from "react";
 import { API_URL } from "@/_constants/api";
 import { DispatchContext, StateContext } from "@/_contexts/auth";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
-import { useRouter, useSearchParams } from "next/navigation";
-import { use, useCallback, useEffect } from "react";
 import { useNotificationAction } from "./notification";
 
 export const useAuthState = () => {

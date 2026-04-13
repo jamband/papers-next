@@ -1,8 +1,8 @@
 "use client";
 
+import { createContext, useReducer } from "react";
 import type { Dispatch, State } from "@/_reducers/auth";
 import { initialState, reducer } from "@/_reducers/auth";
-import { createContext, useReducer } from "react";
 
 export const StateContext = createContext<State>({} as State);
 export const DispatchContext = createContext<Dispatch>({} as Dispatch);

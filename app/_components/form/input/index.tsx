@@ -10,7 +10,7 @@ export const FormInput: React.FC<Props> = (props) => {
 
   useEffect(() => {
     inputRef.current?.focus();
-  }, [inputRef]);
+  }, []);
 
   return <Component {...props} id={id} inputRef={inputRef} />;
 };

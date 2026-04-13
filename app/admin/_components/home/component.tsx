@@ -1,7 +1,7 @@
+import Link from "next/link";
 import { Button } from "@/_components/button";
 import { FailedToFetch } from "@/_components/failed-to-fetch";
 import { Loading } from "@/_components/loading";
-import Link from "next/link";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
 

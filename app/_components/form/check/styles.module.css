@@ -4,15 +4,15 @@
 }
 
 .main {
-  align-items: center;
   display: inline-flex;
   gap: 0.5rem;
+  align-items: center;
 }
 
 .feedback {
-  box-shadow: 0 0 0 1px rgb(var(--red-400));
-  outline-offset: 2px;
   outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px rgb(var(--red-400));
 
   &:focus {
     box-shadow: 0 0 0 2px rgb(var(--red-400));

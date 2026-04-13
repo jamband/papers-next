@@ -10,6 +10,7 @@ export const Loading: React.FC = () => {
   const searchParams = useSearchParams();
   const [state, setState] = useState<_Props["state"]>("initial");
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: navigation trigger
   useEffect(() => {
     setTimeout(() => {
       setState("start");

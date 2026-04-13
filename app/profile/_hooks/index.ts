@@ -1,5 +1,5 @@
-import { API_URL } from "@/_constants/api";
 import { useEffect, useState } from "react";
+import { API_URL } from "@/_constants/api";
 import type { Profile } from "../_types";
 
 export const useProfile = () => {

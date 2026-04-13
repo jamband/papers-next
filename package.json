@@ -5,26 +5,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc",
-    "lint": "eslint",
-    "format": "prettier --check .",
+    "check": "tsc & biome check",
     "clear": "node scripts/clear.mjs",
     "clean": "node scripts/clean.mjs"
   },
   "dependencies": {
-    "@eslint/js": "9.39.4",
+    "@biomejs/biome": "2.4.11",
     "@types/node": "24.12.2",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "eslint": "9.39.4",
-    "eslint-config-next": "16.2.3",
-    "eslint-plugin-jsx-a11y": "6.10.2",
     "next": "16.2.3",
-    "prettier": "3.8.2",
     "react": "19.2.5",
     "react-dom": "19.2.5",
     "the-new-css-reset": "1.11.3",
-    "typescript": "6.0.2",
-    "typescript-eslint": "8.58.1"
+    "typescript": "6.0.2"
   }
 }

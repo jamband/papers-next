@@ -1,15 +1,15 @@
 .container {
-  background: rgb(var(--gray-700));
-  border-radius: var(--rounded);
-  border: 1px solid rgb(var(--gray-600));
-  box-shadow: 0 1px 2px 0 rgb(var(--gray-900));
-  color: rgb(var(--gray-100));
-  left: 0.75rem;
-  max-width: 28rem;
   position: fixed;
-  right: 0.75rem;
   top: 0.75rem;
+  right: 0.75rem;
+  left: 0.75rem;
   z-index: 50;
+  max-width: 28rem;
+  color: rgb(var(--gray-100));
+  background: rgb(var(--gray-700));
+  border: 1px solid rgb(var(--gray-600));
+  border-radius: var(--rounded);
+  box-shadow: 0 1px 2px 0 rgb(var(--gray-900));
 
   @media (width >= 48rem) {
     left: auto;
@@ -17,24 +17,24 @@
 }
 
 .message {
-  align-items: flex-start;
   display: flex;
   gap: 0.5rem;
+  align-items: flex-start;
   padding: 0.75rem;
 }
 
 .messageIcon {
+  width: 1.25rem;
   height: 1.25rem;
   margin: 0.2rem 0 0 0;
-  width: 1.25rem;
 }
 
 .button {
+  margin: 0 0 0 auto;
+  line-height: 1;
+  color: rgb(var(--gray-400));
   border-radius: var(--rounded);
   box-shadow: 0 0 #0000;
-  color: rgb(var(--gray-400));
-  line-height: 1;
-  margin: 0 0 0 auto;
 
   @media (any-hover: hover) {
     &:hover {
@@ -45,7 +45,7 @@
 }
 
 .buttonIcon {
+  width: 1.25rem;
   height: 1.25rem;
   margin: 0.1rem 0.1rem 0 0.1rem;
-  width: 1.25rem;
 }

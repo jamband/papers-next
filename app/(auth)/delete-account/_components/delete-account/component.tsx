@@ -1,6 +1,6 @@
+import Link from "next/link";
 import { Button } from "@/_components/button";
 import { IconTriangleExclamation } from "@/_icons/triangle-exclamation";
-import Link from "next/link";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
 

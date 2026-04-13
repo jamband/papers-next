@@ -1,7 +1,7 @@
 "use client";
 
-import { useRequireGuest } from "@/_hooks/require";
 import { useParams } from "next/navigation";
+import { useRequireGuest } from "@/_hooks/require";
 import { useResetPassword } from "../../_hooks";
 import { Component } from "./component";
 import type { Params } from "./types";

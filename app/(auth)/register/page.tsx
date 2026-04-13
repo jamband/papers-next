@@ -1,7 +1,7 @@
-import { Message } from "@/_components/message";
-import { IconLightBulb } from "@/_icons/light-bulb";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Message } from "@/_components/message";
+import { IconLightBulb } from "@/_icons/light-bulb";
 import { Form } from "./_components/form";
 import styles from "./page.module.css";
 

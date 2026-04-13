@@ -1,14 +1,14 @@
 .loading {
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
 .container {
-  align-items: flex-start;
   display: flex;
   flex-flow: column;
   gap: 2rem;
+  align-items: flex-start;
   margin: 1.5rem 0 0;
 }
 
@@ -39,21 +39,21 @@
 }
 
 .footer {
-  align-items: center;
   display: flex;
+  align-items: center;
   justify-content: center;
   margin: 1rem 0 0;
 }
 
 .footerLink {
-  align-items: center;
-  border-bottom: 1px solid rgb(var(--green-600));
   display: inline-flex;
   gap: 0.25rem;
+  align-items: center;
   text-decoration: none;
+  border-bottom: 1px solid rgb(var(--green-600));
 }
 
 .footerLinkIcon {
-  height: 1.25rem;
   width: 1.25rem;
+  height: 1.25rem;
 }

@@ -1,8 +1,8 @@
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { API_URL } from "@/_constants/api";
 import { useAuthAction } from "@/_hooks/auth";
 import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 export const useDeleteAccount = () => {
   const { clearAuth } = useAuthAction();

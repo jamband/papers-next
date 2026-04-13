@@ -1,13 +1,15 @@
-import { API_URL } from "@/_constants/api";
-import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { API_URL } from "@/_constants/api";
+import { generateCsrfCookie, getCsrfToken } from "@/_utils/api";
 import type { Paper } from "../_types";
 
 export const usePapers = () => {
   const [papers, setPapers] = useState<Array<Paper> | Error>();
   const searchParams = useSearchParams();
+  const q = searchParams.get("q");
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: re-fetch trigger
   useEffect(() => {
     fetch(`${API_URL}/papers`, {
       credentials: "include",
@@ -22,7 +24,7 @@ export const usePapers = () => {
         setPapers(error);
         console.error(error);
       });
-  }, [searchParams]);
+  }, [q]);
 
   return {
     papers,

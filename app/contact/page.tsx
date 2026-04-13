@@ -1,5 +1,5 @@
-import { IconUpRightFromSquare } from "@/_icons/up-right-from-square";
 import type { Metadata } from "next";
+import { IconUpRightFromSquare } from "@/_icons/up-right-from-square";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {

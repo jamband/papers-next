@@ -1,3 +1,5 @@
+import type { Route } from "next";
+import Link from "next/link";
 import { ActionButton } from "@/_components/action-button";
 import { ActionLink } from "@/_components/action-link";
 import { FailedToFetch } from "@/_components/failed-to-fetch";
@@ -5,8 +7,6 @@ import { Loading } from "@/_components/loading";
 import { IconArrowLeft } from "@/_icons/arrow-left";
 import { IconArrowRight } from "@/_icons/arrow-right";
 import { IconTrash } from "@/_icons/trash";
-import type { Route } from "next";
-import Link from "next/link";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
 

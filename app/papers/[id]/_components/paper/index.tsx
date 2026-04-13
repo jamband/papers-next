@@ -1,8 +1,8 @@
 "use client";
 
+import { useParams } from "next/navigation";
 import { useRequireVerified } from "@/_hooks/require";
 import { useDeletePaper } from "@/papers/_hooks";
-import { useParams } from "next/navigation";
 import { usePaper } from "../../_hooks";
 import { Component } from "./component";
 

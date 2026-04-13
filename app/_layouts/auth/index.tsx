@@ -1,7 +1,7 @@
 "use client";
 
-import { useAuthAction, useAuthState } from "@/_hooks/auth";
 import { useEffect } from "react";
+import { useAuthAction, useAuthState } from "@/_hooks/auth";
 
 export const Auth: React.FC = () => {
   const auth = useAuthState();

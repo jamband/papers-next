@@ -1,6 +1,6 @@
+import type { Metadata } from "next";
 import { APP_DESCRIPTION } from "@/_constants/app";
 import { IconUpRightFromSquare } from "@/_icons/up-right-from-square";
-import type { Metadata } from "next";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
