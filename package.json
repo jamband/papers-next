@@ -5,7 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "check": "tsc & biome check",
+    "check": "tsc && biome check",
     "clear": "node scripts/clear.mjs",
     "clean": "node scripts/clean.mjs"
   },
