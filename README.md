@@ -9,7 +9,7 @@ backend: [jamband/api.papers](https://github.com/jamband/api.papers) - Backend W
 ## Requirements for development environment
 
 - Node.js >= 24.x
-- npm >= 11.10.0
+- pnpm >= see package.json
 
 ## Install on local
 
@@ -17,8 +17,8 @@ backend: [jamband/api.papers](https://github.com/jamband/api.papers) - Backend W
 cd path/to/somewhere
 git clone https://github.com/jamband/papers-next.git
 cd papers-next
-npm i
-npm run dev
+pnpm i
+pnpm dev
 ```
 
 ## Related repositories
