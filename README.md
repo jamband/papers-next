@@ -9,7 +9,7 @@ backend: [jamband/api.papers](https://github.com/jamband/api.papers) - Backend W
 ## Requirements for development environment
 
 - Node.js >= 24.x
-- pnpm >= see package.json
+- pnpm >= 11.x
 
 ## Install on local
 
